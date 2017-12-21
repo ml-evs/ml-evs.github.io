@@ -1,0 +1,24 @@
+---
+# Custom css
+---
+
+@import "minima";
+
+.orcid_icon > svg {
+  display: inline-block;
+  vertical-align: middle;
+  height: 16px;
+  width: 16px;
+  path.st0 {
+    fill: $grey-color;
+  }
+  path.st1 {
+    fill: white;
+  }
+}
+.scholar_icon > svg {
+  display: inline-block;
+  vertical-align: middle;
+  height: 16px;
+  width: 16px;
+}
