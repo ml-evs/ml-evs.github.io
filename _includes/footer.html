@@ -17,8 +17,8 @@
             {% if site.email %}
             <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
             {% endif %}
-            {% if site.website %}
-            <li><a href="{{ site.website }}">{{ site.website }}</a></li>
+            {% if site.departmental_website %}
+            <li><a href="{{ site.departmental_website }}"> Departmental website</a></li>
             {% endif %}
         </ul>
       </div>
@@ -30,22 +30,19 @@
             {% include icon-github.html username=site.github_username %}
           </li>
           {% endif %}
-          
+          {% if site.twitter_username %}
+          <li>
+            {% include icon-twitter.html username=site.twitter_username %}
+          </li>
+          {% endif %}
           {% if site.orcid_id %}
           <li>
             {% include icon-orcid.html username=site.orcid_id %}
           </li>
           {% endif %}
-          
           {% if site.scholar_id %}
           <li>
             {% include icon-scholar.html username=site.scholar_id %}
-          </li>
-          {% endif %}
-
-          {% if site.twitter_username %}
-          <li>
-            {% include icon-twitter.html username=site.twitter_username %}
           </li>
           {% endif %}
         </ul>
