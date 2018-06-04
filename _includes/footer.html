@@ -18,7 +18,9 @@
             <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
             {% endif %}
             {% if site.departmental_website %}
-            <li><a href="{{ site.departmental_website }}"> Departmental website</a></li>
+            <li>
+            <a href="{{ site.departmental_website }}"><i class="fas fa-user-circle"></i>&nbsp;Departmental website</a>
+            </li>
             {% endif %}
         </ul>
       </div>
@@ -40,6 +42,12 @@
             {% include icon-twitter.html username=site.twitter_username %}
           </li>
           {% endif %}
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <!--<p>{{ site.description | escape }}</p>-->
+        <ul class="social-media-list">
           {% if site.orcid_id %}
           <li>
             {% include icon-orcid.html username=site.orcid_id %}
@@ -51,10 +59,6 @@
           </li>
           {% endif %}
         </ul>
-      </div>
-
-      <div class="footer-col footer-col-3">
-        <p>{{ site.description | escape }}</p>
       </div>
     </div>
 
