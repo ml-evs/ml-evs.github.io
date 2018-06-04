@@ -1,12 +1,9 @@
 <footer class="site-footer">
 
   <div class="wrapper">
-
-    <!--<h2 class="footer-heading">{{ site.title | escape }}</h2>-->
-
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
-        <ul class="contact-list">
+        <ul class="social-media-list">
           <li>
             {% if site.author %}
               {{ site.author | escape }}
@@ -15,18 +12,17 @@
             {% endif %}
             </li>
             {% if site.email %}
-            <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+            <li>{{ site.email }}</li>
             {% endif %}
+        </ul>
+      </div>
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
             {% if site.departmental_website %}
             <li>
             <a href="{{ site.departmental_website }}"><i class="fas fa-user-circle"></i>&nbsp;Departmental website</a>
             </li>
             {% endif %}
-        </ul>
-      </div>
-
-      <div class="footer-col footer-col-2">
-        <ul class="social-media-list">
           {% if site.github_username %}
           <li>
             {% include icon-github.html username=site.github_username %}
@@ -37,16 +33,9 @@
             {% include icon-bitbucket.html username=site.bitbucket_username %}
           </li>
           {% endif %}
-          {% if site.twitter_username %}
-          <li>
-            {% include icon-twitter.html username=site.twitter_username %}
-          </li>
-          {% endif %}
         </ul>
       </div>
-
       <div class="footer-col footer-col-3">
-        <!--<p>{{ site.description | escape }}</p>-->
         <ul class="social-media-list">
           {% if site.orcid_id %}
           <li>
@@ -58,10 +47,15 @@
             {% include icon-scholar.html username=site.scholar_id %}
           </li>
           {% endif %}
+          {% if site.twitter_username %}
+          <li>
+            {% include icon-twitter.html username=site.twitter_username %}
+          </li>
+          {% endif %}
         </ul>
       </div>
-    </div>
 
+    </div>
   </div>
 
 </footer>

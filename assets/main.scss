@@ -3,19 +3,16 @@
 ---
 
 @import url('https://fonts.googleapis.com/css?family=News+Cycle');
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans');
 @import url('https://fonts.googleapis.com/css?family=VT323');
 @import url('https://fonts.googleapis.com/css?family=Inconsolata');
-@import url('https://fonts.googleapis.com/css?family=Arimo');
 @import url('https://use.fontawesome.com/releases/v5.0.13/css/all.css');
 @import url('https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css');
 
 $base-font-family: 'News Cycle', 'Fira Sans', 'News Cycle', sans-serif !default;
 $mono-font-family: 'Inconsolata', monospace !default;
 $base-font-size:   18px !default;
-$mono-font-size:   16px !default;
-$base-font-weight: 300 !default;
-$small-font-size:  $base-font-size * 0.875 !default;
+$mono-font-size:   18px !default;
+$small-font-size:  $base-font-size * 0.9 !default;
 $base-line-height: 1.5 !default;
 
 
@@ -42,12 +39,12 @@ $on-laptop:        800px !default;
 }
 
 .site-title {
-    //@include relative-font-size(2.5);
-    font-family: $base-font-family;
+    font-family: $mono-font-family;
 }
 
 .site-footer {
     font-family: $mono-font-family;
+    font-size: $mono-font-size;
 }
 
 ol, ul {
@@ -55,22 +52,24 @@ ol, ul {
 }
 
 .footer-col {
-    margin: 0 auto;
+    width: -webkit-calc(100%);
+    width: calc(100%);
 }
 
+
 .footer-col-1 {
-  width: -webkit-calc(50% - (#{$spacing-unit} / 2));
-  width:         calc(50% - (#{$spacing-unit} / 2));
+  width: -webkit-calc(40% - (#{$spacing-unit} / 2));
+  width:         calc(40% - (#{$spacing-unit} / 2));
 }
 
 .footer-col-2 {
-  width: -webkit-calc(25% - (#{$spacing-unit} / 2));
-  width:         calc(25% - (#{$spacing-unit} / 2));
+  width: -webkit-calc(30% - (#{$spacing-unit} / 2));
+  width:         calc(30% - (#{$spacing-unit} / 2));
 }
 
 .footer-col-3 {
-  width: -webkit-calc(25% - (#{$spacing-unit} / 2));
-  width:         calc(25% - (#{$spacing-unit} / 2));
+  width: -webkit-calc(30% - (#{$spacing-unit} / 2));
+  width:         calc(30% - (#{$spacing-unit} / 2));
 }
 
 @include media-query($on-palm) {
