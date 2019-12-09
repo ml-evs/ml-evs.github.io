@@ -8,4 +8,4 @@ I'm a PhD student at the University of Cambridge, supervised by [Dr Andrew Morri
 * metal phosphide anodes for beyond-Li energy storage,
 * non-equilibrium electrode cycling from first principles.
 
-My CV is available [here](http://nbviewer.jupyter.org/github/ml-evs/CV/blob/master/Matthew_Evans_CV.pdf).
+My CV is available at [ml-evs.science/cv](http://ml-evs.science/cv)

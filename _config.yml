@@ -15,5 +15,6 @@ orcid_id: 0000-0002-1182-9098
 exclude:
     - Gemfile
     - Gemfile.lock
+    - blog/
 plugins:
     - jekyll-seo-tag
