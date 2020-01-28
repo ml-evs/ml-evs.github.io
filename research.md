@@ -8,3 +8,4 @@ title: Research
 - High-throughput crystal structure prediction with AIRSS, genetic algorithms and related methods.
 - Transition-metal phosphides for beyond-Li battery anodes.
 - Crystal structure databases and associated software development for reproducible science.
+- Materials discovery using first principles simulations and surrogate models.
