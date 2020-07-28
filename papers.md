@@ -7,7 +7,7 @@ title: Papers
 
 0. <a href="https://arxiv.org/abs/2005.05375">**Computational Discovery of Copper Phosphide Conversion Anode For Lithium-Ion Batteries**</a>,  
 A. F. Harper, <u><b>M. L. Evans</b></u>, A. J. Morris  
-*Chem. Mater.*, accepted, (2020). <a href="https://arxiv.org/abs/2005.05375"><i class="ai ai-arxiv"></i></a> <a href="https://mybinder.org/v2/gh/harpaf13/data.copper-phosphides/master?filepath=CuP_results.ipynb"><a href="https://www.github.com/harpaf13/data.copper-phosphides/"><i class="fab fa-github"></i></a>
+*Chem. Mater.* (2020). <a href="https://doi.org/10.1021/acs.chemmater.0c02054"><i class="ai ai-doi"></i></a><a href="https://pubs.acs.org/doi/10.1021/acs.chemmater.0c02054"><i class="ai ai-open-access"></i></a><a href="https://arxiv.org/abs/2005.05375"><i class="ai ai-arxiv"></i></a><a href="https://www.github.com/harpaf13/data.copper-phosphides/"><i class="fab fa-github"></i></a>
 0. <a href="https://doi.org/10.1595/205651320X15742491027978">__Ab initio Structure Prediction Methods for Battery Materials : A review of recent computational efforts to predict the atomic level structure and bonding in materials for rechargeable batteries__</a>,  
 A. F. Harper, <u><b>M. L. Evans</b></u>, J. P. Darby, B. Karasulu, C. P. Kocer, J. R. Nelson, A. J. Morris  
 *Johnson Matthey Technology Review* **64**, 2 (2020). <a href="https://doi.org/10.1595/205651320X15742491027978"><i class="ai ai-doi "></i></a><a href="https://doi.org/10.1595/205651320X15742491027978"></a> <a href="https://doi.org/10.1595/205651320X15742491027978"><i class="ai ai-open-access "></i></a>
