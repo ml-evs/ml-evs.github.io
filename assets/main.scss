@@ -18,9 +18,13 @@ $base-line-height: 1.5 !default;
 
 $spacing-unit:     30px !default;
 
-$text-color:       #D5C4A1 !default;
-$background-color: #282828 !default;
-$brand-color:      #D3869B !default;
+//@media (prefers-color-scheme: dark) {
+:root {
+    $text-color:       #D5C4A1 !default;
+    $background-color: #282828 !default;
+    $brand-color:      #83A598 !default;
+}
+//}
 
 // Width of the content area
 $content-width:    800px !default;
@@ -35,16 +39,25 @@ $on-laptop:        800px !default;
     .page-link {
         font-family: $mono-font-family;
         font-size: $mono-font-size;
+        color: $text-color;
     }
 }
 
 .site-title {
     font-family: $mono-font-family;
+    color: $brand-color;
 }
 
 .site-footer {
     font-family: $mono-font-family;
     font-size: $mono-font-size;
+    color: $text-color;
+    border-top: none;
+}
+
+.site-header {
+    border-top: none;
+    border-bottom: none;
 }
 
 ol, ul {
