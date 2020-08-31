@@ -2,14 +2,12 @@ author: Matthew Evans
 title: Matthew Evans
 name: Matthew Evans
 email: matt[at]ml-evs.science
-description: Physics PhD student at the University of Cambridge, working on crystal structure prediction for energy storage materials.
+description: Postdoc at UCLouvain, working in computational materials science.
 show_downloads: false
 markdown: kramdown
-theme: minima 
+theme: minima
 twitter_username: funroll_loops
 github_username: ml-evs
-bitbucket_username: ml-evs
-departmental_website: http://www.tcm.phy.cam.ac.uk/profiles/me388/
 scholar_id: 3aG55qYAAAAJ&hl
 orcid_id: 0000-0002-1182-9098
 exclude:
