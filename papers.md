@@ -5,7 +5,7 @@ title: Papers
 
 ## Papers
 
-0. <a name="5"><a href="https://doi.org/10.21105/joss.02563">__matador: a Python library for analysing, curating and performing high-throughput density-functional theory calculations__</a></a>
+0. <a name="5"><a href="https://doi.org/10.21105/joss.02563">__matador: a Python library for analysing, curating and performing high-throughput density-functional theory calculations__</a></a>  
 <a href="https://doi.org/10.21105/joss.02563"><i class="ai ai-doi"></i></a> 
 <a href="https://doi.org/10.21105/joss.02563"><i class="ai ai-open-access"></i></a> 
 <a href="https://github.com/ml-evs/matador"><i class="fab fa-github"></i></a>  
