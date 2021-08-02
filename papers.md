@@ -9,7 +9,7 @@ title: Papers
 <a href="https://arxiv.org/abs/2103.02068"><i class="ai ai-arxiv"></i></a>  
 C. Andersen, R. Armiento, E. Blokhin, G. J. Conduit, S. Dwaraknath, <u><b>M. L. Evans</b></u>, A. Fekete, A. Gopakumar, S. Grazulis, A. Merkys, F. Mohamed, C. Oses, G. Pizzi, G-M. Rignanese, M. Scheidgen, L. Talirz, C. Toher, D. Winston, *et al.*  
 *Scientific Data (accepted)* (2021)  
-0. <a name="6"><a href="https://arxiv.org/abs/2102.02263">**Robust model benchmarking and bias-imbalance in data-driven materials science: a case study on MODNet**</a></a>  
+0. <a name="6"><a href="https://doi.org/10.1088/1361-648X/ac1280">**Robust model benchmarking and bias-imbalance in data-driven materials science: a case study on MODNet**</a></a>  
 <a href="https://doi.org/10.1088/1361-648X/ac1280"><i class="ai ai-doi"></i></a>
 <a href="https://arxiv.org/abs/2102.02263"><i class="ai ai-arxiv"></i></a>  
 P-P. De Breuck, <u><b>M. L. Evans</b></u>, G-M. Rignanese  
