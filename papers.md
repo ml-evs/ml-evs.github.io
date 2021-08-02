@@ -13,7 +13,7 @@ C. Andersen, R. Armiento, E. Blokhin, G. J. Conduit, S. Dwaraknath, <u><b>M. L. 
 <a href="https://doi.org/10.1088/1361-648X/ac1280"><i class="ai ai-doi"></i></a>
 <a href="https://arxiv.org/abs/2102.02263"><i class="ai ai-arxiv"></i></a>  
 P-P. De Breuck, <u><b>M. L. Evans</b></u>, G-M. Rignanese  
-Journal of Physics: Condensed Matter (2021)  
+*J. Phys.: Condens. Matter*, 33, 404002 (2021)
 0. <a name="5"><a href="https://doi.org/10.21105/joss.02563">__matador: a Python library for analysing, curating and performing high-throughput density-functional theory calculations__</a></a>  
 <a href="https://doi.org/10.21105/joss.02563"><i class="ai ai-doi"></i></a> 
 <a href="https://doi.org/10.21105/joss.02563"><i class="ai ai-open-access"></i></a> 
