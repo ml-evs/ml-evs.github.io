@@ -2,29 +2,26 @@
 # Custom css
 ---
 
+$text-color:       #f8f8f2;
+$background-color: #282a36;
+$brand-color:      #bd93f9;
+
+$base-font-family: sans-serif !default;
+$mono-font-family: 'Inconsolata', monospace !default;
+
+
 @import url('https://fonts.googleapis.com/css?family=News+Cycle');
 @import url('https://fonts.googleapis.com/css?family=VT323');
 @import url('https://fonts.googleapis.com/css?family=Inconsolata');
 @import url('https://use.fontawesome.com/releases/v5.0.13/css/all.css');
 @import url('https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css');
 
-$base-font-family: 'News Cycle', sans-serif !default;
-$mono-font-family: 'Inconsolata', monospace !default;
 $base-font-size:   18px !default;
 $mono-font-size:   18px !default;
 $small-font-size:  $base-font-size * 0.9 !default;
 $base-line-height: 1.5 !default;
-
-
 $spacing-unit:     30px !default;
 
-//@media (prefers-color-scheme: dark) {
-:root {
-    $text-color:       #D5C4A1 !default;
-    $background-color: #282828 !default;
-    $brand-color:      #83A598 !default;
-}
-//}
 
 // Width of the content area
 $content-width:    800px !default;
@@ -34,6 +31,23 @@ $on-laptop:        800px !default;
 
 @import "minima";
 
+html {
+    background-color: $background-color;
+    color: $text-color;
+}
+
+a {
+    color: $brand-color;
+}
+
+a:visited {
+    color: $brand-color;
+}
+
+img {
+    border-radius: 50%;
+    border: 10px inset $text-color;
+}
 
 .site-nav {
     .page-link {
@@ -45,7 +59,7 @@ $on-laptop:        800px !default;
 
 .site-title {
     font-family: $mono-font-family;
-    color: $brand-color;
+    color: $text-color;
 }
 
 .site-footer {
