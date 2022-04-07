@@ -6,12 +6,9 @@ $text-color:       #f8f8f2;
 $background-color: #282a36;
 $brand-color:      #bd93f9;
 
-$base-font-family: sans-serif !default;
+$base-font-family: 'Helvetica', sans-serif !default;
 $mono-font-family: 'Inconsolata', monospace !default;
 
-
-@import url('https://fonts.googleapis.com/css?family=News+Cycle');
-@import url('https://fonts.googleapis.com/css?family=VT323');
 @import url('https://fonts.googleapis.com/css?family=Inconsolata');
 @import url('https://use.fontawesome.com/releases/v5.0.13/css/all.css');
 @import url('https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css');
@@ -45,8 +42,23 @@ a:visited {
 }
 
 img {
-    border-radius: 50%;
-    border: 10px inset $text-color;
+    border-radius: 0%;
+    border: 5px groove $text-color;
+}
+
+ol > li {
+  font-family: $mono-font-family;
+  line-height: 1.4;
+  padding-bottom: 1.2em;
+}
+
+u {
+  color: #ff79c6;
+}
+
+code {
+  background-color: #282a36;
+  border: 0;
 }
 
 .site-nav {
@@ -59,7 +71,7 @@ img {
 
 .site-title {
     font-family: $mono-font-family;
-    color: $text-color;
+    color: $text-color !important;
 }
 
 .site-footer {
@@ -74,6 +86,28 @@ img {
     border-bottom: none;
 }
 
+ol > li > a > i {
+  font-size: 26px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.ai-arxiv {
+  color: #f1fa8c ;
+}
+
+.ai-doi {
+  color: #ffb86c;
+}
+
+ol > li > a > .fa-github {
+  color: #8be9fd ;
+}
+
+.ai-open-access {
+  color: #50fa7b;
+}
+
 ol, ul {
   list-style-position: inside;
 }
@@ -82,7 +116,6 @@ ol, ul {
     width: -webkit-calc(100%);
     width: calc(100%);
 }
-
 
 .footer-col-1 {
   width: -webkit-calc(40% - (#{$spacing-unit} / 2));
