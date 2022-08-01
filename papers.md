@@ -26,6 +26,7 @@ C. Andersen, R. Armiento, E. Blokhin, G. J. Conduit, S. Dwaraknath, <u><b>M. L. 
 *Sci. Data* **8**, 217 (2021)  
 0. <a name="6"><a href="https://doi.org/10.1088/1361-648X/ac1280">**Robust model benchmarking and bias-imbalance in data-driven materials science: a case study on MODNet**</a></a>  
 <a href="https://doi.org/10.1088/1361-648X/ac1280"><i class="ai ai-doi"></i></a>
+<a href="http://hdl.handle.net/2078.1/249927"><i class="ai ai-open-access"></i></a>
 <a href="https://arxiv.org/abs/2102.02263"><i class="ai ai-arxiv"></i></a>
 <a href="https://github.com/ml-evs/modnet-matbench"><i class="fab fa-github"></i></a>  
 P-P. De Breuck, <u><b>M. L. Evans</b></u>, G-M. Rignanese  
