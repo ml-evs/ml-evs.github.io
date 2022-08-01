@@ -5,6 +5,12 @@ title: Papers
 
 ## Papers
 
+0. <a name="9"><a href="https://doi.org/10.1021/acs.chemmater.2c01570">**Phase Transformations and Phase Segregation during Potassiation of Sn<sub>x</sub>P<sub>y</sub> Anodes**</a></a>
+<a href="https://doi.org/10.1021/acs.chemmater.2c01570"><i class="ai ai-doi"></i></a>
+<a href="https://research.birmingham.ac.uk/en/publications/phase-transformations-and-phase-segregation-during-potassiation-o"><i class="ai ai-open-access"></i></a>
+<a href="https://doi.org/10.5281/zenodo.6546649"><i class="ai ai-zenodo"></i></a>  
+D. Ells, <u><b>M. L. Evans</b></u>, M. Groh, A. J. Morris, L. E. Marbella  
+*Chem. Mater.* ASAP (2022)
 0. <a name="8"><a href="https://doi.org/10.21105/joss.03458">**optimade-python-tools: a Python library for serving and consuming materials data via OPTIMADE APIs**</a></a>  
 <a href="https://doi.org/10.21105/joss.03458"><i class="ai ai-doi"></i></a>
 <a href="https://doi.org/10.21105/joss.03458"><i class="ai ai-open-access"></i></a>
