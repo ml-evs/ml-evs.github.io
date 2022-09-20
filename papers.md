@@ -10,7 +10,7 @@ title: Papers
 <a href="https://research.birmingham.ac.uk/en/publications/phase-transformations-and-phase-segregation-during-potassiation-o"><i class="ai ai-open-access"></i></a>
 <a href="https://doi.org/10.5281/zenodo.6546649"><i class="ai ai-zenodo"></i></a>  
 A. W. Ells, <u><b>M. L. Evans</b></u>, M. F. Groh, A. J. Morris, L. E. Marbella  
-*Chem. Mater.* ASAP (2022)
+*Chem. Mater.*, 34(16), 7460-7467 (2022)
 0. <a name="8"><a href="https://doi.org/10.21105/joss.03458">**optimade-python-tools: a Python library for serving and consuming materials data via OPTIMADE APIs**</a></a>  
 <a href="https://doi.org/10.21105/joss.03458"><i class="ai ai-doi"></i></a>
 <a href="https://doi.org/10.21105/joss.03458"><i class="ai ai-open-access"></i></a>
@@ -43,7 +43,7 @@ P-P. De Breuck, <u><b>M. L. Evans</b></u>, G-M. Rignanese
 <a href="https://www.github.com/harpaf13/data.copper-phosphides/"><i class="fab fa-github"></i></a>
 <a href="https://arxiv.org/abs/2005.05375"><i class="ai ai-arxiv"></i></a>  
 A. F. Harper, <u><b>M. L. Evans</b></u>, A. J. Morris  
-*Chem. Mater.* 32, 15, 6629-6639 (2020)
+*Chem. Mater.* 32(15), 6629-6639 (2020)
 0. <a href="https://doi.org/10.1595/205651320X15742491027978">__*Ab initio* Structure Prediction Methods for Battery Materials: A review of recent computational efforts to predict the atomic level structure and bonding in materials for rechargeable batteries__</a>,  
 <a href="https://doi.org/10.1595/205651320X15742491027978"><i class="ai ai-doi"></i></a>
 <a href="https://doi.org/10.1595/205651320X15742491027978"><i class="ai ai-open-access"></i></a>  
