@@ -8,7 +8,7 @@ title: Research
 - Crystal structure databases and associated software development for reproducible science (OPTIMADE).
 - Materials and chemical data management for experiment and theory.
 - Materials discovery using first principles simulations and surrogate models.
-- High-throughput crystal structure prediction with AIRSS, genetic algorithms and related methods.
+- High-throughput computational materials science workflows and crystal structure prediction with AIRSS, genetic algorithms and other related methods.
 - Transition-metal phosphides for beyond-Li battery anodes.
 
 ## Software
@@ -17,6 +17,7 @@ title: Research
 
 - [<i class="fab fa-github"></i>`optimade-python-tools`](https://github.com/Materials-Consortia/optimade-python-tools) is a Python library of tools for implementing and consuming [OPTIMADE](www.optimade.org) APIs, which I develop and maintain.
 - [<i class="fab fa-github"></i>`OPTIMADE`](https://github.com/Materials-Consortia/OPTIMADE) is the specification repository for OPTIMADE, a common REST API for access to materials databases, which I help to develop and maintain. [[7]](https://ml-evs.science/papers.html#7)
+- [<i class="fab fa-github"></i>MaRDA Extractors WG](https://github.com/marda-alliance/metadata_extractors/): I founded and co-lead a [MaRDA](https://www.marda-alliance.org/) working group (open to all!) on the topic of metadata extractors for materials science and chemistry.
 - [<i class="fab fa-github"></i>`MODNet`](https://github.com/ppdebreuck/modnet) is a package for materials property prediction focused on small datasets, which I help develop and maintain. [[6]](https://ml-evs.science/papers.html#6)
 - [<i class="fab fa-github"></i>`matador`](http://matador.science) is a Python package for the aggregation, standardisation and analysis of the results of first-principles computations, with a focus on battery materials [[5]](https://ml-evs.science/papers.html#5).
 - [<i class="fab fa-github"></i>`ilustrado`](http://www.tcm.phy.cam.ac.uk/~me388/ilustrado) is a Python package that implements a highly-customisable, massively-parallel genetic algorithm for *ab initio* crystal structure prediction.
