@@ -4,17 +4,22 @@ layout: default
 
 <div class="container" style="display:flex">
 
-<div class="flex-item" style="flex-grow: 1;">
+<div class="flex-item" style="flex-grow: 1; padding-right: 50px;">
 
-![face](./assets/me_round.jpeg){:style="min-width: 200px; border-radius: 50%; height:auto;"}
+<img alt="face" src="./assets/me_round.jpeg" style="min-width: 150px; max-width: 250px; border-radius: 20%; height:auto; display: block; margin-left: auto; margin-right: auto;" />
 
 </div>
 
 <div class="flex-item" style="flex-grow: 1;">
-I am [BEWARE research fellow](https://cordis.europa.eu/project/id/847587) in the group of [Prof Gian-Marco Rignanese](https://perso.uclouvain.be/gian-marco.rignanese/) at UCLouvain, working on high-throughput workflows and machine learning for computational materials discovery and design.
-As a [BIG-MAP "stakeholder"](https://www.big-map.eu/big-map/projects-from-1st-stakeholder-initiative), I also develop software and infrastructure for experimental data management as a visitor in the group of [Prof Clare Grey](https://www.ch.cam.ac.uk/group/grey/index) at the University of Cambridge.
 
-My CV is available at [ml-evs.science/cv](https://ml-evs.science/cv) and most of my software work can be found on [GitHub](https://github.com/ml-evs).
+<p>
+I am <a href="https://cordis.europa.eu/project/id/847587">BEWARE Research Fellow</a> in the group of <a href="https://perso.uclouvain.be/gian-marco.rignanese/">Prof Gian-Marco Rignanese</a>  at UCLouvain, working on high-throughput workflows and machine learning for computational materials discovery and design.
+As a <a href="https://www.big-map.eu/big-map/projects-from-1st-stakeholder-initiative">BIG-MAP External Stakholder</a>, I also develop software and infrastructure for experimental data management as a visitor in the group of <a href="https://www.ch.cam.ac.uk/group/grey/index">Prof Clare Grey</a> at the University of Cambridge.
+</p>
+
+<p>
+My CV is available at <a href="https://ml-evs.science/cv">ml-evs.science/cv</a> and most of my software work can be found under <a href="https://github.com/ml-evs">ml-evs on GitHub</a>.
+</p>
 
 </div>
 
