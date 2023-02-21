@@ -5,11 +5,12 @@
 $text-color:       #f8f8f2;
 $background-color: #282a36;
 $brand-color:      #bd93f9;
+$accent-color:     #835e07;
 
 $base-font-family: 'Karla', 'Helvetica', sans-serif !default;
-$mono-font-family: 'Inconsolata', monospace !default;
+$mono-font-family: 'Share Tech Mono', monospace !default;
 
-@import url('https://fonts.googleapis.com/css?family=Inconsolata');
+@import url('https://fonts.googleapis.com/css?family=Share+Tech+Mono');
 @import url('https://fonts.googleapis.com/css?family=Karla');
 @import url('https://use.fontawesome.com/releases/v5.0.13/css/all.css');
 @import url('https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css');
@@ -44,7 +45,7 @@ a:visited {
 
 img {
     border-radius: 0%;
-    border: 5px groove $text-color;
+    border: 5px groove $accent-color;
 }
 
 ol > li {
