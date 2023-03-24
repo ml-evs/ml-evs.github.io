@@ -5,9 +5,9 @@ title: Research
 
 ## Research areas
 
-- Crystal structure databases and associated software development for reproducible science (OPTIMADE).
-- Materials and chemical data management for experiment and theory.
 - Materials discovery using first principles simulations and surrogate models.
+- Materials and chemical data management for experiment and theory.
+- Crystal structure databases and associated software development for reproducible science (OPTIMADE).
 - High-throughput computational materials science workflows and crystal structure prediction with AIRSS, genetic algorithms and other related methods.
 - Transition-metal phosphides for beyond-Li battery anodes.
 
@@ -15,6 +15,7 @@ title: Research
 
  Most of my software work can be found on my [GitHub](https://github.com/ml-evs).
 
+- [<i class="fab fa-github"></i>`Codename: datalab`](https://github.com/the-grey-group/datalab) is a web API and Vue front-end app for materials chemistry data management, tracking samples, devices and their connections, and performing simple analysis of characterisation experiments (XRD, NMR, electrochemistry).
 - [<i class="fab fa-github"></i>`optimade-python-tools`](https://github.com/Materials-Consortia/optimade-python-tools) is a Python library of tools for implementing and consuming [OPTIMADE](www.optimade.org) APIs, which I develop and maintain.
 - [<i class="fab fa-github"></i>`OPTIMADE`](https://github.com/Materials-Consortia/OPTIMADE) is the specification repository for OPTIMADE, a common REST API for access to materials databases, which I help to develop and maintain. [[7]](https://ml-evs.science/papers.html#7)
 - [<i class="fab fa-github"></i>MaRDA Extractors WG](https://github.com/marda-alliance/metadata_extractors/): I founded and co-lead a [MaRDA](https://www.marda-alliance.org/) working group (open to all!) on the topic of metadata extractors for materials science and chemistry.
