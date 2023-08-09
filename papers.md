@@ -38,7 +38,7 @@ Casper W. Andersen, Rickard Armiento, Evgeny Blokhin, Gareth J. Conduit, Shyam D
 <a href="https://github.com/ml-evs/modnet-matbench"><i class="fab fa-github"></i></a>  
 P-P. De Breuck, <u><b>M. L. Evans</b></u>, G-M. Rignanese  
 *J. Phys.: Condens. Matter*, 33, 404002 (2021)  
-0. <a name="5"><a class="title" href="https://doi.org/10.21105/joss.02563">__matador: a Python library for analysing, curating and performing high-throughput density-functional theory calculations__</a></a>  
+0. <a name="5"><a class="title" href="https://doi.org/10.21105/joss.02563">matador: a Python library for analysing, curating and performing high-throughput density-functional theory calculations</a></a>  
 <a href="https://doi.org/10.21105/joss.02563"><i class="ai ai-doi"></i></a>
 <a href="https://doi.org/10.21105/joss.02563"><i class="ai ai-open-access"></i></a>
 <a href="https://github.com/ml-evs/matador"><i class="fab fa-github"></i></a>  
@@ -51,17 +51,17 @@ P-P. De Breuck, <u><b>M. L. Evans</b></u>, G-M. Rignanese
 <a href="https://arxiv.org/abs/2005.05375"><i class="ai ai-arxiv"></i></a>  
 A. F. Harper, <u><b>M. L. Evans</b></u>, A. J. Morris  
 *Chem. Mater.* 32(15), 6629-6639 (2020)  
-0. <a class="title" href="https://doi.org/10.1595/205651320X15742491027978">__*Ab initio* Structure Prediction Methods for Battery Materials: A review of recent computational efforts to predict the atomic level structure and bonding in materials for rechargeable batteries__</a>,  
+0. <a class="title" href="https://doi.org/10.1595/205651320X15742491027978">*Ab initio* Structure Prediction Methods for Battery Materials: A review of recent computational efforts to predict the atomic level structure and bonding in materials for rechargeable batteries</a>,  
 <a href="https://doi.org/10.1595/205651320X15742491027978"><i class="ai ai-doi"></i></a>
 <a href="https://doi.org/10.1595/205651320X15742491027978"><i class="ai ai-open-access"></i></a>
 A. F. Harper, <u><b>M. L. Evans</b></u>, J. P. Darby, B. Karasulu, C. P. Kocer, J. R. Nelson, A. J. Morris  
 *Johnson Matthey Technology Review* **64**, 2 (2020)  
-0. <a class="title" href="https://dx.doi.org/10.1021/jacs.8b04183">(De)__Sodiation via Helical Phosphorus Intermediates in High Capacity Anodes for Sodium-ion Batteries__</a>  
+0. <a class="title" href="https://dx.doi.org/10.1021/jacs.8b04183">)Sodiation and Desodiation via Helical Phosphorus Intermediates in High-Capacity Anodes for Sodium-Ion Batteries</a>  
 <a href="https://dx.doi.org/10.1021/jacs.8b04183"><i class="ai ai-doi"></i></a>
 <a href="https://pubs.acs.org/doi/10.1021/jacs.8b04183"><i class="ai ai-open-access"></i></a>  
 L. E. Marbella, <u><b>M. L. Evans</b></u>, M. Groh, J. N. Nelson, K. J. Griffith, A. J. Morris, C. P. Grey  
 *J. Am. Chem. Soc.* 140, 7994-8004 (2018)  
-0. <a class="title" href="https://dx.doi.org/10.1103/physrevfluids.1.044502">__Interactions between unidirectional quantized vortex rings__</a>  
+0. <a class="title" href="https://dx.doi.org/10.1103/physrevfluids.1.044502">Interactions between unidirectional quantized vortex rings</a>  
 <a href="https://dx.doi.org/10.1103/physrevfluids.1.044502"><i class="ai ai-doi"></i></a>
 <a href="https://arxiv.org/abs/1603.04313"><i class="ai ai-arxiv"></i></a>
 <a href="https://dx.doi.org/10.1103/physrevfluids.1.044502"><i class="ai ai-open-access"></i></a>  
