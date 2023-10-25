@@ -8,7 +8,8 @@ title: Papers
 *<sup>†</sup> indicates co-first authorship.*
 
 0. <a name="11"><a class="title" href="https://doi.org/10.21105/joss.05556">**PASCal Python: A Principal Axis Strain Calculator**</a></a>  
-<a href="https://doi.org/10.21105/joss.05556"><i class="ai ai-doi"></i></a>  
+<a href="https://doi.org/10.21105/joss.05556"><i class="ai ai-doi"></i></a>
+<a href="https://github.com/MJCliffe/PASCal"><i class="fab fa-github"></i></a>  
 Monthakan Lertkiattrakul, <u><b>M. L. Evans</b></u>, Matthew J. Cliffe  
 *Journal of Open Source Software*, 8(90), 5556 (2023)
 0. <a name="10"><a class="title" href="https://doi.org/10.1039/D3DD00113J">**14 Examples of How LLMs Can Transform Materials Science and Chemistry: A Reflection on a Large Language Model Hackathon**</a></a>  
@@ -55,12 +56,12 @@ P-P. De Breuck, <u><b>M. L. Evans</b></u>, G-M. Rignanese
 <a href="https://arxiv.org/abs/2005.05375"><i class="ai ai-arxiv"></i></a>  
 A. F. Harper, <u><b>M. L. Evans</b></u>, A. J. Morris  
 *Chem. Mater.* 32(15), 6629-6639 (2020)  
-0. <a class="title" href="https://doi.org/10.1595/205651320X15742491027978">*Ab initio* Structure Prediction Methods for Battery Materials: A review of recent computational efforts to predict the atomic level structure and bonding in materials for rechargeable batteries</a>,  
+0. <a class="title" href="https://doi.org/10.1595/205651320X15742491027978">*Ab initio* Structure Prediction Methods for Battery Materials: A review of recent computational efforts to predict the atomic level structure and bonding in materials for rechargeable batteries</a>  
 <a href="https://doi.org/10.1595/205651320X15742491027978"><i class="ai ai-doi"></i></a>
-<a href="https://doi.org/10.1595/205651320X15742491027978"><i class="ai ai-open-access"></i></a>
+<a href="https://doi.org/10.1595/205651320X15742491027978"><i class="ai ai-open-access"></i></a>  
 A. F. Harper, <u><b>M. L. Evans</b></u>, J. P. Darby, B. Karasulu, C. P. Kocer, J. R. Nelson, A. J. Morris  
 *Johnson Matthey Technology Review* **64**, 2 (2020)  
-0. <a class="title" href="https://dx.doi.org/10.1021/jacs.8b04183">)Sodiation and Desodiation via Helical Phosphorus Intermediates in High-Capacity Anodes for Sodium-Ion Batteries</a>  
+0. <a class="title" href="https://dx.doi.org/10.1021/jacs.8b04183">Sodiation and Desodiation via Helical Phosphorus Intermediates in High-Capacity Anodes for Sodium-Ion Batteries</a>  
 <a href="https://dx.doi.org/10.1021/jacs.8b04183"><i class="ai ai-doi"></i></a>
 <a href="https://pubs.acs.org/doi/10.1021/jacs.8b04183"><i class="ai ai-open-access"></i></a>  
 L. E. Marbella, <u><b>M. L. Evans</b></u>, M. Groh, J. N. Nelson, K. J. Griffith, A. J. Morris, C. P. Grey  
