@@ -4,9 +4,9 @@ title: Presentations
 ---
 
 ## Selected Talks
+- [Interoperable data management for fundamental battery research](http://www.tcm.phy.cam.ac.uk/~me388/rsc.pdf), RSC 1st Annual Advanced Battery Material Symposium, November 2023
 - [OPTIMADE Open Databases Integration for Materials Design](https://sites.utu.fi/al4ms2023/wp-content/uploads/sites/1231/2023/04/OPTIMADE-AL4MS.pdf), Active Learning 4 Materials Science, Aalto University, February 2023.
 - [Metadata extractor interoperability for materials science and chemistry](http://www.tcm.phy.cam.ac.uk/~me388/marda.pdf), MaRDA Annual Meeting, February 2023
-- [Interoperable data management for fundamental battery research](http://www.tcm.phy.cam.ac.uk/~me388/big_map.pdf), BIG-MAP Annual Meeting, February 2023
 - [OPTIMADE: Open Databases Integration for Materials Design](http://www.tcm.phy.cam.ac.uk/~me388/optimade/OPTIMADE_RDA.pdf), Research Data Alliance 16th Virtual Plenary Meeting, Materials Data IG Meeting on "Data Infrastructure for Collaborations in Materials Research", November 2020.
 - [Basics of version
   control](https://nbviewer.jupyter.org/github/ml-evs/part2-computing-git-tutorial/blob/master/slides.pdf),
