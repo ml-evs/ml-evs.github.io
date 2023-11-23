@@ -7,6 +7,10 @@ title: Papers
 
 *<sup>†</sup> indicates co-first authorship.*
 
+0. <a name="12"><a class="title" href="https://doi.org/10.1021/jacs.3c10538">**Machine Learning-Accelerated Discovery of A<sub>2</sub>BC<sub>2</sub> Ternary Electrides with Diverse Anionic Electron Densities**</a></a>  
+<a href="https://doi.org/10.1021/jacs.3c10538"><i class="ai ai-doi"></i></a>  
+Zhiqi Wang, Yutong Gong, <u><b>M. L. Evans</b></u>, Yujing Yan, Shiyao Wang, Nanxi Miao, Ruiheng Zheng, Gian-Marco Rignanese, Junjie Wang  
+*J. Amer. Chem. Soc.*, (2023)
 0. <a name="11"><a class="title" href="https://doi.org/10.21105/joss.05556">**PASCal Python: A Principal Axis Strain Calculator**</a></a>  
 <a href="https://doi.org/10.21105/joss.05556"><i class="ai ai-doi"></i></a>
 <a href="https://github.com/MJCliffe/PASCal"><i class="fab fa-github"></i></a>  
