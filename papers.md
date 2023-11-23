@@ -8,23 +8,26 @@ title: Papers
 *<sup>†</sup> indicates co-first authorship.*
 
 0. <a name="12"><a class="title" href="https://doi.org/10.1021/jacs.3c10538">**Machine Learning-Accelerated Discovery of A<sub>2</sub>BC<sub>2</sub> Ternary Electrides with Diverse Anionic Electron Densities**</a></a>  
-<a href="https://doi.org/10.1021/jacs.3c10538"><i class="ai ai-doi"></i></a>  
+<a href="https://doi.org/10.1021/jacs.3c10538"><i class="ai ai-doi"></i></a>
+<a href="https://doi.org/10.24435/materialscloud:c8-gy"><i class="ai ai-open-data"></i></a>  
 Zhiqi Wang, Yutong Gong, <u><b>M. L. Evans</b></u>, Yujing Yan, Shiyao Wang, Nanxi Miao, Ruiheng Zheng, Gian-Marco Rignanese, Junjie Wang  
 *J. Amer. Chem. Soc.*, (2023)
 0. <a name="11"><a class="title" href="https://doi.org/10.21105/joss.05556">**PASCal Python: A Principal Axis Strain Calculator**</a></a>  
 <a href="https://doi.org/10.21105/joss.05556"><i class="ai ai-doi"></i></a>
+<a href="https://doi.org/10.21105/joss.05556"><i class="ai ai-open-access"></i></a>
 <a href="https://github.com/MJCliffe/PASCal"><i class="fab fa-github"></i></a>  
 Monthakan Lertkiattrakul, <u><b>M. L. Evans</b></u>, Matthew J. Cliffe  
 *Journal of Open Source Software*, 8(90), 5556 (2023)
 0. <a name="10"><a class="title" href="https://doi.org/10.1039/D3DD00113J">**14 Examples of How LLMs Can Transform Materials Science and Chemistry: A Reflection on a Large Language Model Hackathon**</a></a>  
 <a href="https://doi.org/10.1039/D3DD00113J"><i class="ai ai-doi"></i></a>
+<a href="https://doi.org/10.1039/D3DD00113J"><i class="ai ai-open-access"></i></a>
 <a href="https://arxiv.org/abs/2306.06283"><i class="ai ai-arxiv"></i></a>  
 Kevin Maik Jablonka, Qianxiang Ai, Alexander Al-Feghali, Shruti Badhwar, Joshua D. Bocarsly, Andres M Bran, Stefan Bringuier, L. Catherine Brinson, Kamal Choudhary, Defne Circi, Sam Cox, Wibe A. de Jong, <u><b>M. L. Evans</b></u>, Nicolas Gastellu, Jerome Genzling, María Victoria Gil, Ankur K. Gupta, Zhi Hong, Alishba Imran, Sabine Kruschwitz, Anne Labarre, Jakub Lála, Tao Liu, Steven Ma, Sauradeep Majumdar, Garrett W. Merz, Nicolas Moitessier, Elias Moubarak, Beatriz Mouriño, Brenden Pelkie, Michael Pieler, Mayk Caldas Ramos, Bojana Ranković, Samuel G. Rodriques, Jacob N. Sanders, Philippe Schwaller, Marcus Schwarting, Jiale Shi, Berend Smit, Ben E. Smith, Joren Van Herck, Christoph Völker, Logan Ward, Sean Warren, Benjamin Weiser, Sylvester Zhang, Xiaoqi Zhang, Ghezal Ahmad Zia, Aristana Scourtas, KJ Schmidt, Ian Foster, Andrew D. White, Ben Blaiszik  
 *Digital Discovery*, 2, 1233-1250 (2023)  
 0. <a name="9"><a class="title" href="https://doi.org/10.1021/acs.chemmater.2c01570">**Phase Transformations and Phase Segregation during Potassiation of Sn<sub>x</sub>P<sub>y</sub> Anodes**</a></a>  
 <a href="https://doi.org/10.1021/acs.chemmater.2c01570"><i class="ai ai-doi"></i></a>
 <a href="https://research.birmingham.ac.uk/en/publications/phase-transformations-and-phase-segregation-during-potassiation-o"><i class="ai ai-open-access"></i></a> 
-<a href="https://doi.org/10.5281/zenodo.6546649"><i class="ai ai-zenodo"></i></a>  
+<a href="https://doi.org/10.5281/zenodo.6546649"><i class="ai ai-open-data"></i></a>  
 A. W. Ells, <u><b>M. L. Evans</b></u>, M. F. Groh, A. J. Morris, L. E. Marbella  
 *Chem. Mater.*, 34(16), 7460-7467 (2022)  
 0. <a name="8"><a class="title" href="https://doi.org/10.21105/joss.03458">**optimade-python-tools: a Python library for serving and consuming materials data via OPTIMADE APIs**</a></a>  
@@ -44,6 +47,7 @@ Casper W. Andersen, Rickard Armiento, Evgeny Blokhin, Gareth J. Conduit, Shyam D
 <a href="https://doi.org/10.1088/1361-648X/ac1280"><i class="ai ai-doi"></i></a>
 <a href="http://hdl.handle.net/2078.1/249927"><i class="ai ai-open-access"></i></a>
 <a href="https://arxiv.org/abs/2102.02263"><i class="ai ai-arxiv"></i></a>
+<a href="https://zenodo.org/doi/10.5281/zenodo.5109941"><i class="ai ai-open-data"></i></a>
 <a href="https://github.com/ml-evs/modnet-matbench"><i class="fab fa-github"></i></a>  
 P-P. De Breuck, <u><b>M. L. Evans</b></u>, G-M. Rignanese  
 *J. Phys.: Condens. Matter*, 33, 404002 (2021)  
