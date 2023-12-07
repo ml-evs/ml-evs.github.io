@@ -11,7 +11,7 @@ title: Papers
 <a href="https://doi.org/10.1021/jacs.3c10538"><i class="ai ai-doi"></i></a>
 <a href="https://doi.org/10.24435/materialscloud:c8-gy"><i class="ai ai-open-data"></i></a>  
 Zhiqi Wang, Yutong Gong, <u><b>M. L. Evans</b></u>, Yujing Yan, Shiyao Wang, Nanxi Miao, Ruiheng Zheng, Gian-Marco Rignanese, Junjie Wang  
-*J. Amer. Chem. Soc.*, (2023)
+*J. Amer. Chem. Soc.*, 145, 48, 26412-26424 (2023)
 0. <a name="11"><a class="title" href="https://doi.org/10.21105/joss.05556">**PASCal Python: A Principal Axis Strain Calculator**</a></a>  
 <a href="https://doi.org/10.21105/joss.05556"><i class="ai ai-doi"></i></a>
 <a href="https://doi.org/10.21105/joss.05556"><i class="ai ai-open-access"></i></a>
