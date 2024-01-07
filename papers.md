@@ -7,6 +7,15 @@ title: Papers
 
 *<sup>†</sup> indicates co-first authorship.*
 
+0. <a name="13"><a class="title" href="https://doi.org/10.21105/joss.05995">**Jobflow: Computational Workflows Made Simple**</a></a>  
+<a href="https://doi.org/10.21105/joss.05995"><i class="ai ai-doi"></i></a>
+<a href="https://doi.org/10.21105/joss.05995"><i class="ai ai-open-access"></i></a>
+<a href="https://github.com/materialsproject/jobflow"><i class="fab fa-github"></i></a>  
+Andrew S. Rosen, Max Gallant, Janine George, Janosh Riebesell, Hrushikesh
+Sahasrabuddhe, Jimmy-Xuan Shen, Mingjian Wen, <u><b>M. L. Evans</b></u>, Guido
+Petretto, David Waroquiers, Gian-Marco Rignanese, Kristin A. Persson, Anubhav
+Jan, Alex M. Ganose  
+*Journal of Open Source Software*, 9(93), 5556 (2024)
 0. <a name="12"><a class="title" href="https://doi.org/10.1021/jacs.3c10538">**Machine Learning-Accelerated Discovery of A<sub>2</sub>BC<sub>2</sub> Ternary Electrides with Diverse Anionic Electron Densities**</a></a>  
 <a href="https://doi.org/10.1021/jacs.3c10538"><i class="ai ai-doi"></i></a>
 <a href="https://doi.org/10.24435/materialscloud:c8-gy"><i class="ai ai-open-data"></i></a>  
@@ -81,3 +90,10 @@ L. E. Marbella, <u><b>M. L. Evans</b></u>, M. Groh, J. N. Nelson, K. J. Griffith
 T. Zhu, <u><b>M. L. Evans</b></u>, R. A. Brown, P. M. Walmsley, A. I. Golov  
 *Phys. Rev. Fluids* **1**, 044502 (2016)  
 {: reversed="reversed"}
+
+## Thesis
+
+* <a class="title" href="https://doi.org/10.17863/CAM.104811">Crystal structure prediction for rechargeable battery anodes</a>  
+<a href="https://doi.org/10.17863/CAM.104811"><i class="ai ai-doi"></i></a>  
+<u><b>M. L. Evans</b></u>  
+*University of Cambridge*, 2023
