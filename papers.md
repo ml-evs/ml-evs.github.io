@@ -93,7 +93,7 @@ T. Zhu, <u><b>M. L. Evans</b></u>, R. A. Brown, P. M. Walmsley, A. I. Golov
 
 ## Thesis
 
-* <a class="title" href="https://doi.org/10.17863/CAM.104811">Crystal structure prediction for rechargeable battery anodes</a>  
+<a class="title" href="https://doi.org/10.17863/CAM.104811">Crystal structure prediction for rechargeable battery anodes</a>  
 <a href="https://doi.org/10.17863/CAM.104811"><i class="ai ai-doi"></i></a>  
 <u><b>M. L. Evans</b></u>  
-*University of Cambridge*, 2023
+*University of Cambridge*, PhD Thesis (2023)
