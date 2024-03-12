@@ -31,6 +31,6 @@ I additionally help to maintain several other open source projects, including
 (parsing battery file formats in Python), [<i class="fab
 fa-github"></i>`matminer`](https://github.com/hackingmaterials/matminer)
 (materials machine learning in Python), [<i class="fab
-fa-github">`PASCal`](https://github.com/MJCliffe/PASCal) (fitting of strain
-data [[11]](https://ml-evs.science/papers.html#11), as well as making frequent contributions
+fa-github"></i>`PASCal`](https://github.com/MJCliffe/PASCal) (fitting of *in situ*
+diffraction strain data [[11]](https://ml-evs.science/papers.html#11), as well as making frequent contributions
 to upstream packages in the field.
