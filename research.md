@@ -15,7 +15,7 @@ title: Research
 
  Most of my software work can be found on my [GitHub](https://github.com/ml-evs).
 
-- [<i class="fab fa-github"></i>`datalab`](https://github.com/the-grey-group/datalab) is a web API and Vue front-end app for materials chemistry data management, tracking samples, devices and their connections, and performing simple analysis of characterisation experiments (XRD, NMR, electrochemistry).
+- [<i class="fab fa-github"></i>`datalab`](https://github.com/the-grey-group/datalab) is a web API and Vue front-end app for materials chemistry data management, tracking samples, devices and their connections, and performing simple analysis of characterisation experiments (XRD, NMR, electrochemistry). It is currently deployed for 6 different groups worldwide.
 - [<i class="fab fa-github"></i>`Jobflow-Remote`](https://github.com/matgenix/jobflow-remote) is a distributed high-throughput workflow manager built on top of the [Jobflow](https://github.com/materialsproject/jobflow) library, enabling remote job submission and orchestration.
 - [<i class="fab fa-github"></i>`optimade-python-tools`](https://github.com/Materials-Consortia/optimade-python-tools) is a Python library of tools for implementing and consuming [OPTIMADE](www.optimade.org) APIs, which I develop and maintain.
 - [<i class="fab fa-github"></i>`OPTIMADE`](https://github.com/Materials-Consortia/OPTIMADE) is the specification repository for OPTIMADE, a common REST API for access to materials databases, which I help to develop and maintain. [[7]](https://ml-evs.science/papers.html#7)
