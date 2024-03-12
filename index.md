@@ -13,8 +13,8 @@ layout: default
 <div class="flex-item" style="flex-grow: 1;">
 
 <p>
-I am <a href="https://cordis.europa.eu/project/id/847587">BEWARE Research Fellow</a> in the group of <a href="https://perso.uclouvain.be/gian-marco.rignanese/">Prof Gian-Marco Rignanese</a>  at UCLouvain, working on high-throughput workflows and machine learning for computational materials discovery and design.
-As a <a href="https://www.big-map.eu/big-map/projects-from-1st-stakeholder-initiative">BIG-MAP External Stakholder</a>, I also develop software and infrastructure for experimental data management as a visitor in the group of <a href="https://www.ch.cam.ac.uk/group/grey/index">Prof Clare Grey</a> at the University of Cambridge.
+I am <a href="https://cordis.europa.eu/project/id/847587">BEWARE Research Fellow</a> in the group of <a href="https://perso.uclouvain.be/gian-marco.rignanese/">Prof Gian-Marco Rignanese</a> at UCLouvain, where, jointly with the company <a href="https://matgenix.com">Matgenix</a>, I am working on high-throughput workflows and machine learning for computational materials discovery and design.
+Initially as a <a href="https://www.big-map.eu/big-map/projects-from-1st-stakeholder-initiative">BIG-MAP External Stakeholder</a>, I also develop the <a href="https://github.com/the-grey-group/datalab">datalab</a> platform and infrastructure for experimental data management as a visitor in the group of <a href="https://www.ch.cam.ac.uk/group/grey/index">Prof Clare Grey</a> at the University of Cambridge, in collaboration with Prof Josh Bocarsly (UHouston) and others.
 </p>
 
 <p>
