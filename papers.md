@@ -7,11 +7,17 @@ title: Papers
 
 *<sup>†</sup> indicates (co-)first authorship.*
 
-0. <a name="14"><a class="title" href="https://doi.org/10.48550/arXiv.2402.00572">**Developments and applications of the OPTIMADE API for materials discovery, design and data exchange**</a></a>   
+0. <a name="15"><a class="title" href="">**Optical materials discovery and design with federated databases and machine learning**</a></a>  
+<a href="https://doi.org"><i class="ai ai-arxiv"></i></a>
+<a href="https://github.com/modl-uclouvain/re2fractive"><i class="fab fa-github"></i></a>  
+V. Trinquet, <u><b>M. L. Evans<sup>†</sup></b></u>, C. J. Hargreaves, P-P. De Breuck, G-M. Rignanese  
+*arXiv* (2024)  
+0. <a name="14"><a class="title" href="https://doi.org/10.1039/D4DD0003">**Developments and applications of the OPTIMADE API for materials discovery, design and data exchange**</a></a>   
+<a href="https://doi.org/10.1039/D4DD0003"><i class="ai ai-open-access"></i></a>
 <a href="https://doi.org/10.48550/arXiv.2402.00572"><i class="ai ai-arxiv"></i></a>
 <a href="https://github.com/Materials-Consortia/OPTIMADE"><i class="fab fa-github"></i></a>  
 <u><b>M. L. Evans<sup>†</sup></b></u>, Johan Bergsma, Andrius Merkys, Casper W. Andersen, Oskar B. Andersson, Daniel Beltrán, Evgeny Blokhin, Tara M. Boland, Rubén Castañeda Balderas, Kamal Choudhary, Alberto Díaz Díaz, Rodrigo Domínguez García, Hagen Eckert, Kristjan Eimre, María Elena Fuentes Montero, Adam M. Krajewski, Jens Jørgen Mortensen, José Manuel Nápoles Duarte, Jacob Pietryga, Ji Qi, Felipe de Jesús Trejo Carrillo, Antanas Vaitkus, Jusong Yu, Adam Zettel, Pedro Baptista de Castro, Johan Carlsson, Tiago F. T. Cerqueira, Simon Divilov, Hamidreza Hajiyani, Felix Hanke, Kevin Jose, Corey Oses, Janosh Riebesell, Jonathan Schmidt, Donald Winston, Christen Xie, Xiaoyu Yang, Sara Bonella, Silvana Botti, Stefano Curtarolo, Claudia Draxl, Luis Edmundo Fuentes Cobas, Adam Hospital, Zi-Kui Liu, Miguel A. L. Marques, Nicola Marzari, Andrew J. Morris, Shyue Ping Ong, Modesto Orozco, Kristin A. Persson, Kristian S. Thygesen, Chris Wolverton, Markus Scheidgen, Cormac Toher, Gareth J. Conduit, Giovanni Pizzi, Saulius Gražulis, Gian-Marco Rignanese, Rickard Armiento  
-*arXiv*, 2402.00572 (2024)  
+*Digital Discovery* (2024)  
 0. <a name="13"><a class="title" href="https://doi.org/10.21105/joss.05995">**Jobflow: Computational Workflows Made Simple**</a></a>  
 <a href="https://doi.org/10.21105/joss.05995"><i class="ai ai-doi"></i></a>
 <a href="https://doi.org/10.21105/joss.05995"><i class="ai ai-open-access"></i></a>
