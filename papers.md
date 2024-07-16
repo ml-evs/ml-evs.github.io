@@ -8,10 +8,11 @@ title: Papers
 *<sup>†</sup> indicates (co-)first authorship.*
 
 0. <a name="15"><a class="title" href="https://doi.org/10.48550/arXiv.2405.11393">**Optical materials discovery and design with federated databases and machine learning**</a></a>  
+<a href="https://doi.org/10.1039/D4FD00092G"><i class="ai ai-doi"></i></a>
 <a href="https://doi.org/10.48550/arXiv.2405.11393"><i class="ai ai-arxiv"></i></a>
 <a href="https://github.com/modl-uclouvain/re2fractive"><i class="fab fa-github"></i></a>  
 V. Trinquet, <u><b>M. L. Evans<sup>†</sup></b></u>, C. J. Hargreaves, P-P. De Breuck, G-M. Rignanese  
-*arXiv* (2024)  
+*Faraday Discussions* (2024)  
 0. <a name="14"><a class="title" href="https://doi.org/10.1039/D4DD00039K">**Developments and applications of the OPTIMADE API for materials discovery, design and data exchange**</a></a>   
 <a href="https://doi.org/10.1039/D4DD00039K"><i class="ai ai-open-access"></i></a>
 <a href="https://doi.org/10.48550/arXiv.2402.00572"><i class="ai ai-arxiv"></i></a>
