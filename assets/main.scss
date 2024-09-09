@@ -7,14 +7,12 @@ $background-color: #282a36;
 $brand-color:      #bd93f9;
 $accent-color:     #835e07;
 
-$base-font-family: Iosevka Web, sans-serif !default;
-$mono-font-family: Iosevka Web, monospace !default;
+$base-font-family: 'Iosevka Web', sans-serif !default;
+$mono-font-family: 'Iosevka Web', monospace !default;
 
-//@import url('https://fonts.googleapis.com/css?family=Share+Tech+Mono');
-//@import url('https://fonts.googleapis.com/css?family=Karla');
 @import url('https://use.fontawesome.com/releases/v5.0.13/css/all.css');
 @import url('https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/Iosevka/6.0.1/iosevka/iosevka.min.css')
+@import url('https://cdnjs.cloudflare.com/ajax/libs/Iosevka/6.0.1/iosevka/iosevka.min.css');
 
 $base-font-size:   18px !default;
 $mono-font-size:   18px !default;
