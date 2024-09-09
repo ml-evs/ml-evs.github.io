@@ -21,7 +21,7 @@ I am available for scientific software and data consultancy work through my comp
 </p>
 
 <p>
-My CV is available at <a href="https://ml-evs.science/cv">ml-evs.science/cv</a> and my software work can be found under <a href="https://github.com/ml-evs">ml-evs on GitHub</a>.
+My CV is available at <a href="https://ml-evs.science/cv">ml-evs.science/cv</a> (<a href="https://ml-evs.science/cv_short">abridged</a>) and my software work can be found under <a href="https://github.com/ml-evs">ml-evs on GitHub</a>.
 </p>
 
 </div>
