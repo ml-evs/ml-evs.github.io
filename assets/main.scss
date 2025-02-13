@@ -13,6 +13,7 @@ $mono-font-family: 'Iosevka Web', monospace !default;
 @import url('https://use.fontawesome.com/releases/v5.0.13/css/all.css');
 @import url('https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/Iosevka/6.0.1/iosevka/iosevka.min.css');
+@import url("https://datalab.industries/css/bg.css");
 
 $base-font-size:   18px !default;
 $mono-font-size:   18px !default;
@@ -155,124 +156,6 @@ ol, ul {
   }
 }
 
-:root {
-    --color-bg: #0a0a1a;
-    --color-indigo: rgba(75, 0, 130, 0.6);
-    --color-navy: rgba(0, 0, 128, 0.6);
-    --color-midnight-blue: rgba(25, 25, 112, 0.6);
-    --color-slate-blue: rgba(72, 61, 139, 0.6);
-    --color-medium-slate-blue: rgba(106, 90, 205, 0.6);
-    --color-blue-violet: #310E50;
-    --color-dodger-blue: #13487D;
-    --color-royal-blue: #4C3175;
-    --color-medium-purple: #554C86;
-    --color-dark-blue: rgba(0, 0, 139, 0.4);
-    --color-medium-orchid: #4B2E86;
-    --color-text: #e6e6fa;
-}
-
-.background {
-    position: fixed;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    animation: backgroundShift 40s ease-in-out infinite alternate;
-    z-index: 1;
-}
-
-.background::before,
-.background::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image:
-        radial-gradient(circle at 10% 10%, var(--color-indigo) 0%, transparent 30%),
-        radial-gradient(circle at 90% 20%, var(--color-midnight-blue) 0%, transparent 30%),
-        radial-gradient(circle at 30% 40%, var(--color-navy) 0%, transparent 30%),
-        radial-gradient(circle at 70% 60%, var(--color-slate-blue) 0%, transparent 30%),
-        radial-gradient(circle at 50% 50%, var(--color-medium-slate-blue) 0%, transparent 30%),
-        radial-gradient(circle at 20% 80%, var(--color-blue-violet) 0%, transparent 30%),
-        radial-gradient(circle at 80% 90%, var(--color-dodger-blue) 0%, transparent 30%),
-        radial-gradient(circle at 40% 70%, var(--color-royal-blue) 0%, transparent 30%);
-    background-size: 200% 200%;
-    background-position: 0 0;
-    mix-blend-mode: screen;
-    opacity: 0.7;
-}
-
-.background::before {
-    filter: blur(30px);
-    animation: gradientShift1 25s ease-in-out infinite alternate;
-}
-
-.background::after {
-    filter: blur(40px);
-    animation: gradientShift2 35s ease-in-out infinite alternate;
-}
-
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image:
-        radial-gradient(circle at 60% 30%, var(--color-medium-purple) 0%, transparent 40%),
-        radial-gradient(circle at 20% 50%, var(--color-dark-blue) 0%, transparent 40%),
-        radial-gradient(circle at 80% 70%, var(--color-medium-orchid) 0%, transparent 40%);
-    background-size: 200% 200%;
-    mix-blend-mode: soft-light;
-    animation: gradientShift3 30s ease-in-out infinite alternate;
-}
-
-@keyframes backgroundShift {
-    0% {
-        transform: translateX(-5%) translateY(-5%) rotate(-3deg);
-    }
-
-    100% {
-        transform: translateX(5%) translateY(5%) rotate(3deg);
-    }
-}
-
-@keyframes gradientShift1 {
-    0% {
-        background-position: 0% 0%;
-    }
-
-    100% {
-        background-position: 100% 100%;
-    }
-}
-
-@keyframes gradientShift2 {
-    0% {
-        background-position: 100% 0%;
-    }
-
-    100% {
-        background-position: 0% 100%;
-    }
-}
-
-@keyframes gradientShift3 {
-    0% {
-        background-position: 50% 50%;
-    }
-
-    50% {
-        background-position: 100% 0%;
-    }
-
-    100% {
-        background-position: 0% 100%;
-    }
-}
-
 body {
     margin: 10px;
     margin-left: 2rem;
@@ -316,32 +199,6 @@ body,
     margin-right: auto;
     padding: 0;
     text-align: center;
-}
-
-@media (prefers-color-scheme: dark) {
-
-    body,
-    footer {
-        color: #dcdcdc;
-        background-color: #161625;
-    }
-
-    a {
-        color: white;
-    }
-}
-
-@media (prefers-color-scheme: light) {
-
-    body,
-    footer {
-        color: black;
-        background-color: AntiqueWhite;
-    }
-
-    a {
-        color: black;
-    }
 }
 
 ul {
