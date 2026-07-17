@@ -1,0 +1,1938 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="lecture-1_files/libs/clipboard/clipboard.min.js"></script>
+<script src="lecture-1_files/libs/quarto-html/tabby.min.js"></script>
+<script src="lecture-1_files/libs/quarto-html/popper.min.js"></script>
+<script src="lecture-1_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="lecture-1_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="lecture-1_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="lecture-1_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.38">
+
+  <meta name="dcterms.date" content="2026-07-17">
+  <title>Research Computing in Python</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="lecture-1_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="lecture-1_files/libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="lecture-1_files/libs/revealjs/dist/theme/quarto-5779311d96b1fedd657e3f17b9529cac.css">
+  <link href="lecture-1_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="lecture-1_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="lecture-1_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="lecture-1_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Research Computing in Python</h1>
+  <p class="subtitle">#1 Fundamentals — a short history of computing, and a why, what and how of Python</p>
+
+<div class="quarto-title-authors">
+</div>
+
+  <p class="date">2026-07-17</p>
+</section>
+<section id="computing-and-me" class="slide level2 smaller">
+<h2>Computing and Me</h2>
+<div class="columns">
+<div class="column" style="width: 55%;">
+<ul>
+<li>Dr Matthew Evans (<a href="https://ml-evs.science" class="uri">https://ml-evs.science</a>, <a href="https://github.com/ml-evs" class="uri">https://github.com/ml-evs</a>)</li>
+<li>Research Fellow in the Grey Group, Department of Chemistry</li>
+<li>Background in computational physics &amp; materials science</li>
+<li>Running hundreds of thousands of HPC jobs simulating materials with DFT</li>
+<li>Now writes open source data managemement software (<a href="https://github.com/datalab-org/datalab">datalab</a>) for materials and chemistry</li>
+</ul>
+</div><div class="column fragment" style="width: 45%; text-align: center;">
+<p><img data-src="images/belgium-top30.png" height="700"></p>
+<p><span style="font-size: 0.6em;">Peak: #29 <a href="https://github.com/ml-evs">GitHub</a> user in Belgium</span></p>
+</div></div>
+</section>
+<section id="this-course" class="slide level2">
+<h2>This course</h2>
+<ul>
+<li>A biased take on what you need to get started using computers in research</li>
+<li>Not a computer science course, not exhaustive</li>
+<li>A mixture of high-level concepts, empirical truths and practical advice</li>
+<li>Not a real Python course, either - you can’t learn a language by reading the dictionary</li>
+</ul>
+</section>
+<section id="this-lecture-fundamentals" class="slide level2">
+<h2>This lecture: Fundamentals</h2>
+<ul>
+<li>Some computing history</li>
+<li>Some computing architecture</li>
+<li>Programming languages</li>
+<li>Data structures</li>
+<li>Python
+<ul>
+<li>Why Python is slow — and why we use it anyway</li>
+<li>A demo: the Mandelbrot set</li>
+</ul></li>
+<li>Wrap-up and motivation for next week</li>
+</ul>
+</section>
+<section>
+<section id="a-brief-history-of-computing" class="title-slide slide level1 center">
+<h1>A brief history of computing</h1>
+
+</section>
+<section id="a-brief-history-of-computing-1" class="slide level2">
+<h2>A brief history of computing</h2>
+<div class="columns">
+<div class="column" style="width: 50%; text-align: center;">
+<p><img data-src="images/antikythera-fragment-a.png" height="690"></p>
+<p><span class="fragment" data-fragment-index="1"><a href="https://en.wikipedia.org/wiki/Antikythera_mechanism">The Antikythera mechanism</a></span></p>
+</div><div class="column" style="width: 50%; text-align: center;">
+<div class="fragment" data-fragment-index="2">
+<p><img data-src="images/difference-engine-plate-1853.jpg" height="690"></p>
+<p><a href="https://en.wikipedia.org/wiki/Charles_Babbage">Babbage</a> &amp; <a href="https://en.wikipedia.org/wiki/Ada_Lovelace">Lovelace</a> <a href="https://en.wikipedia.org/wiki/Difference_engine">engine</a></p>
+</div>
+</div></div>
+<div class="fragment" data-fragment-index="2" style="text-align: center; font-size: 0.4em; opacity: 0.6;">
+<p>Images: Wikimedia Commons — <a href="https://commons.wikimedia.org/wiki/File:Antikythera_Fragment_A_(Front).webp">Antikythera</a> (CC BY-SA 3.0), <a href="https://commons.wikimedia.org/wiki/File:Difference_engine_plate_1853.jpg">Difference Engine</a> (public domain)</p>
+</div>
+<aside class="notes">
+<ul>
+<li>Antikythera mechanism: geared bronze device from ancient Greece, c.&nbsp;150–100 BC, recovered from a shipwreck in 1901. An analogue computer for predicting astronomical positions and eclipses. Nothing of comparable complexity survives for over a millennium afterwards.</li>
+<li>Difference Engine: designed by Charles Babbage in the 1820s to compute polynomial tables by the method of finite differences — mechanising the work of human “computers”. This is the 1853 engraving; a full engine wasn’t built until the Science Museum’s working construction in 1991.</li>
+<li>Ada Lovelace: worked on Babbage’s follow-up design, the <em>Analytical</em> Engine (general-purpose: conditional branching, loops, memory). Her 1843 notes on it contain what’s often called the first published program (computing Bernoulli numbers) — and the deeper insight that such a machine could manipulate any symbols, not just numbers: computation beyond arithmetic.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="douglas-hartree-and-his-differential-analyser" class="slide level2">
+<h2><a href="https://en.wikipedia.org/wiki/Douglas_Hartree">Douglas Hartree</a> and his differential analyser</h2>
+<div class="columns">
+<div class="column" style="width: 70%; text-align: center;">
+<p><img data-src="images/hartree-differential-analyser.jpg" height="720"></p>
+<p><span style="font-size: 0.7em;">Meccano <a href="https://en.wikipedia.org/wiki/Differential_analyser">differential analyser</a> for computing atomic spectra</span></p>
+</div><div class="column" style="width: 30%; text-align: center;">
+<p><img data-src="images/hartree-portrait.jpg" height="450"></p>
+<p><span style="font-size: 0.6em;"><span class="math inline">\(1\,E_\mathrm{h} = \dfrac{\hbar^2}{m_\mathrm{e} a_0^2} = \dfrac{e^2}{4\pi\varepsilon_0 a_0} \approx 27.2\ \mathrm{eV}\)</span></span></p>
+</div></div>
+<div style="text-align: center; font-size: 0.4em; opacity: 0.6;">
+<p>Images: <a href="https://commons.wikimedia.org/wiki/File:Analyseur_diff%C3%A9rentiel_de_Douglas_Hartree.JPG">differential analyser</a> (Sylvain Machefert, CC BY-SA 4.0); <a href="https://en.wikipedia.org/wiki/File:Douglas_Hartree.jpg">portrait</a> (fair use)</p>
+</div>
+<aside class="notes">
+<ul>
+<li>Douglas Hartree (1897–1958): Manchester physicist, of Hartree–Fock / self-consistent-field fame — atomic structure calculations by hand, and one of the first to see machines as the way forward.</li>
+<li>With Arthur Porter he built a differential analyser in the mid-1930s — the first model famously out of Meccano — solving differential equations by mechanical integration: analogue, continuous, purpose-built.</li>
+<li>War story: my own run-in with unit systems in a DFT code. The Coulomb constant <span class="math inline">\(e^2/4\pi\varepsilon_0\)</span> is exactly 1 in Hartree atomic units (1 Ha·<span class="math inline">\(a_0\)</span>), but in Rydberg × Ångström units it’s <span class="math inline">\(2 \times 0.529177 = 1.058\)</span> — the factor of 2 (Ry→Ha) and the 0.529 (<span class="math inline">\(a_0\)</span>→Å) nearly cancel, so mixing conventions gives answers that are only ~6% off: far nastier to spot than a factor of 2. Moral: “atomic units” is ambiguous; know your code’s conventions.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<div style="font-size: 0.85em;">
+<blockquote>
+<p>“The implications of the machine are so vast that we cannot conceive how they will affect our civilisation. Here you have something which is making one field of human activity 1,000 times faster. In the field of transportation, the equivalent to ACE would be the ability to travel from London to Cambridge … in five seconds as a regular thing. It is almost unimaginable.”</p>
+<p>— Douglas Hartree, on the <a href="https://en.wikipedia.org/wiki/Automatic_Computing_Engine">Automatic Computing Engine</a>, 1946</p>
+</blockquote>
+<div class="fragment">
+<blockquote>
+<p>…and yet, all the calculations that would ever be needed in this country could be done on three digital computers: one in Cambridge, one in Teddington, and one in Manchester.</p>
+<p>— Hartree in 1951, as recalled by Lord Bowden</p>
+</blockquote>
+</div>
+</div>
+<aside class="notes">
+<ul>
+<li>First quote: Hartree in the press coverage of NPL’s announcement of the ACE (Automatic Computing Engine, Turing’s design), 1946.</li>
+<li>Second: paraphrased — Lord Bowden’s recollection of Hartree’s advice in 1951: the three machines then being built (EDSAC in Cambridge, Pilot ACE at NPL Teddington, the Mark 1 in Manchester) would suffice for the country; “no one else would ever need machines of their own, or would be able to afford to buy them.”</li>
+<li>Same man, five years apart: even those who saw the revolution coming couldn’t imagine its scale.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<div class="columns">
+<div class="column" style="width: 50%; text-align: center;">
+<div class="r-stack">
+<p><img data-src="images/manchester-baby-replica.png" height="500"></p>
+</div>
+<p><span class="fragment" data-fragment-index="1"><a href="https://en.wikipedia.org/wiki/Manchester_Baby">The Manchester “Baby”</a> (1948)</span></p>
+</div><div class="column" style="width: 50%; text-align: center;">
+<div class="fragment" data-fragment-index="2">
+<p><img data-src="images/edsac.jpg" height="500"></p>
+<p><a href="https://en.wikipedia.org/wiki/EDSAC">EDSAC</a>, Cambridge (1949)</p>
+</div>
+</div></div>
+<div class="fragment" data-fragment-index="2" style="text-align: center; font-size: 0.4em; opacity: 0.6;">
+<p>Images: <a href="https://commons.wikimedia.org/wiki/File:Manchester_Baby_Replica.webp">Manchester Baby replica</a> (Logg Tandy, CC BY 4.0); <a href="https://commons.wikimedia.org/wiki/File:EDSAC_(19).jpg">EDSAC</a> (University of Cambridge Computer Laboratory, CC BY 2.0)</p>
+</div>
+<div class="fragment" data-fragment-index="4" style="text-align: center; margin-top: 2em; font-size: 1.1em;">
+<p>The first stored-program computers - the birth of <em>software</em>?</p>
+</div>
+<aside class="notes">
+<ul>
+<li>The Manchester “Baby” (Small-Scale Experimental Machine): ran the world’s first stored program on 21 June 1948, at the University of Manchester — program and data both held in (Williams-tube) memory, the model every modern computer follows. This is the working replica at the Science and Industry Museum, Manchester.</li>
+<li>EDSAC (Cambridge, first ran May 1949, Maurice Wilkes): the first stored-program machine run as a <em>service</em> for scientists — early users included crystallographers and theoretical chemists. Baby proved the concept; EDSAC did science with it.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section" class="slide level2 smaller">
+<h2></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/first-computer-bug-1947.jpg" class="quarto-figure quarto-figure-center" height="900"></p>
+</figure>
+</div>
+<div style="text-align: center;">
+<p>The first actual <a href="https://en.wikipedia.org/wiki/Software_bug">computer bug</a> (<a href="https://en.wikipedia.org/wiki/Harvard_Mark_II">Harvard Mark II</a>, 1947)</p>
+</div>
+<div style="text-align: center; font-size: 0.4em; opacity: 0.6;">
+<p>Image: <a href="https://commons.wikimedia.org/wiki/File:First_Computer_Bug,_1947.jpg">Wikimedia Commons</a> (public domain, US Navy)</p>
+</div>
+<aside class="notes">
+<ul>
+<li>9 September 1947, Harvard Mark II: operators traced a fault to a moth in relay #70, panel F, and taped it into the logbook — “First actual case of bug being found”. The page is now in the Smithsonian; Grace Hopper made the story famous.</li>
+<li>The joke in “first <em>actual</em> case”: “bug” for a mechanical defect was already old engineering slang (Edison used it) — this one just happened to be literal.</li>
+<li>Read the same log page: the “antan” (arctangent) test starts at 08:00 and stops at 10:00 — <em>two hours</em> to check arctan values. Worth pausing on: that’s the kind of work these machines existed for.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<div class="r-stack">
+<p><img data-src="images/army-computers-downsizing.jpg" height="780"></p>
+<p><img data-src="images/brlesc-1.jpg" class="fragment" data-fragment-index="2" height="780"></p>
+</div>
+<div class="r-stack" style="text-align: center;">
+<div class="fragment fade-in-then-out" data-fragment-index="1">
+<p>Parts of the first four US Army computers (<a href="https://en.wikipedia.org/wiki/ENIAC">ENIAC</a>, <a href="https://en.wikipedia.org/wiki/EDVAC">EDVAC</a>, <a href="https://en.wikipedia.org/wiki/ORDVAC">ORDVAC</a>, <a href="https://en.wikipedia.org/wiki/BRLESC">BRLESC</a>), 1945–1962</p>
+</div>
+<div class="fragment" data-fragment-index="2">
+<p><a href="https://en.wikipedia.org/wiki/BRLESC">BRLESC-I</a> in full</p>
+</div>
+</div>
+<div style="text-align: center; font-size: 0.4em; opacity: 0.6;">
+<p>Images: Wikimedia Commons — <a href="https://commons.wikimedia.org/wiki/File:Women_holding_parts_of_the_first_four_Army_computers.jpg">Army computers</a>, <a href="https://commons.wikimedia.org/wiki/File:BRLESC-1_computer.jpg">BRLESC-I</a> (both public domain, US Army)</p>
+</div>
+<aside class="notes">
+<ul>
+<li>1962 US Army photo: each woman holds a component of equivalent computing capability from successive Ballistic Research Laboratory machines — ENIAC (1946), EDVAC, ORDVAC, and BRLESC-I — showing the downsizing of hardware from vacuum tubes towards transistors.</li>
+<li>The far-right board belongs to BRLESC-I (1962), shown in full on the next reveal: board-sized capability, still a room-sized machine.</li>
+<li>Women in computing: “computer” was a <em>job title</em> before it was a machine — and at BRL it was rooms of women computing ballistics tables by hand and desk calculator. When ENIAC replaced them, its first programmers were six of those women (Kay McNulty, Betty Jennings, Betty Snyder, Marlyn Wescoff, Fran Bilas, Ruth Lichterman) — there were no manuals; they worked it out from the wiring diagrams. At the 1946 press unveiling they went unnamed, and their role was only widely recognised decades later.</li>
+<li>Early programming was often seen as low-status “women’s work” (the hardware was the prestigious part); the profession masculinised as its status rose. Grace Hopper (compilers, COBOL) is the other name to drop here.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="a-brief-history-of-computing-2" class="slide level2">
+<h2>A brief history of computing</h2>
+<div class="columns">
+<div class="column" style="width: 33%; text-align: center;">
+<p><img data-src="images/first-transistor.jpg" height="400"></p>
+<div class="fragment" data-fragment-index="1">
+<p><a href="https://en.wikipedia.org/wiki/Point-contact_transistor">The first transistor</a> (1947)</p>
+<p><span style="font-size: 0.7em;">1 transistor</span></p>
+</div>
+</div><div class="column" style="width: 33%; text-align: center;">
+<div class="fragment" data-fragment-index="2">
+<p><img data-src="images/intel-4004.jpg" height="400"></p>
+<p><a href="https://en.wikipedia.org/wiki/Intel_4004">Intel 4004</a> (1971)</p>
+<p><span style="font-size: 0.7em;">2,300 transistors</span></p>
+</div>
+</div><div class="column" style="width: 33%; text-align: center;">
+<div class="fragment" data-fragment-index="3">
+<p><img data-src="images/apple-m1.jpg" height="400"></p>
+<p><a href="https://en.wikipedia.org/wiki/Apple_M1">Apple M1</a> (2020)</p>
+<p><span style="font-size: 0.7em;">16,000,000,000 transistors</span></p>
+</div>
+</div></div>
+<div class="fragment" data-fragment-index="4">
+<p>In the meantime… hard disks, programming languages, operating systems, parallel computers, graphics, personal computers, networking, the Internet, the World Wide Web</p>
+</div>
+<div class="fragment" data-fragment-index="3" style="text-align: center; font-size: 0.4em; opacity: 0.6;">
+<p>Images: Wikimedia Commons — <a href="https://commons.wikimedia.org/wiki/File:Replica-of-first-transistor.jpg">first transistor</a> (public domain), <a href="https://commons.wikimedia.org/wiki/File:Intel_C4004.jpg">Intel 4004</a> (Thomas Nguyen, CC BY-SA 4.0), <a href="https://commons.wikimedia.org/wiki/File:Apple_M1.jpg">Apple M1</a> (CC0)</p>
+</div>
+<aside class="notes">
+<ul>
+<li>1947, Bell Labs: Bardeen, Brattain (and Shockley) — the point-contact transistor; this is the replica of the germanium-and-gold original. Solid state: no vacuum tubes, no heat, nothing to wear out — the thing that shrinks.</li>
+<li>1971, Intel 4004: the first commercial microprocessor — a whole CPU on one chip, 2,300 transistors, originally built for a Japanese desk calculator.</li>
+<li>2020, Apple M1: 16 <em>billion</em> transistors in a few square centimetres — ten orders of magnitude in 73 years. That exponential (Moore’s law) is the economic fact that shaped modern computing.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="what-have-computers-been-used-for" class="slide level2">
+<h2>What have computers been used for?</h2>
+<ul>
+<li class="fragment">First, <strong>science</strong> — tables, trajectories, atomic structure: machines built by and for researchers</li>
+<li class="fragment">Then, the <strong>military</strong>: ballistics, cryptography, bomb guidance</li>
+<li class="fragment">Then, <strong>commerce</strong>: payroll, banking, inventory</li>
+<li class="fragment">Then, suddenly, <strong>everyone</strong>: PC revolution + the internet/web democratised computing: communication, creativity, everyday life</li>
+<li class="fragment">Yet the frontier is still pushed by <strong>science</strong> and nowadays by <strong>AI</strong></li>
+</ul>
+<aside class="notes">
+<ul>
+<li>Science first: EDSAC ran as a service for Cambridge researchers; crystallography and quantum chemistry were early customers.</li>
+<li>Military: ENIAC’s ballistics tables, Bletchley’s Colossus, the H-bomb calculations that ate early machine time.</li>
+<li>Commerce: LEO (1951) — the world’s first business computer, built by J. Lyons &amp; Co., a <em>tea shop chain</em>, for payroll and bakery logistics.</li>
+<li>Democratisation: the web was invented at CERN, by science, for science — then swallowed the world.</li>
+<li>Frontier: exascale simulation, AlphaFold, large language models — the biggest machines are once again doing science (and training AI).</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<div class="columns">
+<div class="column" style="width: 50%; text-align: center;">
+<p><img data-src="images/lumi.jpg" height="460"></p>
+<p><span class="fragment" data-fragment-index="1"><a href="https://en.wikipedia.org/wiki/LUMI">LUMI</a>, Kajaani, Finland (2022)</span></p>
+</div><div class="column" style="width: 50%; text-align: center;">
+<div class="fragment" data-fragment-index="2">
+<p><img data-src="images/marenostrum-4.jpg" height="460"></p>
+<p><a href="https://en.wikipedia.org/wiki/MareNostrum">MareNostrum 4</a>, Barcelona (2017)</p>
+</div>
+</div></div>
+<div class="fragment" data-fragment-index="2" style="text-align: center; font-size: 0.4em; opacity: 0.6;">
+<p>Images: <a href="https://www.lumi-supercomputer.eu/">LUMI</a> (LUMI consortium / Fade Creative); <a href="https://commons.wikimedia.org/wiki/File:MareNostrum_4_supercomputer_at_Barcelona_Supercomputing_Center_1.jpg">MareNostrum 4</a> (Gemmaribasmaspoch, CC BY-SA 4.0)</p>
+</div>
+<aside class="notes">
+<ul>
+<li>LUMI: EuroHPC’s pre-exascale machine, AMD GPUs, living in a converted paper mill in Kajaani — run on hydroelectric power, with its waste heat feeding the town’s district heating. Science still fills rooms; the rooms just got greener.</li>
+<li>MareNostrum 4: Barcelona Supercomputing Center, installed in the deconsecrated Torre Girona chapel — routinely called the world’s most beautiful data centre.</li>
+<li>Callback to BRLESC: seventy years on, the frontier machine is <em>still</em> a room — but now it’s identical racks of the same chips as everyone else’s, and the differentiator is the interconnect between them.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="software-in-research-today" class="slide level2 smaller">
+<h2>Software in research today</h2>
+<ul>
+<li class="fragment"><strong>Simulations</strong>: molecular dynamics, quantum chemistry and materials science, climate, weather, astrophysics, complex systems</li>
+<li class="fragment"><strong>Automation</strong>: instrument control, robotics, high-throughput experiments, laboratory information management systems</li>
+<li class="fragment"><strong>Data analysis</strong>: large-scale experiments, imaging, plotting</li>
+<li class="fragment"><strong>Statistical &amp; probabilistic modelling</strong>: fitting and inference, uncertainty quantification, Monte Carlo and Bayesian methods</li>
+<li class="fragment"><strong>Data management</strong>: provenance, reproducibility, FAIR principles</li>
+<li class="fragment"><strong>Machine learning</strong>: image recognition, natural language processing, generative models</li>
+<li class="fragment"><strong>Dissemination</strong>: publishing, visualisation, outreach, citizen science</li>
+</ul>
+</section></section>
+<section>
+<section id="computing-architecture" class="title-slide slide level1 center">
+<h1>Computing architecture</h1>
+
+</section>
+<section id="what-is-the-machine-actually-doing" class="slide level2 smaller">
+<h2>What is the machine actually doing?</h2>
+<div class="columns">
+<div class="column" style="width: 60%; text-align: center;">
+<p><img data-src="images/intel-8008-die-labeled.jpg" height="620"></p>
+<p><span style="font-size: 0.6em;"><a href="https://en.wikipedia.org/wiki/Intel_8008">Intel 8008</a> (1972), die labelled</span></p>
+</div><div class="column" style="width: 40%;">
+<ul>
+<li class="fragment">The CPU <strong>receives instructions</strong> as “machine code”, human-readable as <strong>assembly</strong></li>
+<li class="fragment"><strong>decodes</strong> each one</li>
+<li class="fragment">and <strong>executes</strong> it, shuttling values between the <strong>registers</strong> (right) and the arithmetic/logic unit (left)</li>
+<li class="fragment">All chip design since revolves around efficiently cramming as much compute as possible into this layout: specialised registers, specialised instructions…</li>
+<li class="fragment">…and keeping it <em>fed</em>: modern CPUs <strong>pipeline</strong> instructions, perform <strong>branch prediction</strong> execute <strong>speculatively</strong> and out of order, and hide slow memory behind layers of <strong>caches</strong></li>
+</ul>
+</div></div>
+<div style="text-align: center; font-size: 0.4em; opacity: 0.6;">
+<p>Image: <a href="https://www.righto.com">Ken Shirriff</a>, righto.com — used with attribution</p>
+</div>
+<aside class="notes">
+<ul>
+<li>The whole fetch–decode–execute cycle is <em>visible</em> on this die: the instruction decoder, the registers, the ALU, the scratchpad — every box on the label is a physical block of transistors.</li>
+<li>8008 (1972): Intel’s first 8-bit microprocessor, ~3,500 transistors — simple enough that one person (Ken Shirriff) can reverse-engineer it from photographs.</li>
+<li>Everything a modern CPU does is this, plus 50 years of tricks (caches, pipelines, speculation) — the mental model stays valid.</li>
+<li>The tricks leak, too: branch prediction is why sorted data can be faster to process than unsorted; speculative execution gave us the Spectre/Meltdown security holes. Fetch–decode–execute is still the truth underneath.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="instruction-sets-x86-and-arm" class="slide level2 smaller">
+<h2>Instruction sets: x86 and ARM</h2>
+<ul>
+<li class="fragment"><strong>x86</strong>: the Intel 8086 (1978) instruction set — descendant of the 8008, still running nearly every “Intel or AMD” machine</li>
+<li class="fragment"><strong>amd64</strong> / <strong>x86-64</strong>: its 64-bit extension — designed by <em>AMD</em> (2003), adopted by Intel, extended to include vectorisation to make the most of wider registers (SSE, AVX)</li>
+<li class="fragment"><strong>ARM</strong> (Acorn Computers, Cambridge, 1985): the only real competitor — every phone, Apple M-series, now Windows laptops</li>
+</ul>
+<div class="fragment" style="text-align: center;">
+<p><img data-src="images/vscode-download.png" height="480"></p>
+</div>
+<aside class="notes">
+<ul>
+<li>Backwards compatibility is the moat: a modern x86 CPU still boots in 8086-compatible “real mode” — 45+ years of old binaries keep running, which is why the architecture survives despite its baggage.</li>
+<li>Itanium (IA-64) was Intel’s clean-slate 64-bit bet; it flopped, AMD’s x86-64 won, and the names stuck: amd64 = x86-64 = x64 — all the same thing.</li>
+<li>ARM = originally “Acorn RISC Machine” (BBC Micro lineage). RISC: fewer, simpler instructions — easier to make low-power. ARM sells <em>designs</em>; Apple, Qualcomm, etc. build the chips.</li>
+<li>Practical hook for students: this is why download pages offer x86_64/amd64 vs arm64/aarch64 builds — pick the wrong one and it won’t run (or runs slowly under emulation, e.g.&nbsp;Rosetta).</li>
+<li>The ARM-that-got-away: spun out of Acorn in 1990, LSE-listed, then sold to SoftBank in 2016 for £24bn — one of the UK’s biggest tech exits. Re-floated on <em>Nasdaq</em> in 2023 at ~$54bn; market cap ~$150bn by 2025. Had it stayed UK-listed it would be near the very top of the FTSE — the canonical “why can’t the UK keep its tech companies” example. (Check/update the market cap before lecturing.)</li>
+<li>32- vs 64-bit Windows: “x86” came to colloquially mean the <em>32-bit</em> instruction set (IA-32) and “x64” the 64-bit one — hence the <code>Program Files (x86)</code> folder for 32-bit apps. 64-bit Windows runs old 32-bit binaries via an emulation layer (WOW64: “Windows-on-Windows”), but not vice versa; 32-bit also caps addressable memory at 4 GB, which is why it died. (Nuance: 64-bit Windows isn’t amd64-only — Windows 11 also ships an ARM64 edition, which emulates x86/x64 apps.) Same story as amd64 generally: extend and emulate, never break old software.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="programming" class="title-slide slide level1 center">
+<h1>Programming</h1>
+
+</section>
+<section id="programming-languages" class="slide level2 smaller">
+<h2>Programming languages</h2>
+<p>Programming languages are the “simple”, human-facing interface to all this machinery.</p>
+<div class="columns">
+<div class="column fragment" style="width: 45%;" data-fragment-index="1">
+<p>What you write (C):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb1-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> mean<span class="op">(</span><span class="dt">const</span> <span class="dt">double</span> <span class="op">*</span>x<span class="op">,</span> <span class="dt">int</span> n<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-2"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="dt">double</span> total <span class="op">=</span> <span class="fl">0.0</span><span class="op">;</span></span>
+<span id="cb1-3"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb1-4"><a href="" aria-hidden="true" tabindex="-1"></a>        total <span class="op">+=</span> x<span class="op">[</span>i<span class="op">];</span></span>
+<span id="cb1-5"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> total <span class="op">/</span> n<span class="op">;</span></span>
+<span id="cb1-6"><a href="" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column fragment" style="width: 55%;" data-fragment-index="2">
+<p>What the compiler turns it into (x86-64, <code>gcc -O1</code>):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode asm code-with-copy"><code class="sourceCode fasm"><span id="cb2-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">mean:</span></span>
+<span id="cb2-2"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="bu">test</span>    <span class="kw">esi</span><span class="op">,</span> <span class="kw">esi</span></span>
+<span id="cb2-3"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="cf">jle</span>     <span class="op">.</span>L4</span>
+<span id="cb2-4"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="bu">mov</span>     <span class="kw">rax</span><span class="op">,</span> <span class="kw">rdi</span></span>
+<span id="cb2-5"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="bu">movsxd</span>  <span class="kw">rdx</span><span class="op">,</span> <span class="kw">esi</span></span>
+<span id="cb2-6"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="bu">lea</span>     <span class="kw">rdx</span><span class="op">,</span> <span class="op">[</span><span class="kw">rdi</span><span class="op">+</span><span class="kw">rdx</span><span class="op">*</span><span class="dv">8</span><span class="op">]</span></span>
+<span id="cb2-7"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="bu">pxor</span>    <span class="kw">xmm0</span><span class="op">,</span> <span class="kw">xmm0</span></span>
+<span id="cb2-8"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">.L3:</span></span>
+<span id="cb2-9"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="bu">addsd</span>   <span class="kw">xmm0</span><span class="op">,</span> <span class="dt">QWORD</span> <span class="dt">PTR</span> <span class="op">[</span><span class="kw">rax</span><span class="op">]</span></span>
+<span id="cb2-10"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="bu">add</span>     <span class="kw">rax</span><span class="op">,</span> <span class="dv">8</span></span>
+<span id="cb2-11"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="bu">cmp</span>     <span class="kw">rax</span><span class="op">,</span> <span class="kw">rdx</span></span>
+<span id="cb2-12"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="cf">jne</span>     <span class="op">.</span>L3</span>
+<span id="cb2-13"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">.L2:</span></span>
+<span id="cb2-14"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="bu">pxor</span>    <span class="kw">xmm1</span><span class="op">,</span> <span class="kw">xmm1</span></span>
+<span id="cb2-15"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="bu">cvtsi2sd</span> <span class="kw">xmm1</span><span class="op">,</span> <span class="kw">esi</span></span>
+<span id="cb2-16"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="bu">divsd</span>   <span class="kw">xmm0</span><span class="op">,</span> <span class="kw">xmm1</span></span>
+<span id="cb2-17"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="cf">ret</span></span>
+<span id="cb2-18"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">.L4:</span></span>
+<span id="cb2-19"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="bu">pxor</span>    <span class="kw">xmm0</span><span class="op">,</span> <span class="kw">xmm0</span></span>
+<span id="cb2-20"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="cf">jmp</span>     <span class="op">.</span>L2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+<aside class="notes">
+<ul>
+<li>This is <em>real</em> output (gcc 15, <code>-O1</code>, Intel syntax), not pseudocode — worth demoing live on godbolt.org: change the optimisation level and watch the assembly change (at <code>-O2</code>/<code>-O3</code> it vectorises and gets much longer).</li>
+<li>Things to point at: the loop is the four lines under <code>.L3</code> (add, advance pointer, compare, jump back); <code>xmm0</code> is a floating-point register; the <code>n &lt;= 0</code> edge case gets its own branch (<code>.L4</code>).</li>
+<li>One line of maths in C ≈ one instruction; the compiler handles registers, addressing, branching — that’s the “interface” doing its job.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="low-level-vs-high-level-languages" class="slide level2 smaller">
+<h2>Low-level vs high-level languages</h2>
+<div class="columns">
+<div class="column" style="width: 45%;">
+<div class="fragment" data-fragment-index="1">
+<ul>
+<li>The “level” of a language ≈ its distance from the machine</li>
+</ul>
+</div>
+<div class="fragment" data-fragment-index="2">
+<ul>
+<li><strong>C</strong> (1972): low-level — you manage the memory, and the compiler maps your code almost 1:1 onto the hardware</li>
+</ul>
+</div>
+<div class="fragment" data-fragment-index="3">
+<ul>
+<li><strong>Fortran</strong> (1957): the <em>original</em> high-level language — “FORmula TRANslation”, built for science; compiled and fast, with arrays as first-class citizens</li>
+</ul>
+</div>
+<div class="fragment" data-fragment-index="4">
+<ul>
+<li><strong>Python</strong> (1991): very high level — no types to declare, memory managed for you, everything decided at runtime… which is exactly why it’s slow</li>
+</ul>
+</div>
+</div><div class="column" style="width: 55%; text-align: center;">
+<div class="r-stack">
+<div class="fragment fade-in-then-out" data-fragment-index="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb3-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">/* the max of some numbers, in C */</span></span>
+<span id="cb3-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> <span class="op">*</span>xs <span class="op">=</span> malloc<span class="op">(</span><span class="dv">5</span> <span class="op">*</span> <span class="kw">sizeof</span><span class="op">(</span><span class="dt">double</span><span class="op">));</span></span>
+<span id="cb3-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>xs <span class="op">==</span> NULL<span class="op">)</span>                <span class="co">/* did we even get the memory? */</span></span>
+<span id="cb3-4"><a href="" aria-hidden="true" tabindex="-1"></a>    exit<span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb3-5"><a href="" aria-hidden="true" tabindex="-1"></a>xs<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="op">=</span> <span class="fl">1.0</span><span class="op">;</span> xs<span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="op">=</span> <span class="fl">4.5</span><span class="op">;</span> xs<span class="op">[</span><span class="dv">2</span><span class="op">]</span> <span class="op">=</span> <span class="fl">2.0</span><span class="op">;</span></span>
+<span id="cb3-6"><a href="" aria-hidden="true" tabindex="-1"></a>xs<span class="op">[</span><span class="dv">3</span><span class="op">]</span> <span class="op">=</span> <span class="fl">8.1</span><span class="op">;</span> xs<span class="op">[</span><span class="dv">4</span><span class="op">]</span> <span class="op">=</span> <span class="fl">3.0</span><span class="op">;</span></span>
+<span id="cb3-7"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> largest <span class="op">=</span> xs<span class="op">[</span><span class="dv">0</span><span class="op">];</span></span>
+<span id="cb3-9"><a href="" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">5</span><span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb3-10"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>xs<span class="op">[</span>i<span class="op">]</span> <span class="op">&gt;</span> largest<span class="op">)</span></span>
+<span id="cb3-11"><a href="" aria-hidden="true" tabindex="-1"></a>        largest <span class="op">=</span> xs<span class="op">[</span>i<span class="op">];</span></span>
+<span id="cb3-12"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="" aria-hidden="true" tabindex="-1"></a>free<span class="op">(</span>xs<span class="op">);</span>                      <span class="co">/* give it back, or leak it */</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment fade-in-then-out" data-fragment-index="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode fortran code-with-copy"><code class="sourceCode fortranfixed"><span id="cb4-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">! the max of some numbers, in Fortran</span></span>
+<span id="cb4-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="dt">real</span> <span class="dt">::</span> xs(<span class="dv">5</span>) <span class="kw">=</span> <span class="kw">[</span><span class="fl">1.0</span>, <span class="fl">4.5</span>, <span class="fl">2.0</span>, <span class="fl">8.1</span>, <span class="fl">3.0</span><span class="kw">]</span></span>
+<span id="cb4-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="dt">real</span> <span class="dt">::</span> largest</span>
+<span id="cb4-4"><a href="" aria-hidden="true" tabindex="-1"></a>largest <span class="kw">=</span> <span class="fu">maxval</span>(xs)   <span class="co">! arrays built in</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment fade-in-then-out" data-fragment-index="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># the max of some numbers, in Python</span></span>
+<span id="cb5-2"><a href="" aria-hidden="true" tabindex="-1"></a>largest <span class="op">=</span> <span class="bu">max</span>([<span class="fl">1.0</span>, <span class="fl">4.5</span>, <span class="fl">2.0</span>, <span class="fl">8.1</span>, <span class="fl">3.0</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment" data-fragment-index="5">
+<p><img data-src="images/archer2-codes-2026-06.png" height="640"></p>
+<p><span style="font-size: 0.6em;">Software usage on <a href="https://www.archer2.ac.uk/">ARCHER2</a>, the UK national supercomputer (June 2026)</span></p>
+</div>
+</div>
+</div></div>
+<div class="fragment" data-fragment-index="5" style="text-align: center; font-size: 0.4em; opacity: 0.6;">
+<p>Data: <a href="https://github.com/ARCHER2-HPC/usage-data">ARCHER2 usage data</a>, EPCC</p>
+</div>
+<aside class="notes">
+<ul>
+<li>The chart motivates “Fortran isn’t dead”: VASP (~18% of all machine time), the Met Office Unified Model, CP2K, and further down Quantum Espresso, CASTEP, NEMO, FHI-aims — Fortran codes, decades old, still eating a huge share of a 2026 national supercomputer.</li>
+<li>Python is itself #6 (~5%) — but mostly as the <em>driver</em>: orchestrating, analysing, gluing. The heavy numerics underneath is compiled code.</li>
+<li>OpenFOAM, GROMACS, LAMMPS: C++ — the other compiled contingent.</li>
+<li>Nobody chooses a level in the abstract: you trade programmer time against machine time. The rest of this course lives happily at the Python level — while understanding what’s underneath.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="a-programming-language-is-a-contract" class="slide level2">
+<h2>A programming language is a contract</h2>
+<ul>
+<li class="fragment">The <em>language</em> is <em>abstract</em>: syntax and rules of meaning, written down in a standard, e.g., the C and Fortran standards, the Python language reference. No machine is mentioned</li>
+<li class="fragment">The <em>implementation</em> honours that contract on a particular machine: <code>gcc</code>/<code>clang</code> for C, <code>gfortran</code>/<code>flang</code> for Fortran, CPython/PyPy for Python</li>
+<li class="fragment">The <code>mean()</code> you just saw compiles to <em>different</em> assembly on ARM but the C doesn’t change. That’s what <strong>portable</strong> means: write to the contract, not to the machine</li>
+</ul>
+<aside class="notes">
+<ul>
+<li>Fresh example of a breach: this course’s own Fortran Mandelbrot kernel is standard-conforming 2018 (<code>do concurrent</code> + <code>local()</code>), and current gfortran miscompiles it — segfault. The contract was fine; the implementation wasn’t.</li>
+<li>The C signed-overflow demo coming up is the other side: <em>undefined behaviour</em> is a hole the contract deliberately leaves open, and the implementation may do anything.</li>
+<li>Python’s contract is fuzzier: the language reference exists, but CPython is the de-facto spec — which is why PyPy compatibility is a moving target.</li>
+<li>And like all contracts, it has fine print: “undefined behaviour” (our overflow, later), implementation quirks, and the occasional breach a compiler bug</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="everything-is-an-abstraction" class="slide level2 smaller">
+<h2>Everything is an abstraction</h2>
+<div class="columns">
+<div class="column" style="width: 40%;">
+<pre><code>        your analysis script
+              Python
+      NumPy / compiled libraries
+          compiler ・ OS
+        assembly ・ x86, ARM
+        CPU ・ gates ・ transistors
+              electrons</code></pre>
+</div><div class="column" style="width: 60%;">
+<ul>
+<li class="fragment">Computing is a <em>tower of abstractions</em> — nobody holds it all in their head at once</li>
+<li class="fragment">The working rule: know enough to <strong>reason one layer down</strong>, and to <strong>design for the layer above</strong></li>
+<li class="fragment">But abstractions <strong>leak</strong> — the <a href="https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/">Law of Leaky Abstractions</a>: the layer below pokes through exactly when things go wrong</li>
+<li class="fragment"><code>0.1 + 0.2 ≠ 0.3</code>, “why is this loop slow?”, “why won’t this install on my machine?”</li>
+</ul>
+</div></div>
+<aside class="notes">
+<ul>
+<li>Spolsky’s essay (2002) is the canonical reference: “all non-trivial abstractions, to some degree, are leaky.”</li>
+<li>Good leak examples for this audience: floating point (coming up in two slides), Python’s speed (later today), loop order / cache effects in NumPy, and every environment/installation problem they will ever have.</li>
+<li>The inverse skill matters too: when you write code, you <em>are</em> building an abstraction for someone else — usually future you.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="data-structures" class="title-slide slide level1 center">
+<h1>Data structures</h1>
+
+</section>
+<section id="data-structures-bits-and-integers" class="slide level2 smaller">
+<h2>Data structures: bits and integers</h2>
+<p>Everything in memory is bits — a <em>type</em> is a rule for reading them.</p>
+<div class="fragment">
+<p>The simplest type: a <strong>boolean</strong>, one bit of information, true or false:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb7-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> done <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre><code>0 </code></pre>
+</div>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width: 50%;">
+<div class="type-box">
+<p>A 32-bit signed integer:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb9-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> n <span class="op">=</span> <span class="dv">42</span><span class="op">;</span>    <span class="co">/* exactly 4 bytes */</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre><code>00000000 00000000 00000000 00101010</code></pre>
+<div class="fragment">
+<p>Range: <span class="math inline">\(-2^{31}\)</span> to <span class="math inline">\(2^{31}-1\)</span> = 2,147,483,647 — one more and it <em>overflows</em>:</p>
+</div>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb11-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> n <span class="op">=</span> <span class="dv">2147483647</span> <span class="op">+</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb11-2"><a href="" aria-hidden="true" tabindex="-1"></a>printf<span class="op">(</span><span class="st">"n = </span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> n<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre><code>n = -2147483648</code></pre>
+</div>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb13-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="dt">unsigned</span> <span class="dt">int</span> u <span class="op">=</span> <span class="dv">2147483648</span> <span class="op">+</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb13-2"><a href="" aria-hidden="true" tabindex="-1"></a>printf<span class="op">(</span><span class="st">"u = </span><span class="sc">%u\n</span><span class="st">"</span><span class="op">,</span> u<span class="op">);</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre><code>u = 2147483649</code></pre>
+</div>
+</div>
+</div><div class="column fragment" style="width: 50%;">
+<div class="type-box">
+<p>The same 32 bits, read as a float:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb15-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> x <span class="op">=</span> <span class="fl">42.0</span><span class="bu">f</span><span class="op">;</span>   <span class="co">/* also 4 bytes */</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre><code>01000010 00101000 00000000 00000000
+[ sign | 8-bit exponent | 23-bit fraction ]</code></pre>
+<p>Range: <span class="math inline">\(\pm 3.4 \times 10^{38}\)</span> (smallest positive <span class="math inline">\(\approx 1.2 \times 10^{-38}\)</span>) — but only ~7 significant digits</p>
+</div>
+</div></div>
+</div>
+<div class="fragment" style="font-size: 0.9em;">
+<ul>
+<li class="fragment"><a href="https://en.wikipedia.org/wiki/Year_2038_problem">Y2038</a>: signed 32-bit Unix time (number of seconds since 01/01/1970) runs out at 03:14:07 UTC on 19 January 2038</li>
+</ul>
+</div>
+<aside class="notes">
+<ul>
+<li>The demo is real gcc output. Nuance if asked: gcc <em>does</em> warn here (<code>-Woverflow</code>, because it’s a compile-time constant) and then runs it anyway; overflow from runtime values usually gets no warning at all. Signed overflow is technically <em>undefined behaviour</em> in C — wrap-around to the most negative value is just what x86 happens to do.</li>
+<li>More overflow stories, pick to taste: Ariane 5, Gangnam Style overflowing YouTube’s 32-bit view counter (2014, forced the move to 64-bit); the Boeing 787 directive to reboot before 248 days of uptime (a centisecond counter overflows).</li>
+<li>Y2038 detail: Unix time = seconds since 1 Jan 1970 in a signed 32-bit int. Desktop OSes have moved to 64-bit time, but embedded systems (cars, instruments, industrial control) haven’t — and it <em>already</em> bites any code doing forward-dated arithmetic (mortgages, pensions).</li>
+<li>Ariane 5 detail worth telling: the overflowing code was <em>reused from Ariane 4</em>, where the value physically couldn’t overflow. The rocket changed; the assumption didn’t. (Ties to the living-ecosystem slide.)</li>
+<li>Contrast for later: Python ints never overflow — arbitrary precision — one more thing the wardrobe hides.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="data-structures-floating-point-double-precision" class="slide level2">
+<h2>Data structures: floating point (double precision)</h2>
+<p>A <code>double</code> is 64 bits read as <span class="math inline">\(\pm\, m \times 2^{e}\)</span> (IEEE 754); used extensively in scientific computing.</p>
+<pre><code>[ 1 sign bit | 11 exponent bits | 52 fraction bits ]</code></pre>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb18-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> x <span class="op">=</span> <span class="fl">0.1</span><span class="op">;</span>               <span class="co">/* stored: 0.10000000000000000555… */</span></span>
+<span id="cb18-2"><a href="" aria-hidden="true" tabindex="-1"></a>printf<span class="op">(</span><span class="st">"</span><span class="sc">%.17f\n</span><span class="st">"</span><span class="op">,</span> <span class="fl">0.1</span> <span class="op">+</span> <span class="fl">0.2</span><span class="op">);</span>   <span class="co">/* prints 0.30000000000000004 */</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li class="fragment">0.1 has no exact binary representation — like 1/3 in decimal</li>
+<li class="fragment">so <strong>never</strong> compare floats with <code>==</code>; test <code>fabs(a - b) &lt; tol</code></li>
+<li class="fragment">smaller floats (32-, 16-bit) trade precision for speed — the currency of GPUs and machine learning</li>
+</ul>
+</section>
+<section id="arrays-and-vectors" class="slide level2">
+<h2>Arrays and vectors</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb19-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> xs<span class="op">[</span><span class="dv">1024</span><span class="op">];</span>              <span class="co">/* C: one contiguous block, size fixed forever */</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb20-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="bu">std::</span>vector<span class="op">&lt;</span><span class="dt">double</span><span class="op">&gt;</span> ys <span class="op">=</span> <span class="op">{</span><span class="fl">1.0</span><span class="op">,</span> <span class="fl">4.5</span><span class="op">};</span>  <span class="co">// C++: contiguous but growable</span></span>
+<span id="cb20-2"><a href="" aria-hidden="true" tabindex="-1"></a>ys<span class="op">.</span>push_back<span class="op">(</span><span class="fl">2.0</span><span class="op">);</span>   <span class="co">// may silently reallocate-and-copy the whole thing</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li class="fragment">Contiguity is why arrays are fast: caches and vector units love them</li>
+</ul>
+</section></section>
+<section>
+<section id="python" class="title-slide slide level1 center">
+<h1>Python</h1>
+
+</section>
+<section id="the-locker-and-the-wardrobe" class="slide level2 smaller">
+<h2>The locker and the wardrobe</h2>
+<div class="columns">
+<div class="column" style="width: 50%;">
+<p>A <strong>C variable is a locker</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb21-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> x <span class="op">=</span> <span class="dv">42</span><span class="op">;</span>      <span class="co">/* 4 bytes at a fixed address */</span></span>
+<span id="cb21-2"><a href="" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="st">"hello"</span><span class="op">;</span>     <span class="co">/* compile error: wrong shape */</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>fixed size, fixed shape, the name <em>is</em> the address</li>
+</ul>
+</div><div class="column fragment" style="width: 50%;">
+<p>A <strong>Python object is the wardrobe to Narnia</strong>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">42</span>          <span class="co"># a name, tied to an object</span></span>
+<span id="cb22-2"><a href="" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="st">"hello"</span>     <span class="co"># fine — retie the name</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>looks like a small box, but it’s bigger on the inside: the object carries its type, its size, its reference count…</li>
+</ul>
+</div></div>
+<div class="fragment" style="text-align: center;">
+<p><img data-src="images/python-narnia.jpg" height="430"></p>
+</div>
+<div style="text-align: center; font-size: 0.4em; opacity: 0.6;">
+<p>Image: another Nano Banana hallucination</p>
+</div>
+</section>
+<section id="why-python-is-slow" class="slide level2">
+<h2>Why “Python is slow”</h2>
+<ul>
+<li class="fragment">Every value is an object on the heap — even <code>1</code> (a C <code>int</code> is 4 bytes; a Python <code>int</code> is 28)</li>
+<li class="fragment">Everything is mutable, so the interpreter can assume nothing, so cannot optimise anything ahead of time</li>
+<li class="fragment">Types are checked at <em>runtime</em>, on every operation, every time</li>
+<li class="fragment">A list is an array of <em>pointers</em> to scattered objects, no cache locality</li>
+</ul>
+</section>
+<section id="so-why-does-everyone-use-it" class="slide level2">
+<h2>…so why does everyone use it?</h2>
+<ul>
+<li class="fragment"><strong>Clean syntax</strong>: executable pseudocode, optimised for <em>reading</em></li>
+<li class="fragment"><strong>Hides complexity</strong>: memory management, types, compilation, linking, installation</li>
+<li class="fragment"><strong>The ecosystem</strong>: “batteries included” standard library, plus a mature external library for almost anything (PyPI)</li>
+<li class="fragment"><strong>Offloading</strong>: NumPy, PyTorch &amp; friends are compiled C/C++/Fortran underneath</li>
+<li class="fragment"><strong>Economics</strong>: researcher time usually costs more than CPU time</li>
+</ul>
+<!-- TODO(matt): callback to the ARCHER2 chart — Python at #6 as the driver -->
+</section>
+<section id="higher-level-structures-the-dictionary" class="slide level2 smaller">
+<h2>Higher-level structures: the dictionary</h2>
+<div class="columns">
+<div class="column" style="width: 55%;">
+<p>In C, you build it yourself:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb23-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> entry <span class="op">{</span></span>
+<span id="cb23-2"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="dt">const</span> <span class="dt">char</span> <span class="op">*</span>key<span class="op">;</span></span>
+<span id="cb23-3"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="dt">double</span> value<span class="op">;</span></span>
+<span id="cb23-4"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="kw">struct</span> entry <span class="op">*</span>next<span class="op">;</span></span>
+<span id="cb23-5"><a href="" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
+<span id="cb23-6"><a href="" aria-hidden="true" tabindex="-1"></a><span class="dt">unsigned</span> hash<span class="op">(</span><span class="dt">const</span> <span class="dt">char</span> <span class="op">*</span>s<span class="op">);</span>   <span class="co">/* you write this */</span></span>
+<span id="cb23-7"><a href="" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> lookup<span class="op">(</span><span class="kw">struct</span> entry <span class="op">**</span>t<span class="op">,</span></span>
+<span id="cb23-8"><a href="" aria-hidden="true" tabindex="-1"></a>              <span class="dt">const</span> <span class="dt">char</span> <span class="op">*</span>key<span class="op">);</span> <span class="co">/* and this */</span></span>
+<span id="cb23-9"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">/* …and collisions, resizing, deletion,</span></span>
+<span id="cb23-10"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">   and who owns all that memory? */</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><span style="font-size: 0.8em;">In Fortran: no dictionary in the standard library at all.</span></p>
+</div><div class="column fragment" style="width: 45%;">
+<p>In Python, it’s a literal:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="" aria-hidden="true" tabindex="-1"></a>masses <span class="op">=</span> {<span class="st">"H"</span>: <span class="fl">1.008</span>, <span class="st">"He"</span>: <span class="fl">4.003</span>}</span>
+<span id="cb24-2"><a href="" aria-hidden="true" tabindex="-1"></a>masses[<span class="st">"Li"</span>] <span class="op">=</span> <span class="fl">6.94</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="fragment">
+<p>Python is <em>built</em> on dicts: module namespaces, object attributes, keyword arguments — dicts all the way down.</p>
+</div>
+</div></div>
+</section>
+<section id="dicts-speak-json" class="slide level2 smaller">
+<h2>Dicts speak JSON</h2>
+<div class="columns">
+<div class="column" style="width: 50%;">
+<p>A Python dict…</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="" aria-hidden="true" tabindex="-1"></a>sample <span class="op">=</span> {</span>
+<span id="cb25-2"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="st">"formula"</span>: <span class="st">"NaCl"</span>,</span>
+<span id="cb25-3"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="st">"mass_g"</span>: <span class="fl">0.253</span>,</span>
+<span id="cb25-4"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="st">"conductivity"</span>: [<span class="fl">1.2</span>, <span class="fl">1.4</span>, <span class="fl">1.1</span>],</span>
+<span id="cb25-5"><a href="" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb25-6"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-7"><a href="" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb25-8"><a href="" aria-hidden="true" tabindex="-1"></a>json.dump(sample, <span class="bu">open</span>(<span class="st">"sample.json"</span>, <span class="st">"w"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column fragment" style="width: 50%;">
+<p>…is one line away from a file <em>anything</em> can read:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb26-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb26-2"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"formula"</span><span class="fu">:</span> <span class="st">"NaCl"</span><span class="fu">,</span></span>
+<span id="cb26-3"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"mass_g"</span><span class="fu">:</span> <span class="fl">0.253</span><span class="fu">,</span></span>
+<span id="cb26-4"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"conductivity"</span><span class="fu">:</span> <span class="ot">[</span><span class="fl">1.2</span><span class="ot">,</span> <span class="fl">1.4</span><span class="ot">,</span> <span class="fl">1.1</span><span class="ot">]</span></span>
+<span id="cb26-5"><a href="" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+<ul>
+<li class="fragment"><strong>JSON</strong> is just dicts, lists, numbers, strings and booleans — the lingua franca of data exchange</li>
+<li class="fragment">Generic formats outlive any one program, language, or PhD: this file is readable from Python, R, Julia, C++, a browser, a database — today and in twenty years</li>
+<li class="fragment">Your instrument’s proprietary binary format is none of those things</li>
+<li class="fragment">Rule of thumb: keep <em>open, generic</em> formats (JSON, CSV, HDF5, …) at the boundaries of everything you write</li>
+</ul>
+<aside class="notes">
+<ul>
+<li>This is the quiet superpower of dict-shaped thinking: structure your data as nested dicts/lists and it serialises for free.</li>
+<li>JSON caveats worth saying out loud: no comments, floats only (no NaN in strict JSON), and it’s inefficient for big numerical arrays — that’s when you reach for HDF5/NetCDF/Parquet instead.</li>
+<li>Ties directly to research data management (FAIR data) — and to every web API a student will ever call: they all speak JSON.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="the-python-types-youll-actually-use" class="slide level2 smaller">
+<h2>The Python types you’ll actually use</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Type</th>
+<th>Literal</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>bool</code></td>
+<td><code>True</code>, <code>False</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>int</code></td>
+<td><code>42</code></td>
+<td>arbitrary precision — no overflow!</td>
+</tr>
+<tr class="odd">
+<td><code>float</code></td>
+<td><code>6.626e-34</code></td>
+<td>an IEEE double underneath</td>
+</tr>
+<tr class="even">
+<td><code>str</code></td>
+<td><code>"NaCl"</code></td>
+<td>Unicode text</td>
+</tr>
+<tr class="odd">
+<td><code>list</code></td>
+<td><code>[1, 2, 3]</code></td>
+<td>mutable sequence</td>
+</tr>
+<tr class="even">
+<td><code>tuple</code></td>
+<td><code>(x, y)</code></td>
+<td>immutable sequence</td>
+</tr>
+<tr class="odd">
+<td><code>dict</code></td>
+<td><code>{"H": 1.008}</code></td>
+<td>key → value</td>
+</tr>
+<tr class="even">
+<td><code>set</code></td>
+<td><code>{2, 3, 5}</code></td>
+<td>uniqueness &amp; membership</td>
+</tr>
+<tr class="odd">
+<td><code>None</code></td>
+<td><code>None</code></td>
+<td>“nothing to see here”</td>
+</tr>
+<tr class="even">
+<td><code>class</code></td>
+<td><code>class Atom: ...</code></td>
+<td>user-defined objects</td>
+</tr>
+</tbody>
+</table>
+<!-- TODO(matt): complex? bytes? or keep it lean -->
+</section>
+<section id="example-periodic-table-four-ways" class="slide level2 smaller">
+<h2>Example: Periodic Table, four ways</h2>
+<div class="fragment">
+<ol type="1">
+<li>every element a variable?</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="" aria-hidden="true" tabindex="-1"></a>H <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb27-2"><a href="" aria-hidden="true" tabindex="-1"></a>He <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb27-3"><a href="" aria-hidden="true" tabindex="-1"></a>Li <span class="op">=</span> <span class="dv">3</span>           <span class="co"># …116 more lines of this</span></span>
+<span id="cb27-4"><a href="" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(H)                     <span class="co"># 1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<ol start="2" type="1">
+<li>How about a list?</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="" aria-hidden="true" tabindex="-1"></a>elements <span class="op">=</span> [<span class="st">"H"</span>, <span class="st">"He"</span>, <span class="st">"Li"</span>, <span class="st">"Be"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"N"</span>, <span class="st">"O"</span>, ...]</span>
+<span id="cb28-2"><a href="" aria-hidden="true" tabindex="-1"></a>elements.index(<span class="st">"C"</span>) <span class="op">+</span> <span class="dv">1</span>      <span class="co"># 6 — mind the off-by-one!</span></span>
+<span id="cb28-3"><a href="" aria-hidden="true" tabindex="-1"></a>elements[<span class="dv">8</span><span class="op">+</span><span class="dv">1</span>]                    <span class="co"># "O"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><span style="font-size: 0.8em;">Loopable, and lookup works — but one fact per element, hidden in its <em>position</em></span></p>
+</div>
+<div class="fragment">
+<ol start="3" type="1">
+<li>a dictionary: keyed by what you actually know</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="" aria-hidden="true" tabindex="-1"></a>ptable <span class="op">=</span> {</span>
+<span id="cb29-2"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="st">"H"</span>:  {<span class="st">"Z"</span>: <span class="dv">1</span>, <span class="st">"mass"</span>: <span class="fl">1.008</span>, <span class="st">"name"</span>: <span class="st">"hydrogen"</span>},</span>
+<span id="cb29-3"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="st">"He"</span>: {<span class="st">"Z"</span>: <span class="dv">2</span>, <span class="st">"mass"</span>: <span class="fl">4.003</span>, <span class="st">"name"</span>: <span class="st">"helium"</span>},</span>
+<span id="cb29-4"><a href="" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb29-5"><a href="" aria-hidden="true" tabindex="-1"></a>ptable[<span class="st">"He"</span>][<span class="st">"mass"</span>]       <span class="co"># 4.003</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><span style="font-size: 0.8em;">Look things up by <em>meaning</em>, attach as many properties as you like</span></p>
+</div>
+</section>
+<section id="example-periodic-table-four-ways-1" class="slide level2">
+<h2>Example: Periodic Table, four ways</h2>
+<ol start="4" type="1">
+<li>A custom <code>class</code></li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Element:</span>
+<span id="cb30-2"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, symbol, Z, mass, name):</span>
+<span id="cb30-3"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.symbol <span class="op">=</span> symbol</span>
+<span id="cb30-4"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.Z <span class="op">=</span> Z</span>
+<span id="cb30-5"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.mass <span class="op">=</span> mass</span>
+<span id="cb30-6"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.name <span class="op">=</span> name</span>
+<span id="cb30-7"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-8"><a href="" aria-hidden="true" tabindex="-1"></a>ptable <span class="op">=</span> {</span>
+<span id="cb30-9"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="st">"H"</span>:  Element(<span class="st">"H"</span>, <span class="dv">1</span>, <span class="fl">1.008</span>, <span class="st">"hydrogen"</span>),</span>
+<span id="cb30-10"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="st">"He"</span>: Element(<span class="st">"He"</span>, <span class="dv">2</span>, <span class="fl">4.003</span>, <span class="st">"helium"</span>),</span>
+<span id="cb30-11"><a href="" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<aside class="notes">
+<ul>
+<li>The progression is the point: each structure answers a question the previous one couldn’t. Variables: fine for three constants, dead end for a dataset. List: order and iteration, but the “key” is an index you have to arithmetic on (the off-by-one is a real bug class). Dict: the key becomes the thing you actually know — the symbol.</li>
+<li>The nested dict is one <code>json.dump</code> away from a data file — two slides ahead.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="control-flow-in-python" class="slide level2 smaller">
+<h2>Control flow in Python</h2>
+<p>Loops (<code>for</code>, <code>while</code>), conditionals (<code>if</code>, <code>elif</code>, <code>else</code>) and functions build programs</p>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="" aria-hidden="true" tabindex="-1"></a>ptable <span class="op">=</span> {</span>
+<span id="cb31-2"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="st">"H"</span>: Element(<span class="st">"H"</span>, <span class="dv">1</span>, <span class="fl">1.008</span>, <span class="st">"hydrogen"</span>),</span>
+<span id="cb31-3"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="st">"He"</span>: Element(<span class="st">"He"</span>, <span class="dv">2</span>, <span class="fl">4.003</span>, <span class="st">"helium"</span>),</span>
+<span id="cb31-4"><a href="" aria-hidden="true" tabindex="-1"></a>    ...</span>
+<span id="cb31-5"><a href="" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb31-6"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-7"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> is_element(symbol):</span>
+<span id="cb31-8"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Is the symbol a known element?"""</span></span>
+<span id="cb31-9"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> symbol <span class="kw">in</span> ptable:</span>
+<span id="cb31-10"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">True</span></span>
+<span id="cb31-11"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="va">False</span></span>
+<span id="cb31-12"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-13"><a href="" aria-hidden="true" tabindex="-1"></a>is_element(<span class="st">"H"</span>)  <span class="co"># True</span></span>
+<span id="cb31-14"><a href="" aria-hidden="true" tabindex="-1"></a>is_element(<span class="st">"Xx"</span>) <span class="co"># False</span></span>
+<span id="cb31-15"><a href="" aria-hidden="true" tabindex="-1"></a>is_element(<span class="dv">8</span>) <span class="co"># False</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="control-flow-in-python-1" class="slide level2 smaller">
+<h2>Control flow in Python</h2>
+<p>Loops (<code>for</code>, <code>while</code>), conditionals (<code>if</code>, <code>elif</code>, <code>else</code>) and functions build programs</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="" aria-hidden="true" tabindex="-1"></a>ptable <span class="op">=</span> {</span>
+<span id="cb32-2"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="st">"H"</span>: Element(<span class="st">"H"</span>, <span class="dv">1</span>, <span class="fl">1.008</span>, <span class="st">"hydrogen"</span>),</span>
+<span id="cb32-3"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="st">"He"</span>: Element(<span class="st">"He"</span>, <span class="dv">2</span>, <span class="fl">4.003</span>, <span class="st">"helium"</span>),</span>
+<span id="cb32-4"><a href="" aria-hidden="true" tabindex="-1"></a>    ...</span>
+<span id="cb32-5"><a href="" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb32-6"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-7"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> is_element(symbol):</span>
+<span id="cb32-8"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Is the symbol a known element?"""</span></span>
+<span id="cb32-9"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> symbol <span class="kw">in</span> ptable</span>
+<span id="cb32-10"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-11"><a href="" aria-hidden="true" tabindex="-1"></a>is_element(<span class="st">"H"</span>)  <span class="co"># True</span></span>
+<span id="cb32-12"><a href="" aria-hidden="true" tabindex="-1"></a>is_element(<span class="st">"Xx"</span>) <span class="co"># False</span></span>
+<span id="cb32-13"><a href="" aria-hidden="true" tabindex="-1"></a>is_element(<span class="dv">8</span>) <span class="co"># False</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="control-flow-in-python-2" class="slide level2 smaller">
+<h2>Control flow in Python</h2>
+<p>Loops (<code>for</code>, <code>while</code>), conditionals (<code>if</code>, <code>elif</code>, <code>else</code>) and functions build programs</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="" aria-hidden="true" tabindex="-1"></a>ptable <span class="op">=</span> {</span>
+<span id="cb33-2"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="st">"H"</span>: Element(<span class="st">"H"</span>, <span class="dv">1</span>, <span class="fl">1.008</span>, <span class="st">"hydrogen"</span>),</span>
+<span id="cb33-3"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="st">"He"</span>: Element(<span class="st">"He"</span>, <span class="dv">2</span>, <span class="fl">4.003</span>, <span class="st">"helium"</span>),</span>
+<span id="cb33-4"><a href="" aria-hidden="true" tabindex="-1"></a>    ...</span>
+<span id="cb33-5"><a href="" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb33-6"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-7"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> is_lanthanide(symbol):</span>
+<span id="cb33-8"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Is the element a lanthanide?"""</span></span>
+<span id="cb33-9"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> symbol <span class="kw">in</span> ptable <span class="kw">and</span> <span class="dv">57</span> <span class="op">&lt;=</span> ptable[symbol].Z <span class="op">&lt;=</span> <span class="dv">71</span>:</span>
+<span id="cb33-10"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">True</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="control-flow-in-python-3" class="slide level2 smaller">
+<h2>Control flow in Python</h2>
+<p>Loops (<code>for</code>, <code>while</code>), conditionals (<code>if</code>, <code>elif</code>, <code>else</code>) and functions build programs</p>
+<div class="columns">
+<div class="column" style="width:55%;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="" aria-hidden="true" tabindex="-1"></a>ptable <span class="op">=</span> {</span>
+<span id="cb34-2"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="st">"H"</span>: Element(<span class="st">"H"</span>, <span class="dv">1</span>, <span class="fl">1.008</span>, <span class="st">"hydrogen"</span>),</span>
+<span id="cb34-3"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="st">"He"</span>: Element(<span class="st">"He"</span>, <span class="dv">2</span>, <span class="fl">4.003</span>, <span class="st">"helium"</span>),</span>
+<span id="cb34-4"><a href="" aria-hidden="true" tabindex="-1"></a>    ...</span>
+<span id="cb34-5"><a href="" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb34-6"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-7"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> is_lanthanide(symbol):</span>
+<span id="cb34-8"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Is the element a lanthanide?"""</span></span>
+<span id="cb34-9"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> symbol <span class="kw">in</span> ptable <span class="kw">and</span> <span class="dv">57</span> <span class="op">&lt;=</span> ptable[symbol].Z <span class="op">&lt;=</span> <span class="dv">71</span>:</span>
+<span id="cb34-10"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">True</span></span>
+<span id="cb34-11"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-12"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_lanthanides():</span>
+<span id="cb34-13"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return a list of all lanthanides"""</span></span>
+<span id="cb34-14"><a href="" aria-hidden="true" tabindex="-1"></a>    lanthanides <span class="op">=</span> []</span>
+<span id="cb34-15"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> symbol <span class="kw">in</span> ptable:</span>
+<span id="cb34-16"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> is_lanthanide(symbol):</span>
+<span id="cb34-17"><a href="" aria-hidden="true" tabindex="-1"></a>            lanthanides.append(ptable[symbol])</span>
+<span id="cb34-18"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-19"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> lanthanides</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:45%;">
+<ul>
+<li class="fragment">Indentation <em>is</em> the syntax — blocks are visual</li>
+<li class="fragment">Express logical combinations with operators <code>and</code>, <code>or</code>, <code>not</code></li>
+<li class="fragment">Conditionals are expressions that can be chained (<code>if</code>, <code>elif</code>, <code>else</code>)</li>
+<li class="fragment"><code>for</code> iterates over any container (lists, dicts, files, …)</li>
+</ul>
+</div></div>
+</section>
+<section id="control-flow-in-python-4" class="slide level2 smaller">
+<h2>Control flow in Python</h2>
+<p>Loops (<code>for</code>, <code>while</code>), conditionals (<code>if</code>, <code>elif</code>, <code>else</code>) and functions build programs</p>
+<div class="columns">
+<div class="column" style="width:55%;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="" aria-hidden="true" tabindex="-1"></a>ptable <span class="op">=</span> {</span>
+<span id="cb35-2"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="st">"H"</span>: Element(<span class="st">"H"</span>, <span class="dv">1</span>, <span class="fl">1.008</span>, <span class="st">"hydrogen"</span>),</span>
+<span id="cb35-3"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="st">"He"</span>: Element(<span class="st">"He"</span>, <span class="dv">2</span>, <span class="fl">4.003</span>, <span class="st">"helium"</span>),</span>
+<span id="cb35-4"><a href="" aria-hidden="true" tabindex="-1"></a>    ...</span>
+<span id="cb35-5"><a href="" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb35-6"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-7"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> is_lanthanide(symbol):</span>
+<span id="cb35-8"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Is the element a lanthanide?"""</span></span>
+<span id="cb35-9"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> symbol <span class="kw">in</span> ptable <span class="kw">and</span> <span class="dv">57</span> <span class="op">&lt;=</span> ptable[symbol].Z <span class="op">&lt;=</span> <span class="dv">71</span>:</span>
+<span id="cb35-10"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">True</span></span>
+<span id="cb35-11"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-12"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_lanthanides():</span>
+<span id="cb35-13"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Return a list of all lanthanides"""</span></span>
+<span id="cb35-14"><a href="" aria-hidden="true" tabindex="-1"></a>    lanthanides <span class="op">=</span> []</span>
+<span id="cb35-15"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> symbol <span class="kw">in</span> ptable:</span>
+<span id="cb35-16"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> is_lanthanide(symbol):</span>
+<span id="cb35-17"><a href="" aria-hidden="true" tabindex="-1"></a>            lanthanides.append(ptable[symbol])</span>
+<span id="cb35-18"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-19"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> lanthanides</span>
+<span id="cb35-20"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-21"><a href="" aria-hidden="true" tabindex="-1"></a>la_mass_sum <span class="op">=</span> <span class="bu">sum</span>(e.mass <span class="cf">for</span> e <span class="kw">in</span> get_lanthanides())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+</section>
+<section id="scientific-python" class="slide level2 smaller">
+<h2>Scientific Python</h2>
+<p>Nearly all of it stands on one shared abstraction: the <strong>NumPy array</strong>.</p>
+<ul>
+<li class="fragment"><strong>NumPy</strong> — the n-dimensional array: memory laid out like Fortran, driven from Python</li>
+<li class="fragment"><strong>SciPy</strong> — the numerical toolbox: integration, optimisation, linear algebra, statistics, signal processing</li>
+<li class="fragment"><strong>matplotlib</strong> — plotting (most of the figures in most of the papers you’ll read)</li>
+<li class="fragment"><strong>pandas</strong> — labelled tables (“dataframes”) for messy real-world data</li>
+<li class="fragment"><strong>Jupyter</strong> — notebooks: code, figures and narrative in one document</li>
+<li class="fragment"><strong>scikit-learn</strong> — classical machine learning; <strong>PyTorch</strong> / <strong>JAX</strong> at the deep-learning end</li>
+<li class="fragment">…and <em>domain layers</em> on top: <strong>astropy</strong> (astronomy), <strong>ASE</strong> / <strong>pymatgen</strong> (materials), <strong>RDKit</strong> (molecules), <strong>Biopython</strong>, <strong>MDAnalysis</strong>, …</li>
+</ul>
+<aside class="notes">
+<ul>
+<li>The shared array is what makes the stack composable: a pandas column, a scikit-learn input, and a matplotlib series are all NumPy arrays underneath — everything interoperates.</li>
+<li>All community-built, open source — the living ecosystem from a few slides ago, working in your favour.</li>
+<li>Advice: before writing your own file parser or fitting routine, check whether your field’s domain package already has it. It usually does.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="numpy-putting-the-speed-back" class="slide level2 smaller">
+<h2>NumPy: putting the speed back</h2>
+<p>Remember why arrays are fast — one contiguous block. NumPy brings that to Python:</p>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb36-2"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="" aria-hidden="true" tabindex="-1"></a>measurements <span class="op">=</span> [[<span class="fl">1.2</span>, <span class="fl">1.4</span>, <span class="fl">1.1</span>],     <span class="co"># a nested list of Python objects…</span></span>
+<span id="cb36-4"><a href="" aria-hidden="true" tabindex="-1"></a>                [<span class="fl">0.9</span>, <span class="fl">1.3</span>, <span class="fl">1.5</span>]]</span>
+<span id="cb36-5"><a href="" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> np.array(measurements)         <span class="co"># …becomes one contiguous block of float64</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="op">*</span> arr             <span class="co"># array([[2.4, 2.8, 2.2],</span></span>
+<span id="cb37-2"><a href="" aria-hidden="true" tabindex="-1"></a>                    <span class="co">#        [1.8, 2.6, 3. ]])</span></span>
+<span id="cb37-3"><a href="" aria-hidden="true" tabindex="-1"></a>arr.mean()          <span class="co"># 1.2333333333333332</span></span>
+<span id="cb37-4"><a href="" aria-hidden="true" tabindex="-1"></a>arr.<span class="bu">max</span>(axis<span class="op">=</span><span class="dv">1</span>)     <span class="co"># array([1.4, 1.5]) — the max of each row</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><span style="font-size: 0.8em;">One line of Python = one compiled loop over the whole block</span></p>
+</div>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="" aria-hidden="true" tabindex="-1"></a>arr[<span class="dv">0</span>]              <span class="co"># first row</span></span>
+<span id="cb38-2"><a href="" aria-hidden="true" tabindex="-1"></a>arr[:, <span class="dv">2</span>]           <span class="co"># third column: array([1.1, 1.5])</span></span>
+<span id="cb38-3"><a href="" aria-hidden="true" tabindex="-1"></a>arr[arr <span class="op">&gt;</span> <span class="fl">1.2</span>]      <span class="co"># by condition:  array([1.4, 1.3, 1.5])</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><span style="font-size: 0.8em;">Slicing and masking replace most of the loops you’d otherwise write</span></p>
+</div>
+<aside class="notes">
+<ul>
+<li>This cashes in the arrays/vectors slide: same contiguous memory as C/Fortran (it <em>is</em> C underneath), driven from Python. The wardrobe overhead is paid once per array, not once per number.</li>
+<li>The loop still happens — but in compiled code, over the whole block, with the types checked once. That’s the whole “why Python survives being slow” trick in one object.</li>
+<li>The mask <code>arr[arr &gt; 1.2]</code> is the same idea the NumPy Mandelbrot uses at scale (coming up).</li>
+<li>All outputs shown are real (numpy prints <code>3.</code> for 3.0 — floats, again).</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="optional-final-demo-mandelbrot" class="title-slide slide level1 center">
+<h1>Optional final demo: Mandelbrot</h1>
+
+</section>
+<section id="the-mandelbrot-set" class="slide level2 smaller">
+<h2>The <a href="https://en.wikipedia.org/wiki/Mandelbrot_set">Mandelbrot set</a></h2>
+<div class="columns">
+<div class="column" style="width: 55%;">
+<p>Iterate one very simple map:</p>
+<p><span class="math display">\[z_{n+1} = z_n^2 + c, \qquad z_0 = 0\]</span></p>
+<p>for a complex number <span class="math inline">\(c\)</span> — i.e.&nbsp;a point in the plane.</p>
+<ul>
+<li class="fragment">The set is every <span class="math inline">\(c\)</span> for which <span class="math inline">\(z_n\)</span> <strong>stays bounded</strong> forever</li>
+<li class="fragment">We can’t iterate forever, but there’s an escape test: once <span class="math inline">\(|z_n| &gt; 2\)</span>, the orbit is gone for good — so iterate each pixel’s <span class="math inline">\(c\)</span> up to <code>max_iter</code> times and colour it by <em>when</em> it escaped</li>
+<li class="fragment">The boundary is a <strong>fractal</strong>: infinitely detailed, new structure at every zoom</li>
+<li class="fragment">And it’s a perfect benchmark: millions of pixels × hundreds of iterations of pure arithmetic, nothing to hide behind</li>
+</ul>
+</div><div class="column" style="width: 45%; text-align: center;">
+<p><img data-src="images/mandelbrot_numpy.png" height="640"></p>
+</div></div>
+<aside class="notes">
+<ul>
+<li>Named for Benoît Mandelbrot, who first plotted it at IBM in 1980 — a computational discovery: nobody had <em>seen</em> it before computers, despite the underlying maths (Julia, Fatou) dating to ~1918.</li>
+<li>Why 2? If <span class="math inline">\(|z_n|\)</span> ever exceeds 2, the <span class="math inline">\(z^2\)</span> term dominates and the orbit provably diverges — that’s what makes a finite test correct, not a heuristic.</li>
+<li>Black pixels = never escaped within max_iter = (approximately) in the set; the colour bands are escape times.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="demo-mandelbrot" class="slide level2 smaller">
+<h2>Demo: Mandelbrot</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p>Pure Python:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> y <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb39-2"><a href="" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb39-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (x<span class="op">*</span>x <span class="op">+</span> y<span class="op">*</span>y <span class="op">&lt;</span> <span class="fl">4.0</span></span>
+<span id="cb39-4"><a href="" aria-hidden="true" tabindex="-1"></a>       <span class="kw">and</span> n <span class="op">&lt;</span> max_iter):</span>
+<span id="cb39-5"><a href="" aria-hidden="true" tabindex="-1"></a>    x, y <span class="op">=</span> (x<span class="op">*</span>x <span class="op">-</span> y<span class="op">*</span>y <span class="op">+</span> cx,</span>
+<span id="cb39-6"><a href="" aria-hidden="true" tabindex="-1"></a>            <span class="fl">2.0</span><span class="op">*</span>x<span class="op">*</span>y <span class="op">+</span> cy)</span>
+<span id="cb39-7"><a href="" aria-hidden="true" tabindex="-1"></a>    n <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb39-8"><a href="" aria-hidden="true" tabindex="-1"></a>out[j][i] <span class="op">=</span> n</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:40%;">
+<p>NumPy (whole grid at once):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(max_iter):</span>
+<span id="cb40-2"><a href="" aria-hidden="true" tabindex="-1"></a>    z[mask] <span class="op">=</span> z[mask]<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> c[mask]</span>
+<span id="cb40-3"><a href="" aria-hidden="true" tabindex="-1"></a>    escaped <span class="op">=</span> mask <span class="op">&amp;</span> (np.<span class="bu">abs</span>(z) <span class="op">&gt;</span> <span class="dv">2</span>)</span>
+<span id="cb40-4"><a href="" aria-hidden="true" tabindex="-1"></a>    out[escaped] <span class="op">=</span> n</span>
+<span id="cb40-5"><a href="" aria-hidden="true" tabindex="-1"></a>    mask <span class="op">&amp;=</span> <span class="op">~</span>escaped</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:30%;">
+<p>Fortran (via <code>f2py</code>):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41"><pre class="sourceCode fortran code-with-copy"><code class="sourceCode fortranfixed"><span id="cb41-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">do</span> <span class="kw">while</span> (x<span class="kw">*</span>x <span class="kw">+</span> y<span class="kw">*</span>y <span class="op">&lt;</span> <span class="fl">4.0d0</span> <span class="kw">&amp;</span></span>
+<span id="cb41-2"><a href="" aria-hidden="true" tabindex="-1"></a>          <span class="op">.and.</span> n <span class="op">&lt;</span> max_iter)</span>
+<span id="cb41-3"><a href="" aria-hidden="true" tabindex="-1"></a>    xt <span class="kw">=</span> x<span class="kw">*</span>x <span class="kw">-</span> y<span class="kw">*</span>y <span class="kw">+</span> cx</span>
+<span id="cb41-4"><a href="" aria-hidden="true" tabindex="-1"></a>    y  <span class="kw">=</span> <span class="fl">2.0d0</span><span class="kw">*</span>x<span class="kw">*</span>y <span class="kw">+</span> cy</span>
+<span id="cb41-5"><a href="" aria-hidden="true" tabindex="-1"></a>    x  <span class="kw">=</span> xt</span>
+<span id="cb41-6"><a href="" aria-hidden="true" tabindex="-1"></a>    n  <span class="kw">=</span> n <span class="kw">+</span> <span class="dv">1</span></span>
+<span id="cb41-7"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">end do</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+<div class="columns">
+<div class="column fragment" style="width: 60%;">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th>Pure Python</th>
+<th>NumPy</th>
+<th>Numba</th>
+<th>Fortran</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1024², 100 iterations</td>
+<td>1.69 s</td>
+<td>0.3 s</td>
+<td>0.02 s</td>
+<td>0.01 s</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+<aside class="notes">
+<ul>
+<li>Same algorithm, same answer, ~4 orders of magnitude apart.</li>
+<li>Run live: <code>make</code> (or <code>make ITER=500</code>) in examples/mandelbrot — it builds the f2py extension and times all three back to back.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="wrap-up" class="title-slide slide level1 center">
+<h1>Wrap-up</h1>
+
+</section>
+<section id="recap" class="slide level2">
+<h2>Recap</h2>
+<ul>
+<li class="fragment">A century of hardware, one enduring idea: the <strong>stored program</strong>, fetch–decode–execute — everything else is miniaturisation</li>
+<li class="fragment">Languages are <strong>abstractions</strong> over that machine: compiled ones (C, Fortran) stay close to it; Python trades machine time for <em>your</em> time</li>
+<li class="fragment">Types are rules for reading bits — and every abstraction <strong>leaks</strong> (overflow, <code>0.1 + 0.2</code>, “why is this slow?”)</li>
+<li class="fragment">Python hides the machinery in objects and dicts; when you need speed, <strong>offload</strong> to the compiled layer (NumPy) — or fix the <em>algorithm</em> first</li>
+</ul>
+</section>
+<section id="not-covered" class="slide level2 smaller">
+<h2>Not covered</h2>
+<ul>
+<li><strong>Randomness</strong>: pseudo-random numbers, seeds, and why your “random” results should be reproducible</li>
+<li><strong>Recursion</strong>: functions that call themselves</li>
+<li><strong>Classes</strong> and object-oriented design — you’ll meet them the moment you use a library</li>
+<li><strong>Parallelism</strong>: threads, processes, MPI, GPUs</li>
+<li><strong>Exceptions</strong> and error handling</li>
+<li><strong>Algorithmic complexity</strong>, properly (big-O beyond today’s hand-waving)</li>
+<li>Text encodings, regular expressions, databases, the network…</li>
+</ul>
+<aside class="notes">
+<ul>
+<li>The point of this slide: students leave knowing these <em>exist</em> and are learnable, rather than discovering them mid-crisis.</li>
+<li>Randomness and reproducibility is a good candidate to pull forward into a practical (seeding numpy, why “it worked yesterday”).</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="software-is-a-living-ecosystem" class="slide level2">
+<h2>Software is a living ecosystem</h2>
+<ul>
+<li class="fragment">Everything you’ve seen today <em>changes</em>: languages, libraries, hardware — software grows organically around historical biases (x86’s baggage, Fortran’s arrays, Python’s dicts)</li>
+<li class="fragment">You are part of the ecosystem: the code you write and the tools you choose feed back into it</li>
+<li class="fragment">So the same code will <strong>not</strong> always work, everywhere, forever — unless you fence it in: pinned dependencies, recorded environments, containerisation</li>
+</ul>
+</section>
+<section id="next-time-programming-in-practice" class="slide level2">
+<h2>Next time: programming in practice</h2>
+<ul>
+<li class="fragment">Practical software development: <strong>git</strong>, <strong>GitHub</strong>, and collaborating on code</li>
+<li class="fragment">Research software engineering: best practices — and the anti-patterns they replace</li>
+<li class="fragment">Environments and packaging (uv), testing, documentation</li>
+<li class="fragment">Some thoughts on <strong>AI code generation</strong> and agents: what changes, what doesn’t</li>
+</ul>
+</section>
+<section id="further-reading" class="slide level2">
+<h2>Further reading</h2>
+<ul>
+<li>Accelerate course (Cambridge): <a href="https://science.ai.cam.ac.uk/resources/python-programming-for-science" class="uri">https://science.ai.cam.ac.uk/resources/python-programming-for-science</a></li>
+<li>Part II Computational Physics (Cambridge): <a href="https://computational-physics.tripos.org/" class="uri">https://computational-physics.tripos.org/</a></li>
+<li>CS50 Introduction to Computer Science and CS50P Python (Harvard): <a href="https://cs50.harvard.edu/python/" class="uri">https://cs50.harvard.edu/python/</a></li>
+<li>Official Python tutorial (not for beginners): <a href="https://docs.python.org/3/tutorial/" class="uri">https://docs.python.org/3/tutorial/</a></li>
+<li>From Python to NumPy: <a href="https://www.labri.fr/perso/nrougier/from-python-to-numpy/" class="uri">https://www.labri.fr/perso/nrougier/from-python-to-numpy/</a></li>
+</ul>
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+<p>Research Computing with Python</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="lecture-1_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="lecture-1_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="lecture-1_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="lecture-1_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="lecture-1_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="lecture-1_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="lecture-1_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="lecture-1_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="lecture-1_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="lecture-1_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1920,
+
+        height: 1080,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
