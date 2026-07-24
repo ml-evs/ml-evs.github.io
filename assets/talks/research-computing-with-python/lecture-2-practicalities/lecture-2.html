@@ -1,0 +1,1668 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="lecture-2_files/libs/clipboard/clipboard.min.js"></script>
+<script src="lecture-2_files/libs/quarto-html/tabby.min.js"></script>
+<script src="lecture-2_files/libs/quarto-html/popper.min.js"></script>
+<script src="lecture-2_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="lecture-2_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="lecture-2_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="lecture-2_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.38">
+
+  <meta name="dcterms.date" content="2026-07-24">
+  <title>Research Computing in Python</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="lecture-2_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="lecture-2_files/libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="lecture-2_files/libs/revealjs/dist/theme/quarto-5779311d96b1fedd657e3f17b9529cac.css">
+  <link href="lecture-2_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="lecture-2_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="lecture-2_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="lecture-2_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Research Computing in Python</h1>
+  <p class="subtitle">#2 Practicalities — best practices for research software</p>
+
+<div class="quarto-title-authors">
+</div>
+
+  <p class="date">2026-07-24</p>
+</section>
+<section id="this-course" class="slide level2">
+<h2>This course</h2>
+<ul>
+<li>A biased take on what you need to get started using computers in research</li>
+<li>Not a computer science course, not exhaustive</li>
+<li>A mixture of high-level concepts, empirical truths and practical advice</li>
+<li>Not a real Python course, either - you can’t learn a language by reading the dictionary</li>
+</ul>
+</section>
+<section id="recap" class="slide level2">
+<h2>Recap</h2>
+<ul>
+<li class="fragment">A century of hardware, one enduring idea: the <strong>stored program</strong>, fetch–decode–execute — everything else is miniaturisation</li>
+<li class="fragment">Languages are <strong>abstractions</strong> over that machine: compiled ones (C, Fortran) stay close to it; Python trades machine time for <em>your</em> time</li>
+<li class="fragment">Types are rules for reading bits — and every abstraction <strong>leaks</strong> (overflow, <code>0.1 + 0.2</code>, “why is this slow?”)</li>
+<li class="fragment">Python hides the machinery in objects and dicts; when you need speed, <strong>offload</strong> to the compiled layer (NumPy) — or fix the <em>algorithm</em> first</li>
+</ul>
+</section>
+<section id="software-is-a-living-ecosystem" class="slide level2">
+<h2>Software is a living ecosystem</h2>
+<ul>
+<li class="fragment">Everything you’ve seen today <em>changes</em>: languages, libraries, hardware — software grows organically around historical biases (x86’s baggage, Fortran’s arrays, Python’s dicts)</li>
+<li class="fragment">You are part of the ecosystem: the code you write and the tools you choose feed back into it</li>
+<li class="fragment">So the same code will <strong>not</strong> always work, everywhere, forever — unless you fence it in: pinned dependencies, recorded environments, containerisation</li>
+</ul>
+</section>
+<section id="this-lecture-research-programming-in-practice" class="slide level2">
+<h2>This lecture: research programming in practice</h2>
+<ul>
+<li class="fragment">The Scientific Python stack</li>
+<li class="fragment">Structuring your code: functions, modules, packages</li>
+<li class="fragment">Environments and packaging, using <strong>uv</strong></li>
+<li class="fragment">Editors, terminals, and other tools of the trade</li>
+<li class="fragment">Version control with <strong>git</strong> and <strong>GitHub</strong></li>
+<li class="fragment">Testing your code, and why it matters</li>
+<li class="fragment">Research software engineering, as a discipline</li>
+<li class="fragment">If we have time: <strong>AI code generation</strong> and agents: what changes, what doesn’t</li>
+</ul>
+</section>
+<section>
+<section id="numpy-and-mandelbrot" class="title-slide slide level1 center">
+<h1>NumPy and Mandelbrot</h1>
+
+</section>
+<section id="scientific-python" class="slide level2 smaller">
+<h2>Scientific Python</h2>
+<p>Nearly all of it stands on one shared abstraction: the <strong>NumPy array</strong>.</p>
+<ul>
+<li class="fragment"><strong>NumPy</strong> — the n-dimensional array: memory laid out like Fortran, driven from Python</li>
+<li class="fragment"><strong>SciPy</strong> — the numerical toolbox: integration, optimisation, linear algebra, statistics, signal processing</li>
+<li class="fragment"><strong>matplotlib</strong> — plotting (most of the figures in most of the papers you’ll read)</li>
+<li class="fragment"><strong>pandas</strong> — labelled tables (“dataframes”) for messy real-world data</li>
+<li class="fragment"><strong>Jupyter</strong> — notebooks: code, figures and narrative in one document</li>
+<li class="fragment"><strong>scikit-learn</strong> — classical machine learning; <strong>PyTorch</strong> / <strong>JAX</strong> at the deep-learning end</li>
+<li class="fragment">…and <em>domain layers</em> on top: <strong>astropy</strong> (astronomy), <strong>ASE</strong> / <strong>pymatgen</strong> (materials), <strong>RDKit</strong> (molecules), <strong>Biopython</strong>, <strong>MDAnalysis</strong>, …</li>
+</ul>
+<aside class="notes">
+<ul>
+<li>The shared array is what makes the stack composable: a pandas column, a scikit-learn input, and a matplotlib series are all NumPy arrays underneath — everything interoperates.</li>
+<li>All community-built, open source — the living ecosystem from a few slides ago, working in your favour.</li>
+<li>Advice: before writing your own file parser or fitting routine, check whether your field’s domain package already has it. It usually does.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="numpy-putting-the-speed-back" class="slide level2 smaller">
+<h2>NumPy: putting the speed back</h2>
+<p>Remember why arrays are fast — one contiguous block. NumPy brings that to Python:</p>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="" aria-hidden="true" tabindex="-1"></a>measurements <span class="op">=</span> [[<span class="fl">1.2</span>, <span class="fl">1.4</span>, <span class="fl">1.1</span>],     <span class="co"># a nested list of Python objects…</span></span>
+<span id="cb1-4"><a href="" aria-hidden="true" tabindex="-1"></a>                [<span class="fl">0.9</span>, <span class="fl">1.3</span>, <span class="fl">1.5</span>]]</span>
+<span id="cb1-5"><a href="" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> np.array(measurements)         <span class="co"># …becomes one contiguous block of float64</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="op">*</span> arr             <span class="co"># array([[2.4, 2.8, 2.2],</span></span>
+<span id="cb2-2"><a href="" aria-hidden="true" tabindex="-1"></a>                    <span class="co">#        [1.8, 2.6, 3. ]])</span></span>
+<span id="cb2-3"><a href="" aria-hidden="true" tabindex="-1"></a>arr.mean()          <span class="co"># 1.2333333333333332</span></span>
+<span id="cb2-4"><a href="" aria-hidden="true" tabindex="-1"></a>arr.<span class="bu">max</span>(axis<span class="op">=</span><span class="dv">1</span>)     <span class="co"># array([1.4, 1.5]) — the max of each row</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><span style="font-size: 0.8em;">One line of Python = one compiled loop over the whole block</span></p>
+</div>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="" aria-hidden="true" tabindex="-1"></a>arr[<span class="dv">0</span>]              <span class="co"># first row</span></span>
+<span id="cb3-2"><a href="" aria-hidden="true" tabindex="-1"></a>arr[:, <span class="dv">2</span>]           <span class="co"># third column: array([1.1, 1.5])</span></span>
+<span id="cb3-3"><a href="" aria-hidden="true" tabindex="-1"></a>arr[arr <span class="op">&gt;</span> <span class="fl">1.2</span>]      <span class="co"># by condition:  array([1.4, 1.3, 1.5])</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><span style="font-size: 0.8em;">Slicing and masking replace most of the loops you’d otherwise write</span></p>
+</div>
+<aside class="notes">
+<ul>
+<li>This cashes in the arrays/vectors slide: same contiguous memory as C/Fortran (it <em>is</em> C underneath), driven from Python. The wardrobe overhead is paid once per array, not once per number.</li>
+<li>The loop still happens — but in compiled code, over the whole block, with the types checked once. That’s the whole “why Python survives being slow” trick in one object.</li>
+<li>The mask <code>arr[arr &gt; 1.2]</code> is the same idea the NumPy Mandelbrot uses at scale (coming up).</li>
+<li>All outputs shown are real (numpy prints <code>3.</code> for 3.0 — floats, again).</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="the-mandelbrot-set" class="slide level2 smaller">
+<h2>The <a href="https://en.wikipedia.org/wiki/Mandelbrot_set">Mandelbrot set</a></h2>
+<div class="columns">
+<div class="column" style="width: 55%;">
+<p>Iterate one very simple map:</p>
+<p><span class="math display">\[z_{n+1} = z_n^2 + c, \qquad z_0 = 0\]</span></p>
+<p>for a complex number <span class="math inline">\(c\)</span> — i.e.&nbsp;a point in the plane.</p>
+<ul>
+<li class="fragment">The set is every <span class="math inline">\(c\)</span> for which <span class="math inline">\(z_n\)</span> <strong>stays bounded</strong> forever</li>
+<li class="fragment">We can’t iterate forever, but there’s an escape test: once <span class="math inline">\(|z_n| &gt; 2\)</span>, the orbit is gone for good — so iterate each pixel’s <span class="math inline">\(c\)</span> up to <code>max_iter</code> times and colour it by <em>when</em> it escaped</li>
+<li class="fragment">The boundary is a <strong>fractal</strong>: infinitely detailed, new structure at every zoom</li>
+<li class="fragment">And it’s a perfect benchmark: millions of pixels × hundreds of iterations of pure arithmetic, nothing to hide behind</li>
+</ul>
+</div><div class="column" style="width: 45%; text-align: center;">
+<p><img data-src="images/mandelbrot_numpy.png" height="640"></p>
+</div></div>
+<aside class="notes">
+<ul>
+<li>Named for Benoît Mandelbrot, who first plotted it at IBM in 1980 — a computational discovery: nobody had <em>seen</em> it before computers, despite the underlying maths (Julia, Fatou) dating to ~1918.</li>
+<li>Why 2? If <span class="math inline">\(|z_n|\)</span> ever exceeds 2, the <span class="math inline">\(z^2\)</span> term dominates and the orbit provably diverges — that’s what makes a finite test correct, not a heuristic.</li>
+<li>Black pixels = never escaped within max_iter = (approximately) in the set; the colour bands are escape times.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="structuring-your-code" class="title-slide slide level1 center">
+<h1>Structuring your code</h1>
+
+</section>
+<section id="functions-modules-packages" class="slide level2 smaller">
+<h2>Functions, modules, packages</h2>
+<p>As a project grows, one script stops being enough. Python gives you a few levels of structure, each one built out of the last.</p>
+<ul>
+<li class="fragment">A <strong>function</strong> groups a few lines of code under one name, so you can reuse it and so it can have a name that explains what it does (e.g., <code>scipy.stats.linregress</code>)</li>
+<li class="fragment">A <strong>module</strong> is a single <code>.py</code> file of related functions and classes, which can be imported with <code>import my_module</code> (e.g., <code>scipy.stats</code>)</li>
+<li class="fragment">A <strong>package</strong> is a folder of modules that can be imported as a single unit, even though it contains many files (e.g., <code>scipy</code>)</li>
+</ul>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># analysis.py, a module</span></span>
+<span id="cb4-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse_xrd(<span class="bu">file</span>): ...</span>
+<span id="cb4-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_experiment(data, sample_name, expt_number, output_dir): ...</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># elsewhere, in a different file</span></span>
+<span id="cb5-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> analysis</span>
+<span id="cb5-3"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> analysis.parse_xrd(<span class="st">"sample4.dat"</span>)</span>
+<span id="cb5-5"><a href="" aria-hidden="true" tabindex="-1"></a>analysis.plot_experiment(data, <span class="st">"sample4"</span>, <span class="dv">7</span>, <span class="st">"figures"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<aside class="notes">
+<ul>
+<li>A package needs an <code>__init__.py</code> file in the folder to mark it as importable (this requirement is being relaxed in modern Python, but it is still the safe, portable choice).</li>
+<li><code>import</code> searches, in order, the current directory, then any installed packages. This is exactly the mechanism <code>uv</code> and <code>pip</code> hook into when they “install” a package: they just put its files somewhere Python already looks.</li>
+<li>This is precisely what anti-pattern #1 leads to: <code>parse_nmr</code>, <code>parse_xrd</code>, <code>plot_experiment</code>, <code>plot_experiments</code>, and <code>export_json</code> are exactly the right shape to live together in one module, <code>analysis.py</code>, imported by as many scripts as you like.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="libraries-vs-applications-vs-scripts-vs-frameworks" class="slide level2 smaller">
+<h2>Libraries vs applications vs scripts vs frameworks</h2>
+<p>Four words for four different shapes of software. Knowing which one you are looking at (or writing) tells you what to expect from it.</p>
+<ul>
+<li class="fragment">A <strong>script</strong> is a short, linear program, meant to be run from start to finish, like <code>plot_experiment.py</code> from earlier. It is not usually imported by other code</li>
+<li class="fragment">A <strong>library</strong> (or package) is code written to be imported and reused. NumPy and Matplotlib are libraries: you never “run” NumPy, you import it</li>
+<li class="fragment">An <strong>application</strong> is a complete, user-facing program built for a particular purpose, often assembled out of several libraries</li>
+<li class="fragment">A <strong>framework</strong> is a library that calls <em>your</em> code, rather than the other way around. You write code that fits into its structure, and it takes charge of the overall flow</li>
+</ul>
+<aside class="notes">
+<ul>
+<li>Examples of frameworks: pytest itself, which is coming up next, discovers and calls your test functions rather than being called by them; web frameworks like Django or Flask; training frameworks like PyTorch Lightning.</li>
+<li>Today’s course mostly writes scripts and small libraries. Recognising the other two matters the day you inherit someone else’s codebase and need to work out how it is meant to be used.</li>
+<li>A script can grow an entry point (<code>console_scripts</code> in <code>pyproject.toml</code>) and become a small installable application, e.g.&nbsp;a <code>plot-experiment</code> command available anywhere on the machine. Worth mentioning if there is time, otherwise skip.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="common-anti-pattern-1-hard-coded-everything" class="slide level2 smaller">
+<h2>Common anti-pattern #1: hard-coded everything</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb6-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb6-3"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="" aria-hidden="true" tabindex="-1"></a>expt_number <span class="op">=</span> <span class="dv">7</span></span>
+<span id="cb6-5"><a href="" aria-hidden="true" tabindex="-1"></a><span class="bu">file</span> <span class="op">=</span> <span class="st">"data/experiments/sample4.csv"</span></span>
+<span id="cb6-6"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="" aria-hidden="true" tabindex="-1"></a>data_file <span class="op">=</span> []</span>
+<span id="cb6-8"><a href="" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="bu">file</span>, <span class="st">"r"</span>) <span class="im">as</span> f:</span>
+<span id="cb6-9"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> line <span class="kw">in</span> f.readlines():</span>
+<span id="cb6-10"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (</span>
+<span id="cb6-11"><a href="" aria-hidden="true" tabindex="-1"></a>            line.startswith(<span class="st">"nmr-sample4"</span>) </span>
+<span id="cb6-12"><a href="" aria-hidden="true" tabindex="-1"></a>            <span class="kw">and</span> line.split(<span class="st">","</span>)[<span class="op">-</span><span class="dv">1</span>] <span class="op">==</span> expt_number</span>
+<span id="cb6-13"><a href="" aria-hidden="true" tabindex="-1"></a>        ):</span>
+<span id="cb6-14"><a href="" aria-hidden="true" tabindex="-1"></a>            data_file.append(<span class="st">","</span>.join(line.split(<span class="st">","</span>)[<span class="dv">1</span>:]))</span>
+<span id="cb6-15"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">"output.txt"</span>, <span class="st">"w"</span>) <span class="im">as</span> f:</span>
+<span id="cb6-17"><a href="" aria-hidden="true" tabindex="-1"></a>    f.writelines(data_file)</span>
+<span id="cb6-18"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-19"><a href="" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> np.loadtxt(</span>
+<span id="cb6-20"><a href="" aria-hidden="true" tabindex="-1"></a>    data_file, delimiter<span class="op">=</span><span class="st">","</span>, skiprows<span class="op">=</span><span class="dv">1</span>, comments<span class="op">=</span><span class="st">"%"</span></span>
+<span id="cb6-21"><a href="" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-22"><a href="" aria-hidden="true" tabindex="-1"></a>plt.scatter(data[:, <span class="dv">0</span>], data[:, <span class="dv">1</span>])</span>
+<span id="cb6-23"><a href="" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Sample 4"</span>)</span>
+<span id="cb6-24"><a href="" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">"/home/mevans/figures/sample4_expt7.png"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:40%;">
+<div class="fragment">
+<p>Paths, sample names, and “constants” that should be arguments, all baked into the script.</p>
+</div>
+<div class="fragment">
+<p>What happens with sample 5?</p>
+</div>
+</div></div>
+<aside class="notes">
+<ul>
+<li>The bug: <code>line.split(",")[-1] == expt_number</code> compares a string (the last CSV field, newline and all) to the int <code>expt_number</code>. That is always <code>False</code>, so <code>data_file</code> stays empty, and <code>np.loadtxt</code> warns “input contained no data” before the plot line crashes outright.</li>
+<li>The fix is <code>int(line.split(",")[-1]) == expt_number</code>, <code>int()</code> also strips the trailing newline for free. Worth fixing live rather than just stating it.</li>
+<li>Everything else here is real, working NumPy: <code>np.loadtxt</code> happily accepts a list of lines (not just a filename), which is what the filter step is exploiting.</li>
+<li>Ask the room: what happens the day you need to plot sample 5? Or experiment 8? Right now that means editing the script.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="the-fix-wrap-it-in-a-function" class="slide level2 smaller">
+<h2>The fix: wrap it in a function</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_experiment(</span>
+<span id="cb7-2"><a href="" aria-hidden="true" tabindex="-1"></a>    data_dir, sample_name, expt_number, output_dir</span>
+<span id="cb7-3"><a href="" aria-hidden="true" tabindex="-1"></a>):</span>
+<span id="cb7-4"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Scatter-plot one experiment's full spectrum </span></span>
+<span id="cb7-5"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">    from a sample's CSV.</span></span>
+<span id="cb7-6"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb7-7"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="bu">file</span> <span class="op">=</span> data_dir <span class="op">/</span> <span class="ss">f"</span><span class="sc">{</span>sample_name<span class="sc">}</span><span class="ss">.csv"</span></span>
+<span id="cb7-8"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="" aria-hidden="true" tabindex="-1"></a>    data_file <span class="op">=</span> []</span>
+<span id="cb7-10"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(<span class="bu">file</span>) <span class="im">as</span> f:</span>
+<span id="cb7-11"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> line <span class="kw">in</span> f:</span>
+<span id="cb7-12"><a href="" aria-hidden="true" tabindex="-1"></a>            tag, <span class="op">*</span>values <span class="op">=</span> line.strip().split(<span class="st">","</span>)</span>
+<span id="cb7-13"><a href="" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> (tag <span class="op">==</span> <span class="ss">f"nmr-</span><span class="sc">{</span>sample_name<span class="sc">}</span><span class="ss">"</span> </span>
+<span id="cb7-14"><a href="" aria-hidden="true" tabindex="-1"></a>                <span class="kw">and</span> <span class="bu">int</span>(values[<span class="op">-</span><span class="dv">1</span>]) <span class="op">==</span> expt_number):</span>
+<span id="cb7-15"><a href="" aria-hidden="true" tabindex="-1"></a>                data_file.append(<span class="st">","</span>.join(values[:<span class="op">-</span><span class="dv">1</span>]))</span>
+<span id="cb7-16"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> np.loadtxt(</span>
+<span id="cb7-18"><a href="" aria-hidden="true" tabindex="-1"></a>        data_file, delimiter<span class="op">=</span><span class="st">","</span>, skiprows<span class="op">=</span><span class="dv">1</span>, comments<span class="op">=</span><span class="st">"%"</span></span>
+<span id="cb7-19"><a href="" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb7-20"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-21"><a href="" aria-hidden="true" tabindex="-1"></a>    plt.scatter(data[:, <span class="dv">0</span>], data[:, <span class="dv">1</span>])</span>
+<span id="cb7-22"><a href="" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="ss">f"</span><span class="sc">{</span>sample_name<span class="sc">}</span><span class="ss">, experiment </span><span class="sc">{</span>expt_number<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb7-23"><a href="" aria-hidden="true" tabindex="-1"></a>    plt.savefig(output_dir <span class="op">/</span> <span class="ss">f"</span><span class="sc">{</span>sample_name<span class="sc">}</span><span class="ss">_expt</span><span class="sc">{</span>expt_number<span class="sc">}</span><span class="ss">.png"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:40%;">
+<ul>
+<li class="fragment">Every hard-coded value became a <strong>parameter</strong>, the function works for any sample, any experiment, any directory</li>
+<li class="fragment">But where do we call it? A script?</li>
+</ul>
+</div></div>
+</section>
+<section id="then-a-command-line-script" class="slide level2 smaller">
+<h2>…then a command-line script</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb8-2"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> argparse</span>
+<span id="cb8-3"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb8-4"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="" aria-hidden="true" tabindex="-1"></a>    parser <span class="op">=</span> argparse.ArgumentParser()</span>
+<span id="cb8-6"><a href="" aria-hidden="true" tabindex="-1"></a>    parser.add_argument(<span class="st">"sample_name"</span>)</span>
+<span id="cb8-7"><a href="" aria-hidden="true" tabindex="-1"></a>    parser.add_argument(<span class="st">"expt_number"</span>, <span class="bu">type</span><span class="op">=</span><span class="bu">int</span>)</span>
+<span id="cb8-8"><a href="" aria-hidden="true" tabindex="-1"></a>    parser.add_argument(<span class="st">"--data-dir"</span>, </span>
+<span id="cb8-9"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="bu">type</span><span class="op">=</span>Path, default<span class="op">=</span>Path(<span class="st">"data/experiments"</span>))</span>
+<span id="cb8-10"><a href="" aria-hidden="true" tabindex="-1"></a>    parser.add_argument(<span class="st">"--output-dir"</span>, </span>
+<span id="cb8-11"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="bu">type</span><span class="op">=</span>Path, default<span class="op">=</span>Path(<span class="st">"figures"</span>))</span>
+<span id="cb8-12"><a href="" aria-hidden="true" tabindex="-1"></a>    args <span class="op">=</span> parser.parse_args()</span>
+<span id="cb8-13"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-14"><a href="" aria-hidden="true" tabindex="-1"></a>    plot_experiment(args.data_dir, args.sample_name, args.expt_number, args.output_dir)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> plot_experiment.py sample4 7 <span class="at">--output-dir</span> figures/</span>
+<span id="cb9-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> plot_experiment.py sample5 3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column" style="width:40%;">
+<ul>
+<li class="fragment">The same function, now driven by whoever’s typing, not whoever’s editing</li>
+<li class="fragment">Next step, when this function is useful to more than one script: package it up</li>
+</ul>
+</div></div>
+</section>
+<section id="anti-pattern-2-all-in-one-functions" class="slide level2 smaller">
+<h2>Anti-pattern #2: all-in-one functions</h2>
+<p>The “good” function from before, but the lab now runs two instruments, and the second one’s output looks nothing like the first:</p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_experiment(data_dir, sample_name, expt_number, output_dir):</span>
+<span id="cb10-2"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Scatter-plot one experiment's full spectrum from a sample's CSV."""</span></span>
+<span id="cb10-3"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="bu">file</span> <span class="op">=</span> data_dir <span class="op">/</span> <span class="ss">f"</span><span class="sc">{</span>sample_name<span class="sc">}</span><span class="ss">.csv"</span></span>
+<span id="cb10-4"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="" aria-hidden="true" tabindex="-1"></a>    data_file <span class="op">=</span> []</span>
+<span id="cb10-6"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(<span class="bu">file</span>) <span class="im">as</span> f:</span>
+<span id="cb10-7"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> line <span class="kw">in</span> f:</span>
+<span id="cb10-8"><a href="" aria-hidden="true" tabindex="-1"></a>            tag, <span class="op">*</span>values <span class="op">=</span> line.strip().split(<span class="st">","</span>)</span>
+<span id="cb10-9"><a href="" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> tag <span class="op">==</span> <span class="ss">f"nmr-</span><span class="sc">{</span>sample_name<span class="sc">}</span><span class="ss">"</span> <span class="kw">and</span> <span class="bu">int</span>(values[<span class="op">-</span><span class="dv">1</span>]) <span class="op">==</span> expt_number:</span>
+<span id="cb10-10"><a href="" aria-hidden="true" tabindex="-1"></a>                data_file.append(<span class="st">","</span>.join(values[:<span class="op">-</span><span class="dv">1</span>]))</span>
+<span id="cb10-11"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> np.loadtxt(data_file, delimiter<span class="op">=</span><span class="st">","</span>, skiprows<span class="op">=</span><span class="dv">1</span>, comments<span class="op">=</span><span class="st">"%"</span>)</span>
+<span id="cb10-13"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-14"><a href="" aria-hidden="true" tabindex="-1"></a>    plt.scatter(data[:, <span class="dv">0</span>], data[:, <span class="dv">1</span>])</span>
+<span id="cb10-15"><a href="" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="ss">f"</span><span class="sc">{</span>sample_name<span class="sc">}</span><span class="ss">, experiment </span><span class="sc">{</span>expt_number<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb10-16"><a href="" aria-hidden="true" tabindex="-1"></a>    plt.savefig(output_dir <span class="op">/</span> <span class="ss">f"</span><span class="sc">{</span>sample_name<span class="sc">}</span><span class="ss">_expt</span><span class="sc">{</span>expt_number<span class="sc">}</span><span class="ss">.png"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:40%;">
+<ul>
+<li class="fragment">The NMR-specific bits (the <code>nmr-</code> tag, the CSV filtering) are now welded into a function whose <em>name</em> promises nothing instrument-specific</li>
+<li class="fragment">Supporting the second instrument means an <code>if fmt == ...:</code> branch inside, and a third means another, and a fourth</li>
+<li class="fragment">Worse: to test the parsing, you now also have to test the plotting. One function, three jobs: read a format, extract data, draw a figure</li>
+</ul>
+</div></div>
+<aside class="notes">
+<ul>
+<li>This is the same shape as anti-pattern #1 but one level up: last time we extracted <em>parameters</em>; the bug this time is extracting the wrong <em>boundary</em>. Parametrising isn’t enough if the thing you parametrised is still one function doing three unrelated jobs.</li>
+<li>Ask the room: what would the diff look like to add a third file format here? (Answer: it touches the one function everything else depends on.)</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="the-fix-one-function-per-job" class="slide level2 smaller">
+<h2>The fix: one function per job</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse_nmr(<span class="bu">file</span>, sample_name):</span>
+<span id="cb11-2"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Parse every NMR row for one sample, all experiments together."""</span></span>
+<span id="cb11-3"><a href="" aria-hidden="true" tabindex="-1"></a>    data_file <span class="op">=</span> []</span>
+<span id="cb11-4"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(<span class="bu">file</span>) <span class="im">as</span> f:</span>
+<span id="cb11-5"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> line <span class="kw">in</span> f:</span>
+<span id="cb11-6"><a href="" aria-hidden="true" tabindex="-1"></a>            tag, <span class="op">*</span>values <span class="op">=</span> line.strip().split(<span class="st">","</span>)</span>
+<span id="cb11-7"><a href="" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> tag <span class="op">==</span> <span class="ss">f"nmr-</span><span class="sc">{</span>sample_name<span class="sc">}</span><span class="ss">"</span>:</span>
+<span id="cb11-8"><a href="" aria-hidden="true" tabindex="-1"></a>                data_file.append(<span class="st">","</span>.join(values))</span>
+<span id="cb11-9"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.loadtxt(data_file, delimiter<span class="op">=</span><span class="st">","</span>, skiprows<span class="op">=</span><span class="dv">1</span>, comments<span class="op">=</span><span class="st">"%"</span>)</span>
+<span id="cb11-10"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse_xrd(<span class="bu">file</span>):</span>
+<span id="cb11-12"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Parse the XRD instrument's whitespace-delimited export."""</span></span>
+<span id="cb11-13"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.loadtxt(<span class="bu">file</span>, skiprows<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb11-14"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-15"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> parse(<span class="bu">file</span>, sample_name, fmt):</span>
+<span id="cb11-16"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Parse one experiment file, whatever instrument it came from."""</span></span>
+<span id="cb11-17"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> fmt <span class="op">==</span> <span class="st">"nmr"</span>:</span>
+<span id="cb11-18"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> parse_nmr(<span class="bu">file</span>, sample_name)</span>
+<span id="cb11-19"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> fmt <span class="op">==</span> <span class="st">"xrd"</span>:</span>
+<span id="cb11-20"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> parse_xrd(<span class="bu">file</span>)</span>
+<span id="cb11-21"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb11-22"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="ss">f"unknown format </span><span class="sc">{</span>fmt<span class="sc">!r}</span><span class="ss">"</span>)</span>
+<span id="cb11-23"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-24"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_experiment(data, sample_name, expt_number, output_dir):</span>
+<span id="cb11-25"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Scatter-plot one experiment's spectrum, picked out of parsed data."""</span></span>
+<span id="cb11-26"><a href="" aria-hidden="true" tabindex="-1"></a>    spectrum <span class="op">=</span> data[data[:, <span class="op">-</span><span class="dv">1</span>] <span class="op">==</span> expt_number]</span>
+<span id="cb11-27"><a href="" aria-hidden="true" tabindex="-1"></a>    plt.scatter(spectrum[:, <span class="dv">0</span>], spectrum[:, <span class="dv">1</span>])</span>
+<span id="cb11-28"><a href="" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="ss">f"</span><span class="sc">{</span>sample_name<span class="sc">}</span><span class="ss">, experiment </span><span class="sc">{</span>expt_number<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb11-29"><a href="" aria-hidden="true" tabindex="-1"></a>    plt.savefig(output_dir <span class="op">/</span> <span class="ss">f"</span><span class="sc">{</span>sample_name<span class="sc">}</span><span class="ss">_expt</span><span class="sc">{</span>expt_number<span class="sc">}</span><span class="ss">.png"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column" style="width:40%;">
+<ul>
+<li class="fragment"><strong>Parsing</strong> and <strong>plotting</strong> are now separate functions, each does one job, and each can be tested on its own</li>
+<li class="fragment">A new instrument means writing one new <code>parse_*</code> function and adding one <code>elif</code>, nothing else changes</li>
+<li class="fragment"><code>plot_experiment</code> picks its own rows out with a <strong>mask</strong>, the same <code>arr[arr &gt; 1.2]</code> trick from the NumPy slide, <code>data[:, -1]</code> is the <code>expt_number</code> column, kept alongside <code>x</code> and <code>y</code></li>
+</ul>
+</div></div>
+<aside class="notes">
+<ul>
+<li>The mask in <code>plot_experiment</code> assumes an <code>expt_number</code> column, true for <code>sample4.csv</code>/<code>sample4.nmr</code>, not true for <code>sample4.xrd</code>, which is a single, already-one-experiment file with no such column. Fine to gloss over live, or a good “what would you change here” question for the room.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="and-now-for-free-plot-many-experiments" class="slide level2 smaller">
+<h2>…and now, for free: plot many experiments</h2>
+<p>Because parsing happens once and plotting is separate, looping is trivial, and the file is only read once, not once per experiment:</p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_experiments(data_dir, sample_name, expt_numbers, fmt, output_dir):</span>
+<span id="cb12-2"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Plot several experiments from the same sample in one go."""</span></span>
+<span id="cb12-3"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="bu">file</span> <span class="op">=</span> data_dir <span class="op">/</span> <span class="ss">f"</span><span class="sc">{</span>sample_name<span class="sc">}</span><span class="ss">.</span><span class="sc">{</span>fmt<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb12-4"><a href="" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> parse(<span class="bu">file</span>, sample_name, fmt)</span>
+<span id="cb12-5"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> expt_number <span class="kw">in</span> expt_numbers:</span>
+<span id="cb12-7"><a href="" aria-hidden="true" tabindex="-1"></a>        plot_experiment(data, sample_name, expt_number, output_dir)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="" aria-hidden="true" tabindex="-1"></a>plot_experiments(<span class="st">"data/experiments"</span>, <span class="st">"sample4"</span>, [<span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">12</span>], <span class="st">"nmr"</span>, <span class="st">"figures"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> compare_samples(data_dir, sample_names, expt_number, fmt, output_dir):</span>
+<span id="cb14-2"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Overlay one experiment from several different samples on one plot."""</span></span>
+<span id="cb14-3"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> sample_name <span class="kw">in</span> sample_names:</span>
+<span id="cb14-4"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="bu">file</span> <span class="op">=</span> data_dir <span class="op">/</span> <span class="ss">f"</span><span class="sc">{</span>sample_name<span class="sc">}</span><span class="ss">.</span><span class="sc">{</span>fmt<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb14-5"><a href="" aria-hidden="true" tabindex="-1"></a>        data <span class="op">=</span> parse(<span class="bu">file</span>, sample_name, fmt)</span>
+<span id="cb14-6"><a href="" aria-hidden="true" tabindex="-1"></a>        spectrum <span class="op">=</span> data[data[:, <span class="op">-</span><span class="dv">1</span>] <span class="op">==</span> expt_number]</span>
+<span id="cb14-7"><a href="" aria-hidden="true" tabindex="-1"></a>        plt.scatter(spectrum[:, <span class="dv">0</span>], spectrum[:, <span class="dv">1</span>], label<span class="op">=</span>sample_name)</span>
+<span id="cb14-8"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="" aria-hidden="true" tabindex="-1"></a>    plt.legend()</span>
+<span id="cb14-10"><a href="" aria-hidden="true" tabindex="-1"></a>    plt.savefig(output_dir <span class="op">/</span> <span class="ss">f"comparison_expt</span><span class="sc">{</span>expt_number<span class="sc">}</span><span class="ss">.png"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column" style="width:40%;">
+<ul>
+<li class="fragment"><code>plot_experiments</code> didn’t exist before, and cost almost nothing to write, it’s just a loop over a function we already had and trusted</li>
+<li class="fragment">That’s the real payoff of splitting responsibilities: not tidiness for its own sake, but <em>new</em> capability from recombining small pieces</li>
+<li class="fragment"><code>compare_samples</code> loops over <strong>files</strong>, not experiment numbers, and adds each one to the <em>same</em> plot instead of saving a new figure every time. <code>plot_experiment</code> doesn’t fit here, it saves and closes a figure per call, so this is a genuinely new, small function, built directly on <code>parse()</code> again</li>
+</ul>
+</div></div>
+</section>
+<section id="or-export-to-something-generic" class="slide level2 smaller">
+<h2>…or export to something generic</h2>
+<p><code>plot_experiment</code> isn’t the only thing that can consume parsed <code>data</code>. Remember JSON, from last time?</p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb15-2"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> export_json(data, sample_name, expt_number, output_dir):</span>
+<span id="cb15-4"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Save one experiment's spectrum as JSON, for any tool to read."""</span></span>
+<span id="cb15-5"><a href="" aria-hidden="true" tabindex="-1"></a>    spectrum <span class="op">=</span> data[data[:, <span class="op">-</span><span class="dv">1</span>] <span class="op">==</span> expt_number]</span>
+<span id="cb15-6"><a href="" aria-hidden="true" tabindex="-1"></a>    record <span class="op">=</span> {</span>
+<span id="cb15-7"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="st">"sample"</span>: sample_name,</span>
+<span id="cb15-8"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="st">"experiment"</span>: expt_number,</span>
+<span id="cb15-9"><a href="" aria-hidden="true" tabindex="-1"></a>        <span class="st">"xy"</span>: spectrum[:, :<span class="dv">2</span>].tolist(),   <span class="co"># ndarray isn't JSON-serialisable</span></span>
+<span id="cb15-10"><a href="" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb15-11"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> <span class="bu">open</span>(output_dir <span class="op">/</span> <span class="ss">f"</span><span class="sc">{</span>sample_name<span class="sc">}</span><span class="ss">_expt</span><span class="sc">{</span>expt_number<span class="sc">}</span><span class="ss">.json"</span>, <span class="st">"w"</span>) <span class="im">as</span> f:</span>
+<span id="cb15-12"><a href="" aria-hidden="true" tabindex="-1"></a>        json.dump(record, f)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="fragment">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> parse(<span class="st">"data/experiments/sample4.nmr"</span>, <span class="st">"sample4"</span>, <span class="st">"nmr"</span>)</span>
+<span id="cb16-2"><a href="" aria-hidden="true" tabindex="-1"></a>export_json(data, <span class="st">"sample4"</span>, <span class="dv">7</span>, <span class="st">"results"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column" style="width:40%;">
+<ul>
+<li class="fragment">Same <code>parse()</code>, same <code>data</code>, a completely different destination. A PNG is for you; JSON is for a colleague’s script, a website, a database</li>
+<li class="fragment"><code>.tolist()</code> matters: <code>json.dump</code> doesn’t know what a NumPy array is, convert to plain Python first, at the boundary</li>
+<li class="fragment">This is only possible because parsing was split from plotting in the first place</li>
+</ul>
+</div></div>
+</section>
+<section id="interfaces-e.g.-winamp" class="slide level2">
+<h2>Interfaces, e.g., Winamp</h2>
+<div class="r-stack">
+<p><img data-src="images/winamp2.png" height="800"></p>
+<p><img data-src="images/winamp-museum.png" class="fragment" height="800"></p>
+</div>
+<div class="fragment" style="text-align: center; font-size: 0.5em; opacity: 0.7;">
+<p><a href="https://skins.webamp.org/">Winamp Skin Museum</a></p>
+</div>
+<aside class="notes">
+<ul>
+<li>In the late 1990s, one of the most popular pieces of software in the world was a small music player called Winamp. Its underlying job never changed: read an audio file, decode it, and play the sound. Its appearance was another matter entirely.</li>
+<li>Anyone could write a “skin”, a set of images and layout files, and change how the player looked, without touching a single line of the code that actually played the music. The second image is a fraction of the <a href="https://skins.webamp.org/">Winamp Skin Museum</a>’s archive, every one of them the same player underneath.</li>
+<li>Good line to say out loud: “It really whips the llama’s ass” was Winamp’s own launch tagline, an early example of software with real personality in its interface, not just its engine.</li>
+<li>The interface and the engine were always two separate things, and could be designed, changed, or swapped out, independently of each other. That is the whole point of this slide.</li>
+<li>After the second image: switch to the live website (skins.webamp.org) and show a few skins running for real.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="what-is-a-computer-interface" class="slide level2 smaller">
+<h2>What is a computer interface?</h2>
+<p>An interface is the surface where two different things meet, a person, or another program, and your code.</p>
+<ul>
+<li class="fragment">A <strong>function</strong> is the interface between one piece of code and another: its arguments and return value are the whole contract</li>
+<li class="fragment">A <strong>command-line interface (CLI)</strong> is the interface between a person, or a script, and a program run from a terminal, like <code>plot_experiment.py</code> from earlier today</li>
+<li class="fragment">A <strong>library</strong> or <strong>package</strong> is the interface between your code and anyone else’s code that wants to reuse it, once it can be installed and imported</li>
+<li class="fragment">A <strong>web API</strong> is the interface between programs running on entirely different computers, talking over the network, usually by exchanging JSON, exactly like the file exported a few slides ago</li>
+<li class="fragment">A <strong>graphical user interface (GUI)</strong>, like Winamp’s window, or a website, is the interface between a person and a program, with no command to type</li>
+</ul>
+<aside class="notes">
+<ul>
+<li>Point back explicitly at earlier examples: today already built three different interfaces onto the same underlying <code>parse()</code> and <code>plot_experiment()</code> functions, a function call, a CLI script, and a JSON export. That is this entire slide, already demonstrated live before it was named.</li>
+<li>The right interface depends entirely on who, or what, needs to use the code. A script only you will ever run needs none of this ceremony. A tool a whole lab depends on for years probably needs several of these at once.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="case-study-datalabs-interfaces" class="slide level2 smaller">
+<h2>Case study: datalab’s interfaces</h2>
+<p>datalab, mentioned on the very first slide of this course, is one underlying platform with several different interfaces built on top.</p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="fragment">
+<p>A plain web request, the interface for any program at all:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> https://datalab.odbx.science/samples</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb18-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ot">[</span></span>
+<span id="cb18-2"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span><span class="dt">"refcode"</span><span class="fu">:</span> <span class="st">"grey_0001"</span><span class="fu">,</span> <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"samples"</span><span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb18-3"><a href="" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span><span class="dt">"refcode"</span><span class="fu">:</span> <span class="st">"grey_0002"</span><span class="fu">,</span> <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"samples"</span><span class="fu">}</span></span>
+<span id="cb18-4"><a href="" aria-hidden="true" tabindex="-1"></a><span class="ot">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<p>The same thing, wrapped for Python:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datalab_api <span class="im">import</span> DatalabClient</span>
+<span id="cb19-2"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> DatalabClient(<span class="st">"https://datalab.odbx.science"</span>) <span class="im">as</span> client:</span>
+<span id="cb19-4"><a href="" aria-hidden="true" tabindex="-1"></a>    samples <span class="op">=</span> client.get_items()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column" style="width:55%;">
+<div class="fragment">
+<p>The web interface, for a person:</p>
+<p><img data-src="images/datalab-table.png" style="width:100.0%"></p>
+</div>
+</div></div>
+<ul>
+<li class="fragment">The <strong>core logic</strong> and the <strong>web API</strong> are both tested with <code>pytest</code>: ordinary unit tests for the logic itself, and tests that send real requests to the API and check what comes back</li>
+<li class="fragment">The <strong>web interface</strong> is tested with <a href="https://cloud.cypress.io/projects/4kqx5i/runs">Cypress</a>, which drives a real browser automatically, clicking buttons and filling in forms the way a person would, and records a video of every run</li>
+<li class="fragment">Different interfaces, tested in different ways, but all built on the same handful of ideas from this lecture: write the test, run it automatically, trust the result</li>
+</ul>
+<div class="fragment" style="font-size: 0.8em;">
+<p>Live: a recent Cypress run, played from the cloud dashboard.</p>
+</div>
+<aside class="notes">
+<ul>
+<li>The general shape is the point, regardless of exact tool names: an interface left untested is exactly where problems reach real users first, since it is the one thing everybody actually touches.</li>
+<li>Swap in a real, current sample response for the JSON example before presenting; only the refcode is guaranteed to exist on any given instance, everything else varies group to group.</li>
+<li>Cypress link goes straight to the project’s run history; pick a recent, clean run before presenting so the video is ready to play without searching for one live.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="developer-environments" class="title-slide slide level1 center">
+<h1>Developer environments</h1>
+
+</section>
+<section id="editor-and-terminal" class="slide level2 smaller">
+<h2>Editor and terminal</h2>
+<ul>
+<li class="fragment">A good editor adds autocompletion, inline documentation, error checking, a debugger, and version control, all while you type, catching many mistakes before you even run the code</li>
+<li class="fragment">VS Code <a href="https://code.visualstudio.com" class="uri">https://code.visualstudio.com</a> is a popular, free choice with excellent Python support through extensions (unfortunately developed by Microsoft)</li>
+<li class="fragment">Extensions are third-party code with real access to your files: install only official ones for the language you are using (for Python, Microsoft’s own “Python” and “Pylance”), and treat unsolicited “recommended extension” prompts with real scepticism, not automatic trust</li>
+<li class="fragment">Learn to be comfortable in a terminal and shell too, bash or zsh: most of today’s tools, <code>uv</code>, <code>git</code>, <code>pytest</code>, are run from the command line, and it is often the fastest way to work</li>
+<li class="fragment">Jupyter notebooks are excellent for exploring data, but ordinary <code>.py</code> files in a proper editor are usually better for anything meant to be kept, reused, or shared. Worth saying if there is time.</li>
+</ul>
+<div class="fragment" style="font-size: 0.8em;">
+<p>Live in this lecture: a short click-through tour of VS Code, and a look at its built-in debugger.</p>
+</div>
+<aside class="notes">
+<ul>
+<li>Real incidents exist of malicious or typo-squatted VS Code extensions harvesting credentials or injecting code. “Official” here means published by the language’s own maintainers or a widely recognised organisation, Microsoft for Python and Pylance, the Rust team for rust-analyzer, and so on, not simply whatever has the most downloads or whatever the editor itself suggests unprompted.</li>
+<li>Demo shape: open a Python file, show autocompletion and inline docs, introduce a small deliberate bug, set a breakpoint, and step through it live with the debugger to find it.</li>
+<li>Other useful extensions worth naming: GitLens, and Remote-SSH, which is particularly valuable for working directly on an HPC cluster or lab machine.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="a-hammer-first-and-foremost" class="slide level2 smaller">
+<h2>A hammer, first and foremost</h2>
+<p>A code editor should, before anything else, be an excellent plain text editor. Everything else it offers is only worth having on top of that foundation, not instead of it.</p>
+<div class="columns">
+<div class="column" style="width: 40%; text-align: center;">
+<p><img data-src="images/electric-hammer.png" height="220"></p>
+</div><div class="column fragment" style="width: 60%; text-align: center;">
+<p><img data-src="images/electric-hammer.gif" height="220"></p>
+</div></div>
+<div class="fragment" style="text-align: center; margin-top: 1em;">
+<p><img data-src="images/the-homer-car.jpg" height="260"></p>
+<p><span style="font-size: 0.6em;"><a href="https://en.wikipedia.org/wiki/Oh_Brother,_Where_Art_Thou%3F_(The_Simpsons)">“The Homer”</a></span></p>
+</div>
+<aside class="notes">
+<ul>
+<li>The hammer is “The Wizard of Evergreen Terrace” (season 10), in which Homer, inspired by Thomas Edison, invents an electric hammer among other over-engineered gadgets. It works, but it is far more machine than the job needed.</li>
+<li>“The Homer” is from “Oh Brother, Where Art Thou?” (season 2): Homer’s long-lost half-brother, a car executive, asks him to design his ideal car with no budget or constraint. The result has three horns, a bubble dome, giant cupholders, and bankrupts the company: every feature anyone could want, and a car nobody actually wants to drive.</li>
+<li>The analogy: a plain hammer, used well, drives a nail perfectly. An editor loaded with every extension going, none of them learned properly, is the electric hammer, or worse, “The Homer”: more likely to fail at the one job that actually matters than a simple tool used with skill.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="virtual-environments" class="slide level2 smaller">
+<h2>Virtual environments</h2>
+<p>Your computer probably already has a Python installed, maybe several. Installing every package you ever need into that one, shared Python is how projects end up fighting each other.</p>
+<ul>
+<li class="fragment">Different projects need different, sometimes incompatible, versions of the same library: one needs NumPy 1.x, another needs NumPy 2.x</li>
+<li class="fragment">Installing everything into one global Python turns your computer into a fragile, one-of-a-kind setup that is hard for anyone else, including you in six months, to reproduce</li>
+<li class="fragment">A <strong>virtual environment</strong> is a self-contained copy of Python and its installed packages, kept in its own folder, one per project</li>
+<li class="fragment">Treat environments as <strong>cattle, not pets</strong>: if one breaks, delete it and rebuild it from a written record of what it needs, rather than nursing it back to health</li>
+</ul>
+</section>
+<section id="common-pitfalls-without-a-virtual-environment" class="slide level2 smaller">
+<h2>Common pitfalls without a virtual environment</h2>
+<ul>
+<li class="fragment"><strong>“It works on my machine”:</strong> your script quietly depends on a package version that happens to be installed on your laptop, and fails for someone else, or for you on a different computer</li>
+<li class="fragment">Installing a new project’s dependencies can silently upgrade or downgrade a package that an older project relies on, breaking code that used to work “dependency hell”</li>
+<li class="fragment">Libraries usually specify fairly precisely which versions of their own dependencies they need, but older tools did not always check this properly against what was already installed, and could leave a genuinely broken combination in place without so much as a warning</li>
+<li class="fragment">Installing packages without a virtual environment can need administrator permissions, or install into the wrong Python entirely, which is a particular hazard on shared machines like a university cluster</li>
+<li class="fragment">With no written record of what is installed, nobody, not even you in a year, can say exactly what a script needs to run</li>
+</ul>
+<aside class="notes">
+<ul>
+<li>This is “dependency hell”: two packages your project needs each depend on a third package, but on different, incompatible versions of it.</li>
+<li><code>pip</code>, before version 20.3 in 2020, had no real dependency resolver: it installed packages one at a time, and if two packages needed conflicting versions of a third, whichever was installed last simply won, silently. Modern pip and <code>uv</code> both solve the whole dependency graph together before installing anything, and will refuse outright rather than produce a broken environment.</li>
+<li>Mixing <code>pip</code> and <code>conda</code> installs in the same environment is still a classic way to reintroduce this exact problem, since neither tool tracks what the other has already done.</li>
+<li>On managed or shared machines (HPC login nodes are the classic case), you often cannot install into the system Python at all, which is precisely the situation a per-project virtual environment sidesteps.</li>
+<li><code>which python</code> and <code>pip list</code> are the two commands to reach for when diagnosing “which Python am I even using, and what is installed in it.”</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="the-saviour-uv" class="slide level2 smaller">
+<h2>The saviour: <code>uv</code></h2>
+<p><code>uv</code> is a single, fast tool that replaces most of the separate tools that used to be needed to manage a Python project: <code>pip</code>, <code>conda</code>, <code>venv</code>, <code>virtualenv</code>, <code>pip-tools</code>, and <code>pyenv</code>, among others.</p>
+<ul>
+<li class="fragment"><code>uv init my-project</code> creates a new project, with its own isolated environment and its own list of dependencies</li>
+<li class="fragment"><code>uv add numpy</code> adds a dependency, installs it into the project’s environment, and records the exact version installed</li>
+<li class="fragment"><code>uv run script.py</code> always runs your code inside the correct, up-to-date environment, with no separate “activation” step to remember</li>
+<li class="fragment"><strong><code>uv.lock</code></strong> is a complete, exact record of every installed package and its version, so the environment can be recreated identically on another machine, or in a year’s time</li>
+<li class="fragment">You can then reinstall exactly the same environment with <code>uv sync</code>.</li>
+</ul>
+<aside class="notes">
+<ul>
+<li><code>uv</code> also manages Python versions themselves (replacing <code>pyenv</code>): <code>uv python install 3.12</code> fetches an interpreter, no system package manager required.</li>
+<li>The example code from the first lecture already used this: the PEP 723 header at the top of each <code>mandelbrot_*.py</code> file lists its dependencies inline, so <code>uv run mandelbrot_numpy.py</code> builds the right environment on the fly, with no separate install step. Worth pointing back at.</li>
+<li><code>uv tool install ruff</code> (or <code>pytest</code>, or anything else) installs a command-line tool globally, in its own isolated environment, without polluting any project’s dependencies.</li>
+<li><code>uv.lock</code> should be committed to version control; the <code>pyproject.toml</code> it is generated from states <em>what</em> you depend on, the lock file states <em>exactly which versions</em> were resolved, down to the last patch release.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="testing" class="title-slide slide level1 center">
+<h1>Testing</h1>
+
+</section>
+<section id="why-test-your-code" class="slide level2 smaller">
+<h2>Why test your code?</h2>
+<p>Writing tests can feel like it slows you down, since it is extra code that produces no new results by itself. In practice, it saves time overall, because it catches mistakes early, while they are still cheap to fix.</p>
+<ul>
+<li class="fragment">A bug caught the moment you introduce it costs a minute to fix. The same bug, caught after it has quietly shaped three months of results, costs far more</li>
+<li class="fragment">Tests are a safety net: they let you restructure code, like splitting one function into several, with confidence that nothing has broken</li>
+<li class="fragment">Once there is enough code, you stop understanding it by reading every line, and start understanding it by how it behaves. Tests are the systematic version of that: a description of the behaviour you expect</li>
+<li class="fragment">Tests are also documentation: they show which functions are the important entry points and workflows, and exactly how each one is meant to be used, more reliably than a comment that can quietly drift out of date</li>
+<li class="fragment">Testing and documentation matter most for collaboration, especially collaboration with your past self, who will not remember why a piece of code was written the way it was</li>
+</ul>
+</section>
+<section id="testing-in-python-pytest" class="slide level2 smaller">
+<h2>Testing in Python: <code>pytest</code></h2>
+<p><code>pytest</code> is the standard tool for writing and running tests in Python. A test is a function whose name starts with <code>test_</code>, that checks something is true using a plain <code>assert</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="co"># test_analysis.py</span></span>
+<span id="cb20-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> analysis <span class="im">import</span> parse_xrd</span>
+<span id="cb20-3"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_parse_xrd_shape():</span>
+<span id="cb20-5"><a href="" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> parse_xrd(<span class="st">"tests/data/example.dat"</span>)</span>
+<span id="cb20-6"><a href="" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> data.shape[<span class="dv">1</span>] <span class="op">==</span> <span class="dv">2</span>   <span class="co"># every row should be an (x, y) pair</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li class="fragment">Put tests in files named <code>test_*.py</code>, with functions named <code>test_*</code>. <code>pytest</code> finds and runs them automatically, no registration needed</li>
+<li class="fragment">Run the whole test suite with one command: <code>uv run pytest</code></li>
+<li class="fragment">A failing test prints exactly which <code>assert</code> failed, and the values involved, so you can see straight away what went wrong</li>
+</ul>
+<aside class="notes">
+<ul>
+<li>Notice that every function written in today’s earlier demo, <code>parse_nmr</code>, <code>parse_xrd</code>, <code>plot_experiment</code>, already had a clear one-line docstring. If you cannot write that one line, it is often a sign the function is doing too much, exactly the anti-pattern from earlier.</li>
+<li>Beyond a plain <code>assert</code>, pytest supports fixtures (reusable setup code) and parametrised tests (running the same test body over many inputs). Worth a mention, not a deep dive today.</li>
+<li>GitHub Actions, or similar continuous integration, can run <code>uv run pytest</code> automatically on every push and every pull request, so a broken change is caught before it is merged, not after.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="what-makes-a-good-test" class="slide level2 smaller">
+<h2>What makes a good test?</h2>
+<ul>
+<li class="fragment"><strong>It exists</strong> Even a trivial test that just imports the code and runs it once catches the vast majority of problems someone else will actually hit: a broken install, a missing dependency, a typo that stops everything before it starts</li>
+<li class="fragment"><strong>Real examples come next.</strong> Test against actual data, or a small, realistic version of it, not numbers invented purely because they were convenient to type</li>
+<li class="fragment"><strong>Real numbers matter too.</strong> Pin down a known, checked value, and assert the code still produces it, so a change that quietly shifts a result gets caught the moment it happens, not months later in a paper</li>
+<li class="fragment"><strong>Combinations of arguments and testing functions together</strong> Test the edge cases and unusual inputs together, not just the one case the function happened to be written for</li>
+</ul>
+<aside class="notes">
+<ul>
+<li>Existence-only example: <code>def test_import(): import analysis</code> looks trivial, but it is exactly the test that catches “it works on my machine” the moment someone else tries to run the code.</li>
+<li>Real examples: test <code>parse_xrd</code> against an actual, small file saved in the repository, <code>tests/data/example.dat</code>, not a hand-typed string that merely looks plausible.</li>
+<li>Real numbers: something like <code>assert abs(mean([1.0, 2.0, 3.0]) - 2.0) &lt; 1e-9</code>, a genuinely checked answer, not just “the function returned something.”</li>
+<li>Combinations: an empty list, a single value, negative numbers, a huge array. <code>@pytest.mark.parametrize</code> runs the same test body over many inputs without repeating code, worth a one-line mention if there is time.</li>
+<li>The four levels build on each other, and coverage beats elegance early on: a hundred simple existence-and-example tests are worth more than three perfectly designed ones.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="collaboration-version-control-and-github" class="title-slide slide level1 center">
+<h1>Collaboration, version control, and GitHub</h1>
+
+</section>
+<section id="version-control" class="slide level2 smaller">
+<h2>Version control</h2>
+<p>Version control is a system for recording the history of changes to a set of files over time.</p>
+<ul>
+<li class="fragment">Every change is saved as a snapshot, with a short message explaining what changed and why, building a complete history of a project</li>
+<li class="fragment">You can return to any earlier point, see exactly what changed and when, and work out why something broke</li>
+<li class="fragment">Several people can edit the same files without overwriting each other’s work</li>
+<li class="fragment"><strong>git</strong> is by far the most widely used version control system, in research and in industry, and is worth learning properly</li>
+</ul>
+<div class="fragment" style="font-size: 0.8em;">
+<p>For a proper hands-on treatment, see the dedicated <a href="https://github.com/ml-evs/git-tutorial">git-tutorial</a>.</p>
+</div>
+</section>
+<section id="git-and-github" class="slide level2 smaller">
+<h2>git and GitHub</h2>
+<p>git tracks history on your own computer. GitHub, and similar sites like GitLab, host a copy online, so it can be shared, backed up, and collaborated on.</p>
+<ul>
+<li class="fragment"><strong>Commit:</strong> a saved snapshot of the project, with a message describing the change</li>
+<li class="fragment"><strong>Branch:</strong> an independent line of development, so you can try something new without touching the working version</li>
+<li class="fragment"><strong>Clone:</strong> download a full copy of a project, including its entire history, from GitHub to your own computer</li>
+<li class="fragment"><strong>Fork:</strong> your own copy of someone else’s GitHub project, which you can change freely, most often used to propose changes to a project you don’t have direct write access to</li>
+<li class="fragment"><strong>Pull request:</strong> a request to merge your changes into someone else’s project, or another branch, with a chance for discussion and review before anything is merged</li>
+<li class="fragment"><strong>Merge:</strong> combining the changes from one branch, or pull request, into another</li>
+</ul>
+<aside class="notes">
+<ul>
+<li>If time allows, a live demo of opening a small pull request against the course repository itself is the single most useful thing to show here: branch, commit, push, open the PR on GitHub, and merge it.</li>
+<li>Worth naming explicitly: a pull request is also where code review happens, which is one of the most effective ways to catch mistakes and spread knowledge around a group, and is a core RSE practice, coming up next.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="github-story-navani" class="slide level2 smaller">
+<h2>GitHub story: <code>navani</code></h2>
+<p><code>navani</code> started, like a lot of research software does, as a set of scripts Ben Smith wrote during his PhD to process battery cycler data.</p>
+<ul>
+<li class="fragment">Other people in the group hit the same problem, reading awkward, instrument-specific file formats, so the scripts were tidied into a proper package, with the same parse-then-do-something shape as today’s demo</li>
+<li class="fragment">It was published on <a href="https://pypi.org/project/navani/">PyPI</a>, so installing it became one line, <code>uv add navani</code>, instead of emailing someone for a script</li>
+<li class="fragment">Once it was public, people outside the group started using it, and started filing issues on <a href="https://github.com/be-smith/navani">GitHub</a> asking for new instrument formats to be supported</li>
+<li class="fragment">New formats have since been added by contributors well beyond the original group, each one arriving with an issue describing the format, and tests to prove it parses correctly</li>
+</ul>
+<div class="fragment">
+<p>We also have a <a href="https://github.com/the-grey-group">Grey Group GitHub</a>!</p>
+</div>
+<aside class="notes">
+<ul>
+<li>Checked facts, worth reconfirming before presenting since the project moves: <code>navani</code> is on PyPI, MIT licensed, maintained by Ben Smith, and reads formats from several cycler vendors including BioLogic, Arbin, and Neware.</li>
+<li>Continuous integration (CI), one line only: it is what runs the test suite automatically on every pull request, on GitHub’s own servers, so a new format’s tests are checked before anything is merged, not after.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="research-software-engineering-rse" class="slide level2 smaller">
+<h2>Research software engineering (RSE)</h2>
+<p>Put together, everything in this lecture, structuring code, managing environments, version control, and testing, is what the growing field of <strong>research software engineering</strong> is about.</p>
+<ul>
+<li class="fragment">RSE is the practice of applying professional software engineering skills to research code, and is now a recognised career path, with its own community, conferences, and job title: a Research Software Engineer</li>
+<li class="fragment">The goal is not software for its own sake: it is making research faster, more robust, and more reproducible, so results can be trusted and built upon</li>
+<li class="fragment">Good RSE practice <strong>removes duplication of effort</strong>: instead of every student in a group writing their own slightly different parser for the same instrument, there is one, tested, shared version</li>
+<li class="fragment">It is a <strong>process, not an end goal</strong>: environments get updated, tests get added, code gets refactored, continuously, alongside the science itself</li>
+</ul>
+<aside class="notes">
+<ul>
+<li>The UK has an active RSE community (the Society of Research Software Engineering) with regular conferences and a Slack workspace; most large universities now have a dedicated RSE group.</li>
+<li>Personal example, if useful to mention: datalab, referenced on the opening slide of lecture one, exists precisely because this kind of shared, tested, reusable tooling saves a research group from everyone reinventing the same data management scripts.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="rse-community" class="slide level2">
+<h2>RSE community</h2>
+<ul>
+<li><p>You can join the UK’s RSE society <a href="https://society-rse.org/" class="uri">https://society-rse.org/</a> who host events, training and job boards</p></li>
+<li><p>You could even join the RS-Triple-E <a href="https://east-england.society-rse.org/" class="uri">https://east-england.society-rse.org/</a>), the East of England RSE group, who meet monthly in Cambridge and online (spoilers: I run this)</p></li>
+<li><p>Supposedly there are careers doing this work specifically in academia, with 40 groups in the UK</p></li>
+</ul>
+</section></section>
+<section>
+<section id="wrap-up" class="title-slide slide level1 center">
+<h1>Wrap-up</h1>
+<aside class="notes">
+<ul>
+<li>This is deliberately the permission-giving slide: adopting every idea from this lecture on every piece of code is neither realistic nor the point. Judgement about where on this scale a given piece of code sits is the actual skill, and it gets easier with practice, not by doing everything at once.</li>
+<li>Good live examples to offer if useful: a quick plot for your own eyes needs none of this; a script three people in the group now rely on needs a test; a result underpinning a paper’s headline claim needs both structure and real scrutiny, however few people will ever read the code itself.</li>
+<li>The company comparison is worth dwelling on: nobody at a well-run software company writes a full test suite for a five-minute throwaway script either. The skill everyone there has learned is exactly this triage, not blanket rigour.</li>
+<li>Ties back explicitly to “research software engineering, a process, not an end goal”: the process is exactly this incremental adoption, not a checklist completed once.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="not-covered" class="slide level2 smaller">
+<h2>Not covered</h2>
+<ul>
+<li><strong>Logging</strong>: beyond print statements to figure out what your code is doing</li>
+<li><strong>Debugging</strong>: beyond print statements (again) to find out why it is doing it</li>
+<li><strong>Linting and code style</strong>: enforcing best practices automatically (ruff, mypy etc.)</li>
+<li><strong>Packaging and publishing</strong>: beyond a single project, how to make your code installable and reusable</li>
+<li><strong>Continuous integration</strong>: beyond running tests locally, how to run them automatically on every change</li>
+<li><strong>Documentation</strong>: beyond docstrings, how to make your code understandable to others</li>
+</ul>
+</section>
+<section id="take-home-messages" class="slide level2">
+<h2>Take-home messages</h2>
+<ul>
+<li class="fragment">Nobody in this room needs to do all of this, every time, but knowing about the process and adopting it where necessary is important:
+<ul>
+<li class="fragment">structuring your code</li>
+<li class="fragment">testing</li>
+<li class="fragment">version control</li>
+<li class="fragment">collaboration</li>
+</ul></li>
+<li class="fragment">This is not an academic ideal. It is how almost every company, software or otherwise, actually operates.</li>
+<li class="fragment">AI doesn’t solve this – the coordination problem of software development still exists</li>
+</ul>
+</section>
+<section id="further-reading" class="slide level2">
+<h2>Further reading</h2>
+<ul>
+<li>Software Carpentry: <a href="https://software-carpentry.org/" class="uri">https://software-carpentry.org/</a></li>
+<li>Intermediate RSE with Python <a href="https://carpentries-incubator.github.io/python-intermediate-development" class="uri">https://carpentries-incubator.github.io/python-intermediate-development</a></li>
+<li>Git tutorial (by me) <a href="https://github.com/ml-evs/git-tutorial" class="uri">https://github.com/ml-evs/git-tutorial</a></li>
+<li>Accelerate course (Cambridge): <a href="https://science.ai.cam.ac.uk/resources/python-programming-for-science" class="uri">https://science.ai.cam.ac.uk/resources/python-programming-for-science</a></li>
+<li>Part II Computational Physics (Cambridge): <a href="https://computational-physics.tripos.org/" class="uri">https://computational-physics.tripos.org/</a></li>
+<li>CS50 Introduction to Computer Science and CS50P Python (Harvard): <a href="https://cs50.harvard.edu/python/" class="uri">https://cs50.harvard.edu/python/</a></li>
+</ul>
+</section></section>
+<section>
+<section id="ai-code-generation-and-agents-optional" class="title-slide slide level1 center">
+<h1>AI code generation and agents (optional)</h1>
+
+</section>
+<section id="chat-windows-versus-coding-agents" class="slide level2 smaller">
+<h2>Chat windows versus coding agents</h2>
+<p>Most people’s first experience of AI and code is a chat window: paste in a function, ask a question, copy the answer back into the editor by hand.</p>
+<ul>
+<li class="fragment">A chat tool like ChatGPT sees only what you paste in, and its answer only exists as text in a chat window. Every change still has to be copied back by hand</li>
+<li class="fragment">A <strong>coding agent</strong>, sometimes called a harness, instead runs alongside the actual project: it can read files, run tests, execute commands like <code>git</code> or <code>uv</code>, and edit files directly</li>
+<li class="fragment">That difference matters in practice: an agent that can run <code>pytest</code> itself, see a failure, and try again is doing something a copy-paste chat window structurally cannot</li>
+<li class="fragment">Claude Code, GitHub Copilot’s agent mode, Cursor, and OpenCode are all harnesses in this sense, not just chat windows</li>
+<li class="fragment">Lots of free options out there!</li>
+</ul>
+<aside class="notes">
+<ul>
+<li>This slide deck, refined live across two lecture-prep sessions, was itself built with exactly this kind of harness, reading and editing the <code>.qmd</code> files directly rather than being pasted in and out of a chat window.</li>
+<li>The general shape to narrate: describe an operation in plain English, watch the agent read the relevant files, propose or apply an edit, run a check, and report back, rather than receiving one single, unverified answer.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="vibe-coding-vs-pair-programming" class="slide level2 smaller">
+<h2>Vibe coding vs pair programming</h2>
+<ul>
+<li class="fragment">Agents will not do RSE for you (unless you tell them)</li>
+<li class="fragment">A coding agent is very good at producing code that matches whatever it is shown. It is not, by itself, good at deciding whether code should be well structured, tested, or version controlled.</li>
+<li class="fragment">An agent <strong>pitches its code to your level</strong>: if the surrounding codebase is one long hard-coded script, that is what it will tend to extend</li>
+<li class="fragment">Left unprompted, an agent will happily produce a working, untested, unstructured function, because “it ran successfully” is often enough to satisfy the request as asked</li>
+<li class="fragment">Everything from this lecture is still something you have to ask for, or set up once so it happens by default: clear responsibilities, a proper environment, tests, sensible commits</li>
+<li class="fragment">The tools change fast. The judgement about what good research software looks like does not, and that judgement is the actual subject of this course</li>
+</ul>
+<div class="fragment" style="font-size: 0.9em; font-style: italic;">
+<p>An AI coding tool is most helpful when you already know what you want to write, and can tell whether what it produces is actually correct (via tool calls to e.g., run tests).</p>
+</div>
+<aside class="notes">
+<ul>
+<li>A useful framing for the room: an agent is an extremely capable pair of hands, not a substitute for engineering judgement. It will write tests if asked, and can write thorough ones, but usually will not volunteer to unless the project already has a testing habit for it to follow.</li>
+<li>This is the closing thought of the whole two-lecture course: everything from bits and types through to functions, environments, and testing exists to build exactly those two skills, knowing what correct code should look like, and being able to check that it is.</li>
+<li>Concrete demo idea, if time allows: ask the agent to “add a function to do X” with no further guidance, then ask again for the same task but explicitly requesting a parametrised function with a test, and compare the two results side by side.</li>
+<li>This closes the lecture’s arc: structure, environments, testing, version control, and RSE as a discipline are precisely the checklist an agent will not reliably apply on its own.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="how-this-deck-actually-got-made" class="slide level2 smaller">
+<h2>How this deck actually got made</h2>
+<ul>
+<li class="fragment">Every slide here was built one at a time, across many sessions, in conversation with Claude Code, not generated from a single prompt</li>
+<li class="fragment">Real commands ran the whole way through: compiling C and Fortran, timing the Mandelbrot demos, checking image licences before downloading anything, and once, tracking down a genuine compiler bug in a Fortran <code>do concurrent</code> loop</li>
+<li class="fragment">Plenty of ideas were tried and then undone. A “try it yourself” box got added, then removed the same afternoon, because it did not feel right</li>
+<li class="fragment">One rule applied to every new slide in this lecture: no em dashes, anywhere. The next slide is what happens the moment that rule gets lifted, on purpose</li>
+</ul>
+<aside class="notes">
+<ul>
+<li>Good moment to be honest with the room about what this process actually was: not “AI wrote my lecture,” closer to pair programming, with Matt directing every decision and Claude Code doing the typing, the checking, and the occasional deep dive into a segfault.</li>
+<li>Worth naming explicitly: nothing in this deck went in unreviewed. Every fact was checked, most images were licence-checked, and several drafts were rejected outright, including, at one point, this very sentence.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+<p>Research Computing with Python</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="lecture-2_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="lecture-2_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="lecture-2_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="lecture-2_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="lecture-2_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="lecture-2_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="lecture-2_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="lecture-2_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="lecture-2_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="lecture-2_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1920,
+
+        height: 1080,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
