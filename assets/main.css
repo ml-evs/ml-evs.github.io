@@ -1,5 +1,5 @@
 @import url("https://use.fontawesome.com/releases/v6.7.2/css/all.css");
-@import url("https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css");
+@import url("https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1.9.6/css/academicons.min.css");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/Iosevka/6.0.1/iosevka/iosevka.min.css");
 @import url("https://datalab.industries/css/bg.css");
 
@@ -286,7 +286,7 @@ table td {
     }
 
     .site-nav .menu-icon>svg {
-        fill: #424242
+        fill: #f8f8f2
     }
 
     .site-nav input~.trigger {
